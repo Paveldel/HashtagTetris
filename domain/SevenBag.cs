@@ -27,7 +27,9 @@ public class SevenBag : IPieceQueue
 
     private void PutRandomPieceInQueue(List<Piece> bag)
     {
-        int randomIndex = _random.Next(0, PieceData.AmountOfPieces);
+        int randomIndex = _random.Next(0, bag.Count);
+        Console.WriteLine("Hello");
+        Console.WriteLine(randomIndex);
         _queue.Add(bag.ElementAt(randomIndex));
         bag.RemoveAt(randomIndex);
     }
