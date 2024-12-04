@@ -22,6 +22,10 @@ public partial class Tetris : ComponentBase
         {
             game.PlayerPiece.MoveRight();
         }
+        else if (e.Code == "Numpad5")
+        {
+            game.PlayerPiece.Hold();
+        }
         else if (e.Code == "Space")
         {
             game.PlayerPiece.HardDrop();

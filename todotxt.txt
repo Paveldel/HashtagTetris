@@ -1,4 +1,3 @@
-show next pieces
 implement hold
 show hold piece & disabled
 input in domain
