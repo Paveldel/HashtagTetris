@@ -9,30 +9,34 @@
     }
 }
 
-.I {
+.T0 {
+    background-color: black;
+}
+
+.T1 {
     background-color: aqua;
 }
 
-.T {
+.T2 {
     background-color: rebeccapurple;
 }
 
-.O {
+.T3 {
     background-color: yellow;
 }
 
-.L {
+.T4 {
     background-color: orange;
 }
 
-.J {
+.T5 {
     background-color: darkblue;
 }
 
-.S {
+.T6 {
     background-color: lawngreen; 
 }
 
-.Z {
+.T7 {
     background-color: red;
 }

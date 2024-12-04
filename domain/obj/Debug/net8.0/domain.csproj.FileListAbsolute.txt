@@ -1,0 +1,12 @@
+C:\Users\pavel\RiderProjects\HashtagTetris\domain\bin\Debug\net8.0\domain.deps.json
+C:\Users\pavel\RiderProjects\HashtagTetris\domain\bin\Debug\net8.0\domain.dll
+C:\Users\pavel\RiderProjects\HashtagTetris\domain\bin\Debug\net8.0\domain.pdb
+C:\Users\pavel\RiderProjects\HashtagTetris\domain\obj\Debug\net8.0\domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pavel\RiderProjects\HashtagTetris\domain\obj\Debug\net8.0\domain.AssemblyInfoInputs.cache
+C:\Users\pavel\RiderProjects\HashtagTetris\domain\obj\Debug\net8.0\domain.AssemblyInfo.cs
+C:\Users\pavel\RiderProjects\HashtagTetris\domain\obj\Debug\net8.0\domain.csproj.CoreCompileInputs.cache
+C:\Users\pavel\RiderProjects\HashtagTetris\domain\obj\Debug\net8.0\domain.sourcelink.json
+C:\Users\pavel\RiderProjects\HashtagTetris\domain\obj\Debug\net8.0\domain.dll
+C:\Users\pavel\RiderProjects\HashtagTetris\domain\obj\Debug\net8.0\refint\domain.dll
+C:\Users\pavel\RiderProjects\HashtagTetris\domain\obj\Debug\net8.0\domain.pdb
+C:\Users\pavel\RiderProjects\HashtagTetris\domain\obj\Debug\net8.0\ref\domain.dll
