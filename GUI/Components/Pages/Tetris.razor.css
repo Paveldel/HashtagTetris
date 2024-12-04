@@ -22,7 +22,7 @@
     }
 }
 
-.next {
+.next .hold {
     background-color: #3c3c3c;
 }
 
@@ -92,38 +92,66 @@
         background-image: url("./media/tetris99/blocks/ShadowZ.png");
     }
     
-    .preview {
+    .preview, .hold {
         background-size: cover;
         margin: 0 auto 1rem;
         width: 8rem;
         height: 4rem;
     }
     
-    .P1 {
+    .P1, .H1 {
         background-image: url("./media/tetris99/previews/IPiece.png");
     }
 
-    .P2 {
+    .P2, .H2 {
         background-image: url("./media/tetris99/previews/TPiece.png");
     }
 
-    .P3 {
+    .P3, .H3 {
         background-image: url("./media/tetris99/previews/OPiece.png");
     }
 
-    .P4 {
+    .P4, .H4 {
         background-image: url("./media/tetris99/previews/LPiece.png");
     }
 
-    .P5 {
+    .P5, .H5 {
         background-image: url("./media/tetris99/previews/JPiece.png");
     }
 
-    .P6 {
+    .P6, .H6 {
         background-image: url("./media/tetris99/previews/SPiece.png");
     }
 
-    .P7 {
+    .P7, .H7 {
         background-image: url("./media/tetris99/previews/ZPiece.png");
+    }
+
+    .H-1 {
+        background-image: url("./media/tetris99/previews/IPieceDisabled.png");
+    }
+
+    .H-2 {
+        background-image: url("./media/tetris99/previews/TPieceDisabled.png");
+    }
+
+    .H-3 {
+        background-image: url("./media/tetris99/previews/OPieceDisabled.png");
+    }
+
+    .H-4 {
+        background-image: url("./media/tetris99/previews/LPieceDisabled.png");
+    }
+
+    .H-5 {
+        background-image: url("./media/tetris99/previews/JPieceDisabled.png");
+    }
+
+    .H-6 {
+        background-image: url("./media/tetris99/previews/SPieceDisabled.png");
+    }
+
+    .H-7 {
+        background-image: url("./media/tetris99/previews/ZPieceDisabled.png");
     }
 }

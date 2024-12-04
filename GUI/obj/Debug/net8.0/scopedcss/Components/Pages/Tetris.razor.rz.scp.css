@@ -92,38 +92,66 @@
         background-image: url("./media/tetris99/blocks/ShadowZ.png");
     }
     
-    .preview[b-4r9tb82az7] {
+    .preview[b-4r9tb82az7], .hold[b-4r9tb82az7] {
         background-size: cover;
         margin: 0 auto 1rem;
         width: 8rem;
         height: 4rem;
     }
     
-    .P1[b-4r9tb82az7] {
+    .P1[b-4r9tb82az7], .H1[b-4r9tb82az7] {
         background-image: url("./media/tetris99/previews/IPiece.png");
     }
 
-    .P2[b-4r9tb82az7] {
+    .P2[b-4r9tb82az7], .H2[b-4r9tb82az7] {
         background-image: url("./media/tetris99/previews/TPiece.png");
     }
 
-    .P3[b-4r9tb82az7] {
+    .P3[b-4r9tb82az7], .H3[b-4r9tb82az7] {
         background-image: url("./media/tetris99/previews/OPiece.png");
     }
 
-    .P4[b-4r9tb82az7] {
+    .P4[b-4r9tb82az7], .H4[b-4r9tb82az7] {
         background-image: url("./media/tetris99/previews/LPiece.png");
     }
 
-    .P5[b-4r9tb82az7] {
+    .P5[b-4r9tb82az7], .H5[b-4r9tb82az7] {
         background-image: url("./media/tetris99/previews/JPiece.png");
     }
 
-    .P6[b-4r9tb82az7] {
+    .P6[b-4r9tb82az7], .H6[b-4r9tb82az7] {
         background-image: url("./media/tetris99/previews/SPiece.png");
     }
 
-    .P7[b-4r9tb82az7] {
+    .P7[b-4r9tb82az7], .H7[b-4r9tb82az7] {
         background-image: url("./media/tetris99/previews/ZPiece.png");
+    }
+
+    .H-1[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/previews/IPieceDisabled.png");
+    }
+
+    .H-2[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/previews/TPieceDisabled.png");
+    }
+
+    .H-3[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/previews/OPieceDisabled.png");
+    }
+
+    .H-4[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/previews/LPieceDisabled.png");
+    }
+
+    .H-5[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/previews/JPieceDisabled.png");
+    }
+
+    .H-6[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/previews/SPieceDisabled.png");
+    }
+
+    .H-7[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/previews/ZPieceDisabled.png");
     }
 }
