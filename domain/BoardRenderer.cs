@@ -2,10 +2,13 @@
 
 public class BoardRenderer
 {
+    public const int AmountOfPreviews = 5;
+    
     private readonly Board _board;
     private readonly ActivePiece _piece;
 
     public int[][] Matrix { get; set; }
+    public int[] Previews { get; set; }
     public BoardRenderer(Board board, ActivePiece piece)
     {
         _board = board;
@@ -62,5 +65,16 @@ public class BoardRenderer
     public void UpdateBoardToRender()
     {
         Matrix = BoardToRender();
+        GetPreviews();
+    }
+
+    private void GetPreviews()
+    {
+        Previews = new int[AmountOfPreviews];
+        Piece[] previewPieces = _piece.GetNextPieces(AmountOfPreviews);
+        for (int i = 0; i < AmountOfPreviews; i++)
+        {
+            Previews[i] = previewPieces[i].GetPieceIndex();
+        }
     }
 }
