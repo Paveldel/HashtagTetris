@@ -71,7 +71,7 @@ public class Board
     {
         for (int i = 0; i < _width; i++)
         {
-            if (_matrix[i][row] != 0) return false;
+            if (_matrix[i][row] == 0) return false;
         }
         return true;
     }
