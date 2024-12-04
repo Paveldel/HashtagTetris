@@ -18,13 +18,15 @@ public class Block
         return new Block(X, Y, _centered);
     }
 
-    public void Rotate(bool rotateAroundBlock, Rotation rotation)
+    public Block Rotate(bool rotateAroundBlock, Rotation rotation)
     {
+        Block result = Clone();
         int amountOfRotations = GetAmountOfRotations(rotation);
         for (int i = 0; i < amountOfRotations; i++)
         {
-            RotateClockWise();
+            result.RotateClockWise();
         }
+        return result;
     }
 
     private int GetAmountOfRotations(Rotation rotation)
