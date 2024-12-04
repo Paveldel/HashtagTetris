@@ -80,4 +80,14 @@ public class Board
             _matrix[i][row] = _matrix[i][row + 1];
         }
     }
+
+    public int getXCenter()
+    {
+        return (_width / 2) - 1;
+    }
+
+    public int getTop()
+    {
+        return _height - 1;
+    }
 }
