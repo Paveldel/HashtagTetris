@@ -5,13 +5,16 @@ public class Piece
     public int X { get; set; }
     public int Y { get; set; }
 
+    private readonly int _typeIndex;
+    
     private Block[] _blocks;
 
-    public Piece(Block[] blocks, int x, int y)
+    public Piece(Block[] blocks, int x, int y, int typeIndex)
     {
         _blocks = blocks;
-        this.X = x;
-        this.Y = y;
+        X = x;
+        Y = y;
+        _typeIndex = typeIndex;
     }
 
     public Piece Clone()
