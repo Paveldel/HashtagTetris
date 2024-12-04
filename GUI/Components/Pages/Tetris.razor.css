@@ -22,7 +22,7 @@
     }
 }
 
-.next .hold {
+.next, .hold {
     background-color: #3c3c3c;
 }
 
