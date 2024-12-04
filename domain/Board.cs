@@ -37,4 +37,47 @@ public class Board
         if (x > _width) return true;
         return _matrix[x][y] != 0;
     }
+
+    public void Lock(Piece piece)
+    {
+        Block[] blocks = piece.GetBlocks();
+        for (int i = 0; i < blocks.Length; i++)
+        {
+            _matrix[blocks[i].X + piece.X][blocks[i].Y + piece.Y] = piece.GetPieceIndex();
+        }
+        ClearLines();
+    }
+
+    private void ClearLines()
+    {
+        for (int i = _height; i >= 0; i--)
+        {
+            if (IsLineFilled(i)) ClearLine(i);
+        }
+    }
+
+    private bool IsLineFilled(int row)
+    {
+        for (int i = 0; i < _width; i++)
+        {
+            if (_matrix[i][row] != 0) return false;
+        }
+        return true;
+    }
+    
+    private void ClearLine(int rowToRemove)
+    {
+        for (int i = rowToRemove; i < _height - 2; i++)
+        {
+            MoveLineDown(i);
+        }
+    }
+
+    private void MoveLineDown(int row)
+    {
+        for (int i = 0; i < _width; i++)
+        {
+            _matrix[i][row] = _matrix[i][row + 1];
+        }
+    }
 }
