@@ -28,3 +28,7 @@ C:\Users\pavel\RiderProjects\HashtagTetris\GUI\obj\Debug\net8.0\GUI.pdb
 C:\Users\pavel\RiderProjects\HashtagTetris\GUI\obj\Debug\net8.0\GUI.genruntimeconfig.cache
 C:\Users\pavel\RiderProjects\HashtagTetris\GUI\obj\Debug\net8.0\ref\GUI.dll
 C:\Users\pavel\RiderProjects\HashtagTetris\GUI\obj\Debug\net8.0\scopedcss\Components\Pages\Tetris.razor.rz.scp.css
+C:\Users\pavel\RiderProjects\HashtagTetris\GUI\bin\Debug\net8.0\domain.dll
+C:\Users\pavel\RiderProjects\HashtagTetris\GUI\bin\Debug\net8.0\domain.pdb
+C:\Users\pavel\RiderProjects\HashtagTetris\GUI\obj\Debug\net8.0\GUI.csproj.AssemblyReference.cache
+C:\Users\pavel\RiderProjects\HashtagTetris\GUI\obj\Debug\net8.0\GUI.csproj.Up2Date

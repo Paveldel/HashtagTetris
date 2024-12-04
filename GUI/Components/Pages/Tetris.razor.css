@@ -1,3 +1,38 @@
 ﻿#matrix {
+    display: grid;
+    width: 20rem;
+    grid-template-columns: repeat(10, 1fr);
     
+    div {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+.I {
+    background-color: aqua;
+}
+
+.T {
+    background-color: rebeccapurple;
+}
+
+.O {
+    background-color: yellow;
+}
+
+.L {
+    background-color: orange;
+}
+
+.J {
+    background-color: darkblue;
+}
+
+.S {
+    background-color: lawngreen; 
+}
+
+.Z {
+    background-color: red;
 }
