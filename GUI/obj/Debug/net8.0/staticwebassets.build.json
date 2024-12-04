@@ -1,0 +1,77 @@
+{
+  "Version": 1,
+  "Hash": "1oEn+LZoor1IY1KdqfGgZaFD232AUq+utHSDxOWEFnQ=",
+  "Source": "GUI",
+  "BasePath": "_content/GUI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "GUI\\wwwroot",
+      "Source": "GUI",
+      "ContentRoot": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\",
+      "BasePath": "_content/GUI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GUI.styles.css",
+      "SourceId": "GUI",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/GUI",
+      "RelativePath": "GUI.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GUI.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GUI.bundle.scp.css",
+      "SourceId": "GUI",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/GUI",
+      "RelativePath": "GUI.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GUI.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\app.css",
+      "SourceId": "GUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\",
+      "BasePath": "_content/GUI",
+      "RelativePath": "app.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\app.css"
+    }
+  ]
+}
