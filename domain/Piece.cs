@@ -5,11 +5,11 @@ public class Piece
     public int X { get; set; }
     public int Y { get; set; }
 
-    private readonly int _typeIndex;
+    private readonly PieceType _typeIndex;
     
     private Block[] _blocks;
 
-    public Piece(Block[] blocks, int x, int y, int typeIndex)
+    public Piece(Block[] blocks, int x, int y, PieceType typeIndex)
     {
         _blocks = blocks;
         X = x;
@@ -25,7 +25,7 @@ public class Piece
             copyBlocks[i] = _blocks[i].Clone();
         }
 
-        return new Piece(copyBlocks, X, Y);
+        return new Piece(copyBlocks, X, Y, _typeIndex);
     }
 
     public Piece Rotate(Rotation rotation)
