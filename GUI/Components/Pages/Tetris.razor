@@ -1,6 +1,6 @@
 ﻿@page "/Tetris"
 @rendermode InteractiveServer
-<div id="matrix">
+<div id="matrix" tabindex="0" @onkeydown="KeywordEnterPressed">
     @foreach (int[] col in game.Renderer.Matrix)
     {
         @foreach (int block in col)
