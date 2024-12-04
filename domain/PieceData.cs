@@ -2,6 +2,8 @@
 
 public class PieceData
 {
+    public static readonly int AmountOfPieces = 7;
+    
     public static readonly Piece[] Pieces = [
         null!,
         new Piece([new Block(0, 0, true), new Block(1, 0, true), new Block(-1, 0, true), new Block(-2, 0, true)], 0, 0, PieceType.I),
