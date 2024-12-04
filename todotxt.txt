@@ -1,0 +1,14 @@
+shadow piece
+show next pieces
+implement hold
+show hold piece & disabled
+input in domain
+better inputs
+game loop
+gravity
+dynamic board size
+kick rotations
+spin detection
+take damage
+calculate send damage
+create some gameMode logic
