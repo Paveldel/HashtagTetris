@@ -66,7 +66,7 @@ public class Piece
     public Piece MoveDown()
     {
         Piece movedPiece = Clone();
-        movedPiece.Y++;
+        movedPiece.Y--;
         return movedPiece;
     }
 }
