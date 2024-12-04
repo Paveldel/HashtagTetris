@@ -23,4 +23,9 @@ public class Hold
     {
         return _heldPieceIndex;
     }
+
+    public void EnableHold()
+    {
+        _holdEnabled = true;
+    }
 }
