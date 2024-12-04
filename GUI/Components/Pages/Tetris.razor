@@ -1,6 +1,7 @@
 ﻿@page "/"
 @rendermode InteractiveServer
-<div id="game-view" class="tetris99" tabindex="0" @onkeydown="KeywordEnterPressed">
+<script src=""></script>
+<div id="game-view" class="tetris99" tabindex="0" @onkeydown="ButtonPressed" @onkeyup="ButtonReleased">
     <div class="hold-container">
         <div class="hold H@(game.Renderer.Held)"></div>
     </div>
