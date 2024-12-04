@@ -43,7 +43,7 @@ public class Piece
         Piece rotatedPiece = Clone();
         for (int i = 0; i < _blocks.Length; i++)
         {
-            rotatedPiece._blocks[i].Rotate(rotation);
+            rotatedPiece._blocks[i] = rotatedPiece._blocks[i].Rotate(rotation);
         }
 
         return rotatedPiece;
