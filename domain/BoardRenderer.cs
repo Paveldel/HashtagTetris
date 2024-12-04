@@ -9,6 +9,7 @@ public class BoardRenderer
 
     public int[][] Matrix { get; set; }
     public int[] Previews { get; set; }
+    public int Held { get; set; }
     public BoardRenderer(Board board, ActivePiece piece)
     {
         _board = board;
@@ -66,6 +67,13 @@ public class BoardRenderer
     {
         Matrix = BoardToRender();
         GetPreviews();
+        UpdateHeld();
+    }
+
+    private void UpdateHeld()
+    {
+        Held = _piece.GetHeldType();
+        if (!_piece.isHoldEnabled()) Held = -Held;
     }
 
     private void GetPreviews()
