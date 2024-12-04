@@ -45,7 +45,7 @@ public class ActivePiece
 
     private bool ReplaceIfValid(Piece movedPiece)
     {
-        if (_board.IntersectPiece(movedPiece))
+        if (!_board.IntersectPiece(movedPiece))
         {
             _currentPiece = movedPiece;
             return true;
@@ -63,7 +63,7 @@ public class ActivePiece
     public Piece DeepDrop()
     {
         Piece nextStep = _currentPiece.Clone();
-        while (_board.IntersectPiece(nextStep.MoveDown()))
+        while (!_board.IntersectPiece(nextStep.MoveDown()))
         {
             nextStep = nextStep.MoveDown();
         }
