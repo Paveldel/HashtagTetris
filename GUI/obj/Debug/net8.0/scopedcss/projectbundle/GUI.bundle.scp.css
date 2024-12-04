@@ -19,9 +19,11 @@
     }
 /* _content/GUI/Components/Pages/Tetris.razor.rz.scp.css */
 #matrix[b-4r9tb82az7] {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
     width: 20rem;
-    grid-template-columns: repeat(10, 1fr);
+    height: 80rem;
     
     div {
         width: 2rem;
