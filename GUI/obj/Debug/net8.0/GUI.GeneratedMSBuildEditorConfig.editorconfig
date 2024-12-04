@@ -42,6 +42,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-3a79g0zhcb
 
-[C:/Users/pavel/RiderProjects/HashtagTetris/GUI/Components/Pages/Tetris.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUZXRyaXMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
+[C:/Users/pavel/RiderProjects/HashtagTetris/GUI/Components/Pages/Tetris.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUZXRyaXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-4r9tb82az7
