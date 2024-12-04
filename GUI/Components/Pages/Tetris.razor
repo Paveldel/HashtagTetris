@@ -3,9 +3,11 @@
 <div id="matrix" tabindex="0" @onkeydown="KeywordEnterPressed">
     @foreach (int[] col in game.Renderer.Matrix)
     {
-        @foreach (int block in col)
+        <div class="col">
+        @foreach (int block in col.Reverse())
         {
             <div class="T@(block)"></div>
         }
+        </div>
     }
 </div>

@@ -5,7 +5,6 @@ input in domain
 better inputs
 game loop
 gravity
-dynamic board size
 kick rotations
 spin detection
 take damage
