@@ -13,6 +13,11 @@ public class ActivePiece
         NextPiece();
     }
 
+    public Piece GetPiece()
+    {
+        return _currentPiece;
+    }
+
     private void NextPiece()
     {
         _currentPiece = _queue.GetNextPiece();
