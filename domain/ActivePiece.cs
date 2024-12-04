@@ -31,6 +31,16 @@ public class ActivePiece
         _currentPiece.Y = _board.getTop();
     }
 
+    public int GetHeldType()
+    {
+        return _hold.GetHeldPieceType();
+    }
+
+    public bool isHoldEnabled()
+    {
+        return _hold.IsEnabled();
+    }
+
     public bool MoveDown()
     {
         Piece movedPiece = _currentPiece.MoveDown();
