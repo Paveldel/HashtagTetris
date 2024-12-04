@@ -16,13 +16,29 @@ public class BoardRenderer
     public int[][] BoardToRender()
     {
         int[][] result = _board.GetMatrixCopy();
+        ShowShadowPiece(result);
+        ShowPiece(result);
+        return result;
+    }
+
+    private void ShowPiece(int[][] result)
+    {
         Piece piece = _piece.GetPiece();
         Block[] blocks = piece.GetBlocks();
         for (int i = 0; i < blocks.Length; i++)
         {
             result[blocks[i].X + piece.X][blocks[i].Y + piece.Y] = piece.GetPieceIndex();
         }
-        return result;
+    }
+    
+    private void ShowShadowPiece(int[][] result)
+    {
+        Piece piece = _piece.DeepDrop();
+        Block[] blocks = piece.GetBlocks();
+        for (int i = 0; i < blocks.Length; i++)
+        {
+            result[blocks[i].X + piece.X][blocks[i].Y + piece.Y] = -piece.GetPieceIndex();
+        }
     }
 
     public void UpdateBoardToRender()
