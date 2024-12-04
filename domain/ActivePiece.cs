@@ -17,6 +17,11 @@ public class ActivePiece
     {
         return _currentPiece;
     }
+    
+    public Piece[] GetNextPieces(int amountOfNextPieces)
+    {
+        return _queue.GetPiecePreviews(amountOfNextPieces);
+    }
 
     private void NextPiece()
     {
