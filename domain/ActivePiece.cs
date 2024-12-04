@@ -22,7 +22,7 @@ public class ActivePiece
     {
         _currentPiece = _queue.GetNextPiece();
         _currentPiece.X = _board.getXCenter();
-        _currentPiece.X = _board.getTop();
+        _currentPiece.Y = _board.getTop();
     }
 
     public bool MoveDown()
