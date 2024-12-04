@@ -45,7 +45,7 @@ public class Board
     public bool IntersectBlock(int x, int y)
     {
         if (x < 0 || y < 0) return true;
-        if (x > _width) return true;
+        if (x >= _width) return true;
         return _matrix[x][y] != 0;
     }
 
