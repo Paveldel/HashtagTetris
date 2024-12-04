@@ -22,6 +22,11 @@ public class Piece
         return _blocks;
     }
 
+    public int GetPieceIndex()
+    {
+        return (int)_typeIndex;
+    }
+
     public Piece Clone()
     {
         Block[] copyBlocks = new Block[_blocks.Length];
