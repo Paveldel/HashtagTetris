@@ -13,5 +13,10 @@
             </div>
         }
     </div>
-    <div class="next"></div>
+    <div class="next">
+        @foreach (int preview in game.Renderer.Previews)
+        {
+            <div class="preview P@(preview)"></div>
+        }
+    </div>
 </div>

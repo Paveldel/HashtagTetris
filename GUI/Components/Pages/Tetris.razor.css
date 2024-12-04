@@ -1,6 +1,6 @@
 ﻿#game-view {
     display: grid;
-    grid-template-columns: 5vw min-content 5vw;
+    grid-template-columns: 10rem min-content 10rem;
     margin: auto;
     width: min-content;
 }
@@ -20,6 +20,10 @@
             padding-bottom: 100%;
         }
     }
+}
+
+.next {
+    background-color: #3c3c3c;
 }
 
 .tetris99 {
@@ -86,5 +90,40 @@
 
     .T-7 {
         background-image: url("./media/tetris99/blocks/ShadowZ.png");
+    }
+    
+    .preview {
+        background-size: cover;
+        margin: 0 auto 1rem;
+        width: 8rem;
+        height: 4rem;
+    }
+    
+    .P1 {
+        background-image: url("./media/tetris99/previews/IPiece.png");
+    }
+
+    .P2 {
+        background-image: url("./media/tetris99/previews/TPiece.png");
+    }
+
+    .P3 {
+        background-image: url("./media/tetris99/previews/OPiece.png");
+    }
+
+    .P4 {
+        background-image: url("./media/tetris99/previews/LPiece.png");
+    }
+
+    .P5 {
+        background-image: url("./media/tetris99/previews/JPiece.png");
+    }
+
+    .P6 {
+        background-image: url("./media/tetris99/previews/SPiece.png");
+    }
+
+    .P7 {
+        background-image: url("./media/tetris99/previews/ZPiece.png");
     }
 }
