@@ -18,7 +18,15 @@
         top: 0.5rem;
     }
 /* _content/GUI/Components/Pages/Tetris.razor.rz.scp.css */
-#matrix[b-4r9tb82az7] {
+#game-view[b-4r9tb82az7] {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 5vw min-content 5vw;
+    margin: auto;
+    width: min-content;
+}
+
+.matrix[b-4r9tb82az7] {
     height: 80vh;
     width: 40vh;
     display: flex;
@@ -34,62 +42,69 @@
     }
 }
 
-.T0[b-4r9tb82az7] {
-    background-color: black;
-}
+.tetris99[b-4r9tb82az7] {
 
-.T1[b-4r9tb82az7] {
-    background-color: aqua;
-}
+    .block {
+        background-size: cover;
+    }
+    
+    .T0[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/Grid.png");
+    }
 
-.T2[b-4r9tb82az7] {
-    background-color: rebeccapurple;
-}
+    .T1[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/I.png");
+    }
 
-.T3[b-4r9tb82az7] {
-    background-color: yellow;
-}
+    .T2[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/T.png");
+    }
 
-.T4[b-4r9tb82az7] {
-    background-color: orange;
-}
+    .T3[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/O.png");
+    }
 
-.T5[b-4r9tb82az7] {
-    background-color: darkblue;
-}
+    .T4[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/L.png");
+    }
 
-.T6[b-4r9tb82az7] {
-    background-color: lawngreen; 
-}
+    .T5[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/J.png");
+    }
 
-.T7[b-4r9tb82az7] {
-    background-color: red;
-}
+    .T6[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/S.png");
+    }
 
-.T-1[b-4r9tb82az7] {
-    background-color: #006161;
-}
+    .T7[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/Z.png");
+    }
 
-.T-2[b-4r9tb82az7] {
-    background-color: #301747;
-}
+    .T-1[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/ShadowI.png");
+    }
 
-.T-3[b-4r9tb82az7] {
-    background-color: #777700;
-}
+    .T-2[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/ShadowT.png");
+    }
 
-.T-4[b-4r9tb82az7] {
-    background-color: #613e00;
-}
+    .T-3[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/ShadowO.png");
+    }
 
-.T-5[b-4r9tb82az7] {
-    background-color: #000039;
-}
+    .T-4[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/ShadowL.png");
+    }
 
-.T-6[b-4r9tb82az7] {
-    background-color: #265300;
-}
+    .T-5[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/ShadowJ.png");
+    }
 
-.T-7[b-4r9tb82az7] {
-    background-color: #630000;
+    .T-6[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/ShadowS.png");
+    }
+
+    .T-7[b-4r9tb82az7] {
+        background-image: url("./media/tetris99/blocks/ShadowZ.png");
+    }
 }

@@ -10,4 +10,67 @@
       <ProjectReference Include="..\domain\domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Include="wwwroot\media\jstris\blocks\Garbage.png" />
+      <None Include="wwwroot\media\jstris\blocks\Grid.png" />
+      <None Include="wwwroot\media\jstris\blocks\I.png" />
+      <None Include="wwwroot\media\jstris\blocks\J.png" />
+      <None Include="wwwroot\media\jstris\blocks\L.png" />
+      <None Include="wwwroot\media\jstris\blocks\O.png" />
+      <None Include="wwwroot\media\jstris\blocks\S.png" />
+      <None Include="wwwroot\media\jstris\blocks\ShadowI.png" />
+      <None Include="wwwroot\media\jstris\blocks\ShadowJ.png" />
+      <None Include="wwwroot\media\jstris\blocks\ShadowL.png" />
+      <None Include="wwwroot\media\jstris\blocks\ShadowO.png" />
+      <None Include="wwwroot\media\jstris\blocks\ShadowS.png" />
+      <None Include="wwwroot\media\jstris\blocks\ShadowT.png" />
+      <None Include="wwwroot\media\jstris\blocks\ShadowZ.png" />
+      <None Include="wwwroot\media\jstris\blocks\T.png" />
+      <None Include="wwwroot\media\jstris\blocks\Z.png" />
+      <None Include="wwwroot\media\jstris\previews\IPiece.png" />
+      <None Include="wwwroot\media\jstris\previews\IPieceDisabled.png" />
+      <None Include="wwwroot\media\jstris\previews\JPiece.png" />
+      <None Include="wwwroot\media\jstris\previews\JPieceDisabled.png" />
+      <None Include="wwwroot\media\jstris\previews\LPiece.png" />
+      <None Include="wwwroot\media\jstris\previews\LPieceDisabled.png" />
+      <None Include="wwwroot\media\jstris\previews\OPiece.png" />
+      <None Include="wwwroot\media\jstris\previews\OPieceDisabled.png" />
+      <None Include="wwwroot\media\jstris\previews\SPiece.png" />
+      <None Include="wwwroot\media\jstris\previews\SPieceDisabled.png" />
+      <None Include="wwwroot\media\jstris\previews\TPiece.png" />
+      <None Include="wwwroot\media\jstris\previews\TPieceDisabled.png" />
+      <None Include="wwwroot\media\jstris\previews\ZPiece.png" />
+      <None Include="wwwroot\media\jstris\previews\ZPieceDisabled.png" />
+      <None Include="wwwroot\media\tetris99\blocks\Garbage.png" />
+      <None Include="wwwroot\media\tetris99\blocks\Grid.png" />
+      <None Include="wwwroot\media\tetris99\blocks\I.png" />
+      <None Include="wwwroot\media\tetris99\blocks\J.png" />
+      <None Include="wwwroot\media\tetris99\blocks\L.png" />
+      <None Include="wwwroot\media\tetris99\blocks\O.png" />
+      <None Include="wwwroot\media\tetris99\blocks\S.png" />
+      <None Include="wwwroot\media\tetris99\blocks\ShadowI.png" />
+      <None Include="wwwroot\media\tetris99\blocks\ShadowJ.png" />
+      <None Include="wwwroot\media\tetris99\blocks\ShadowL.png" />
+      <None Include="wwwroot\media\tetris99\blocks\ShadowO.png" />
+      <None Include="wwwroot\media\tetris99\blocks\ShadowS.png" />
+      <None Include="wwwroot\media\tetris99\blocks\ShadowT.png" />
+      <None Include="wwwroot\media\tetris99\blocks\ShadowZ.png" />
+      <None Include="wwwroot\media\tetris99\blocks\T.png" />
+      <None Include="wwwroot\media\tetris99\blocks\Z.png" />
+      <None Include="wwwroot\media\tetris99\previews\IPiece.png" />
+      <None Include="wwwroot\media\tetris99\previews\IPieceDisabled.png" />
+      <None Include="wwwroot\media\tetris99\previews\JPiece.png" />
+      <None Include="wwwroot\media\tetris99\previews\JPieceDisabled.png" />
+      <None Include="wwwroot\media\tetris99\previews\LPiece.png" />
+      <None Include="wwwroot\media\tetris99\previews\LPieceDisabled.png" />
+      <None Include="wwwroot\media\tetris99\previews\OPiece.png" />
+      <None Include="wwwroot\media\tetris99\previews\OPieceDisabled.png" />
+      <None Include="wwwroot\media\tetris99\previews\SPiece.png" />
+      <None Include="wwwroot\media\tetris99\previews\SPieceDisabled.png" />
+      <None Include="wwwroot\media\tetris99\previews\TPiece.png" />
+      <None Include="wwwroot\media\tetris99\previews\TPieceDisabled.png" />
+      <None Include="wwwroot\media\tetris99\previews\ZPiece.png" />
+      <None Include="wwwroot\media\tetris99\previews\ZPieceDisabled.png" />
+    </ItemGroup>
+
 </Project>

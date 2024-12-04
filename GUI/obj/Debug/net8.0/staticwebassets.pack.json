@@ -9,6 +9,246 @@
       "PackagePath": "staticwebassets\\app.css"
     },
     {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\Garbage.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\Garbage.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\Grid.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\Grid.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\I.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\I.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\J.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\J.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\L.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\L.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\O.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\O.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\S.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\S.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\ShadowI.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\ShadowI.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\ShadowJ.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\ShadowJ.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\ShadowL.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\ShadowL.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\ShadowO.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\ShadowO.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\ShadowS.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\ShadowS.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\ShadowT.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\ShadowT.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\ShadowZ.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\ShadowZ.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\T.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\T.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\blocks\\Z.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\blocks\\Z.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\IPiece.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\IPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\IPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\IPieceDisabled.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\JPiece.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\JPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\JPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\JPieceDisabled.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\LPiece.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\LPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\LPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\LPieceDisabled.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\OPiece.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\OPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\OPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\OPieceDisabled.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\SPiece.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\SPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\SPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\SPieceDisabled.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\TPiece.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\TPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\TPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\TPieceDisabled.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\ZPiece.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\ZPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\jstris\\previews\\ZPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\jstris\\previews\\ZPieceDisabled.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\Garbage.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\Garbage.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\Grid.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\Grid.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\I.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\I.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\J.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\J.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\L.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\L.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\O.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\O.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\S.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\S.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\ShadowI.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\ShadowI.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\ShadowJ.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\ShadowJ.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\ShadowL.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\ShadowL.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\ShadowO.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\ShadowO.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\ShadowS.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\ShadowS.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\ShadowT.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\ShadowT.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\ShadowZ.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\ShadowZ.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\T.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\T.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\blocks\\Z.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\blocks\\Z.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\IPiece.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\IPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\IPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\IPieceDisabled.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\JPiece.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\JPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\JPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\JPieceDisabled.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\LPiece.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\LPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\LPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\LPieceDisabled.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\OPiece.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\OPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\OPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\OPieceDisabled.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\SPiece.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\SPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\SPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\SPieceDisabled.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\TPiece.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\TPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\TPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\TPieceDisabled.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\ZPiece.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\ZPiece.png"
+    },
+    {
+      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\wwwroot\\media\\tetris99\\previews\\ZPieceDisabled.png",
+      "PackagePath": "staticwebassets\\media\\tetris99\\previews\\ZPieceDisabled.png"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.GUI.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
