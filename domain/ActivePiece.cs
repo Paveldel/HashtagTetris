@@ -79,6 +79,7 @@ public class ActivePiece
     private void LockPiece()
     {
         _board.Lock(_currentPiece);
+        _queue.AddPiece();
         NextPiece();
     }
 }
