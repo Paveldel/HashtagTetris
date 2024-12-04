@@ -10,5 +10,12 @@ public enum PieceType
     J = 5,
     S = 6,
     Z = 7,
+    ShadowI = -1,
+    ShadowT = -2,
+    ShadowO = -3,
+    ShadowL = -4,
+    ShadowJ = -5,
+    ShadowS = -6,
+    ShadowZ = -7,
     Garbage = 8
 }
