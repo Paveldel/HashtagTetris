@@ -15,7 +15,7 @@ public class BoardRenderer
 
     public int[][] BoardToRender()
     {
-        int[][] result = _board.GetMatrixCopy();
+        int[][] result = GetMatrixCopy(_board.GetBoard());
         ShowShadowPiece(result);
         ShowPiece(result);
         return result;
@@ -27,7 +27,7 @@ public class BoardRenderer
         Block[] blocks = piece.GetBlocks();
         for (int i = 0; i < blocks.Length; i++)
         {
-            result[blocks[i].X + piece.X][blocks[i].Y + piece.Y] = piece.GetPieceIndex();
+            SetSquareOnMatrix(result, blocks[i].X + piece.X, blocks[i].Y + piece.Y, piece.GetPieceIndex());
         }
     }
     
@@ -37,10 +37,28 @@ public class BoardRenderer
         Block[] blocks = piece.GetBlocks();
         for (int i = 0; i < blocks.Length; i++)
         {
-            result[blocks[i].X + piece.X][blocks[i].Y + piece.Y] = -piece.GetPieceIndex();
+            SetSquareOnMatrix(result, blocks[i].X + piece.X, blocks[i].Y + piece.Y, (-piece.GetPieceIndex()));
         }
     }
 
+    private void SetSquareOnMatrix(int[][] matrix, int x, int y, int pieceIndex)
+    {
+        if (x < 0 || x >= matrix.Length) return;
+        if (y < 0 || y >= matrix[x].Length) return;
+        matrix[x][y] = pieceIndex;
+    }
+
+    public int[][] GetMatrixCopy(int[][] matrix)
+    {
+        int[][] copy = new int[matrix.Length][];
+        for (int i = 0; i < matrix.Length; i++)
+        {
+            copy[i] = new int[matrix[i].Length / 2];
+            Array.Copy(matrix[i], copy[i], matrix[i].Length / 2);
+        }
+        return copy;
+    }
+    
     public void UpdateBoardToRender()
     {
         Matrix = BoardToRender();

@@ -12,15 +12,9 @@ public class Board
         InitBoard();
     }
 
-    public int[][] GetMatrixCopy()
+    public int[][] GetBoard()
     {
-        int[][] copy = new int[_width][];
-        for (int i = 0; i < _width; i++)
-        {
-            copy[i] = new int[_height * 2];
-            Array.Copy(_matrix[i], copy[i], _height * 2);
-        }
-        return copy;
+        return _matrix;
     }
 
     private void InitBoard()
