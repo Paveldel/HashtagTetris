@@ -54,7 +54,7 @@ public class ActivePiece
         return false;
     }
 
-    private bool Rotate(Rotation rotation)
+    public bool Rotate(Rotation rotation)
     {
         Piece rotatedPiece = _currentPiece.Rotate(rotation);
         return ReplaceIfValid(rotatedPiece);
