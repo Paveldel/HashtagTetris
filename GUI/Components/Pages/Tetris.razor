@@ -1,7 +1,7 @@
 ﻿@page "/"
 @rendermode InteractiveServer
 <div id="game-view" class="tetris99" tabindex="0" @onkeydown="KeywordEnterPressed">
-    <div class="hold">
+    <div class="hold-container">
         <div class="hold H@(game.Renderer.Held)"></div>
     </div>
     <div class="matrix">
