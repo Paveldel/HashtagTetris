@@ -6,7 +6,7 @@ public class Block
     public int X { get; set; }
     public int Y { get; set; }
     
-    public Block(int x, int y ,bool centered)
+    public Block(int x, int y, bool centered)
     {
         this.X = x;
         this.Y = y;
@@ -18,7 +18,7 @@ public class Block
         return new Block(X, Y, _centered);
     }
 
-    public Block Rotate(bool rotateAroundBlock, Rotation rotation)
+    public Block Rotate(Rotation rotation)
     {
         Block result = Clone();
         int amountOfRotations = GetAmountOfRotations(rotation);
