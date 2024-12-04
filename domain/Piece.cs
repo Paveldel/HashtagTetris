@@ -7,7 +7,7 @@ public class Piece
 
     private readonly PieceType _typeIndex;
     
-    private Block[] _blocks;
+    private readonly Block[] _blocks;
 
     public Piece(Block[] blocks, int x, int y, PieceType typeIndex)
     {
@@ -15,6 +15,11 @@ public class Piece
         X = x;
         Y = y;
         _typeIndex = typeIndex;
+    }
+
+    public Block[] GetBlocks()
+    {
+        return _blocks;
     }
 
     public Piece Clone()
