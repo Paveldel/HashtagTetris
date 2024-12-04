@@ -2,12 +2,23 @@
 
 public class SevenBag : IPieceQueue
 {
+    private const int AmountOfStarting = 10;
+    
     private readonly List<Piece> _queue = new();
     private Random _random = new();
-    
+
+    public SevenBag()
+    {
+        for (int i = 0; i < AmountOfStarting; i++)
+        {
+            AddPiece();
+        }
+    }
+
     public void AddPiece()
     {
-        List<Piece> bag = getPieceBag();
+        if (_queue.Count > 100) return;
+        List<Piece> bag = GetPieceBag();
         while (bag.Count != 0)
         {
             PutRandomPieceInQueue(bag);
@@ -21,7 +32,7 @@ public class SevenBag : IPieceQueue
         bag.RemoveAt(randomIndex);
     }
 
-    private List<Piece> getPieceBag()
+    private List<Piece> GetPieceBag()
     {
         List<Piece> bag = new();
         for (int i = 0; i < PieceData.AmountOfPieces; i++)
@@ -33,11 +44,18 @@ public class SevenBag : IPieceQueue
 
     public Piece GetNextPiece()
     {
-        throw new NotImplementedException();
+        Piece nextPiece = _queue.ElementAt(0);
+        _queue.RemoveAt(0);
+        return nextPiece;
     }
 
     public Piece[] GetPiecePreviews(int amountOfPreviews)
     {
-        throw new NotImplementedException();
+        Piece[] previews = new Piece[amountOfPreviews];
+        for (int i = 0; i < amountOfPreviews; i++)
+        {
+            previews[i] = _queue.ElementAt(i);
+        }
+        return previews;
     }
 }
