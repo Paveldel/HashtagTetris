@@ -3,7 +3,8 @@
 public class ActivePiece
 {
     private IPieceQueue _queue = new SevenBag();
-
+    private Hold _hold = new Hold();
+    
     private Piece _currentPiece;
     private Board _board;
 
@@ -86,5 +87,13 @@ public class ActivePiece
         _board.Lock(_currentPiece);
         _queue.AddPiece();
         NextPiece();
+        _hold.EnableHold();
+    }
+
+    public void Hold()
+    {
+        Piece? result = _hold.HoldPiece(_currentPiece);
+        if (result == null) NextPiece();
+        else _currentPiece = result;
     }
 }
