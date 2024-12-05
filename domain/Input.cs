@@ -47,31 +47,31 @@ public class Input(ActivePiece playerPiece)
         playerPiece.HardDrop();
         if (_rightTimer != long.MaxValue)
         {
-            _rightTimer = getCurrentTime() + Controls.DCD;
+            _rightTimer = GetCurrentTime() + Controls.DCD;
         }
         if (_leftTimer != long.MaxValue)
         {
-            _leftTimer = getCurrentTime() + Controls.DCD;
+            _leftTimer = GetCurrentTime() + Controls.DCD;
         }
     }
 
     private void HandleRightInput()
     {
         playerPiece.MoveRight();
-        _rightTimer = getCurrentTime() + Controls.DAS;
+        _rightTimer = GetCurrentTime() + Controls.DAS;
         _leftTimer = long.MaxValue;
     }
 
     private void HandleDownInput()
     {
         playerPiece.MoveDown();
-        _softDropTimer = getCurrentTime() + Controls.SDF;
+        _softDropTimer = GetCurrentTime() + Controls.SDF;
     }
 
     private void HandleLeftInput()
     {
         playerPiece.MoveLeft();
-        _leftTimer = getCurrentTime() + Controls.DAS;
+        _leftTimer = GetCurrentTime() + Controls.DAS;
         _rightTimer = long.MaxValue;
     }
 
@@ -91,15 +91,15 @@ public class Input(ActivePiece playerPiece)
         }
     }
 
-    public void update()
+    public void Update()
     {
-        long currentTime = getCurrentTime();
-        updateLeftInput(currentTime);
-        updateRightInput(currentTime);
-        updateSoftDropInput(currentTime);
+        long currentTime = GetCurrentTime();
+        UpdateLeftInput(currentTime);
+        UpdateRightInput(currentTime);
+        UpdateSoftDropInput(currentTime);
     }
 
-    private void updateLeftInput(long currentTime)
+    private void UpdateLeftInput(long currentTime)
     {
         while (_leftTimer < currentTime)
         {
@@ -114,11 +114,11 @@ public class Input(ActivePiece playerPiece)
         }
     }
     
-    private void updateRightInput(long currentTime)
+    private void UpdateRightInput(long currentTime)
     {
         while (_rightTimer < currentTime)
         {
-            if (playerPiece.MoveLeft())
+            if (playerPiece.MoveRight())
             {
                 _rightTimer += Controls.ARR;
             }
@@ -129,11 +129,11 @@ public class Input(ActivePiece playerPiece)
         }
     }
     
-    private void updateSoftDropInput(long currentTime)
+    private void UpdateSoftDropInput(long currentTime)
     {
         while (_softDropTimer < currentTime)
         {
-            if (playerPiece.MoveLeft())
+            if (playerPiece.MoveDown())
             {
                 _softDropTimer += Controls.SDF;
             }
@@ -144,7 +144,7 @@ public class Input(ActivePiece playerPiece)
         }
     }
 
-    private long getCurrentTime()
+    private static long GetCurrentTime()
     {
         return DateTimeOffset.Now.ToUnixTimeMilliseconds();
     }
