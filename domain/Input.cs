@@ -93,7 +93,55 @@ public class Input(ActivePiece playerPiece)
 
     public void update()
     {
-        
+        long currentTime = getCurrentTime();
+        updateLeftInput(currentTime);
+        updateRightInput(currentTime);
+        updateSoftDropInput(currentTime);
+    }
+
+    private void updateLeftInput(long currentTime)
+    {
+        while (_leftTimer < currentTime)
+        {
+            if (playerPiece.MoveLeft())
+            {
+                _leftTimer += Controls.ARR;
+            }
+            else
+            {
+                _leftTimer = currentTime;
+            }
+        }
+    }
+    
+    private void updateRightInput(long currentTime)
+    {
+        while (_rightTimer < currentTime)
+        {
+            if (playerPiece.MoveLeft())
+            {
+                _rightTimer += Controls.ARR;
+            }
+            else
+            {
+                _rightTimer = currentTime;
+            }
+        }
+    }
+    
+    private void updateSoftDropInput(long currentTime)
+    {
+        while (_softDropTimer < currentTime)
+        {
+            if (playerPiece.MoveLeft())
+            {
+                _softDropTimer += Controls.SDF;
+            }
+            else
+            {
+                _softDropTimer = currentTime;
+            }
+        }
     }
 
     private long getCurrentTime()
