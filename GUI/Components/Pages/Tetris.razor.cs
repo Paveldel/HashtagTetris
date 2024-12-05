@@ -19,4 +19,12 @@ public partial class Tetris : ComponentBase
         game.Input.HandleKeyPress(e.Code);
         game.Renderer.UpdateBoardToRender();
     }
+    
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            game.gameLoop.StartLoop();
+        }
+    }
 }

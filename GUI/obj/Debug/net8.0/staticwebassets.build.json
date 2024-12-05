@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rp9OLhlfNc2/p0N2Mj4i4sf1lejsF8T5LDGNx+HJ2kQ=",
+  "Hash": "dMayz+vkX7y3qdG6kqKApKLLnloEXX177ZBNdq5VGdk=",
   "Source": "GUI",
   "BasePath": "_content/GUI",
   "Mode": "Default",
@@ -16,25 +16,6 @@
     }
   ],
   "Assets": [
-    {
-      "Identity": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\Components\\Pages\\Tetris.razor.js",
-      "SourceId": "GUI",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\",
-      "BasePath": "_content/GUI",
-      "RelativePath": "Components/Pages/Tetris.razor.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "Components\\Pages\\Tetris.razor.js"
-    },
     {
       "Identity": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GUI.styles.css",
       "SourceId": "GUI",

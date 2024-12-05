@@ -6,6 +6,7 @@ public class Game
     public ActivePiece PlayerPiece { get; set; }
     public BoardRenderer Renderer { get; set; }
     public Input Input { get; set; }
+    public GameLoop gameLoop { get; set; }
 
     public Game()
     {
@@ -13,5 +14,6 @@ public class Game
         this.PlayerPiece = new ActivePiece(this.Board);
         this.Renderer = new BoardRenderer(this.Board, this.PlayerPiece);
         this.Input = new Input(this.PlayerPiece);
+        this.gameLoop = new GameLoop();
     }
 }

@@ -1,10 +1,6 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\Components\\Pages\\Tetris.razor.js",
-      "PackagePath": "staticwebassets\\Components\\Pages\\Tetris.razor.js"
-    },
-    {
       "Id": "C:\\Users\\pavel\\RiderProjects\\HashtagTetris\\GUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GUI.bundle.scp.css",
       "PackagePath": "staticwebassets\\GUI.bundle.scp.css"
     },

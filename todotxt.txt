@@ -1,6 +1,5 @@
-input in domain
-better inputs
 game loop
+better inputs
 gravity
 kick rotations
 spin detection
