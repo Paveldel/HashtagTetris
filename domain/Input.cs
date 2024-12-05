@@ -10,20 +10,15 @@ public class Input(ActivePiece playerPiece)
     {
         if (keyCode == Controls.MoveLeft)
         {
-            playerPiece.MoveLeft();
-            _leftTimer = getCurrentTime() + Controls.DAS;
-            _rightTimer = long.MaxValue;
+            HandleLeftInput();
         }
         else if (keyCode == Controls.SoftDrop)
         {
-            playerPiece.MoveDown();
-            _softDropTimer = getCurrentTime() + Controls.SDF;
+            HandleDownInput();
         }
         else if (keyCode == Controls.MoveRight)
         {
-            playerPiece.MoveRight();
-            _rightTimer = getCurrentTime() + Controls.DAS;
-            _leftTimer = long.MaxValue;
+            HandleRightInput();
         }
         else if (keyCode == Controls.Hold)
         {
@@ -31,7 +26,7 @@ public class Input(ActivePiece playerPiece)
         }
         else if (keyCode == Controls.HardDrop)
         {
-            playerPiece.HardDrop();
+            HandleHardDrop();
         }
         else if (keyCode == Controls.AntiClockwise)
         {
@@ -46,7 +41,40 @@ public class Input(ActivePiece playerPiece)
             playerPiece.Rotate(Rotation.CLOCKWISE);
         }
     }
-    
+
+    private void HandleHardDrop()
+    {
+        playerPiece.HardDrop();
+        if (_rightTimer != long.MaxValue)
+        {
+            _rightTimer = getCurrentTime() + Controls.DCD;
+        }
+        if (_leftTimer != long.MaxValue)
+        {
+            _leftTimer = getCurrentTime() + Controls.DCD;
+        }
+    }
+
+    private void HandleRightInput()
+    {
+        playerPiece.MoveRight();
+        _rightTimer = getCurrentTime() + Controls.DAS;
+        _leftTimer = long.MaxValue;
+    }
+
+    private void HandleDownInput()
+    {
+        playerPiece.MoveDown();
+        _softDropTimer = getCurrentTime() + Controls.SDF;
+    }
+
+    private void HandleLeftInput()
+    {
+        playerPiece.MoveLeft();
+        _leftTimer = getCurrentTime() + Controls.DAS;
+        _rightTimer = long.MaxValue;
+    }
+
     public void HandleKeyRelease(string keyCode)
     {
         if (keyCode == Controls.MoveLeft)
