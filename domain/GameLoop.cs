@@ -11,6 +11,7 @@ public class GameLoop(Input input)
         while (!_gameover)
         {
             Task.Delay(Milliseconds / TargetFps);
+            _playerInput.update();
         }
     }
 }
