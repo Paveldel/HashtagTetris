@@ -24,7 +24,7 @@ public partial class Tetris : ComponentBase
     {
         if (firstRender)
         {
-            game.gameLoop.StartLoop();
+            game.GameLoop.StartLoop();
         }
     }
 }
