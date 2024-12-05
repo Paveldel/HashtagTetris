@@ -10,4 +10,9 @@ public class Controls
     public static readonly string Reverse = "KeyE";
     public static readonly string AntiClockwise = "KeyW";
     public static readonly string Hold = "Numpad5";
+
+    public static readonly int DAS = 80;
+    public static readonly int ARR = 0;
+    public static readonly int SDF = 0;
+    public static readonly int DCD = 16;
 }
