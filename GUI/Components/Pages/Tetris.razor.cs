@@ -16,6 +16,7 @@ public partial class Tetris : ComponentBase
 
     protected async Task ButtonPressed(KeyboardEventArgs e)
     {
+        if (e.Repeat) return;
         game.Input.HandleKeyPress(e.Code);
         game.Renderer.UpdateBoardToRender();
     }
