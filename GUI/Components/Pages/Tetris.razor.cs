@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components.Web;
 
 namespace GUI.Components.Pages;
 
-public partial class Tetris : ComponentBase
+public partial class Tetris : ComponentBase, IScreen
 {
     public Game game { get; set; } = new Game();
 
@@ -25,7 +25,13 @@ public partial class Tetris : ComponentBase
     {
         if (firstRender)
         {
-            game.GameLoop.StartLoop();
+            game.GameLoop.StartLoop(this);
         }
+    }
+
+    public void Rerender()
+    {
+        game.Renderer.UpdateBoardToRender();
+        StateHasChanged();
     }
 }

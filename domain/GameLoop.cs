@@ -6,12 +6,13 @@ public class GameLoop(Input input)
     private const int Milliseconds = 1000;
     private bool _gameover = false;
     private Input _playerInput = input;
-    public async Task StartLoop()
+    public async Task StartLoop(IScreen updateCallback)
     {
         while (!_gameover)
         {
             await Task.Delay(Milliseconds / TargetFps);
             _playerInput.Update();
+            updateCallback.Rerender();
         }
     }
 }
