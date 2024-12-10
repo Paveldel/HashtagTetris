@@ -1,5 +1,3 @@
-game loop
-better inputs
 gravity
 kick rotations
 spin detection
