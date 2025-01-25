@@ -30,7 +30,7 @@ public class ActivePiece
     {
         _currentPiece = _queue.GetNextPiece();
         _currentPiece.X = _board.getXCenter();
-        _currentPiece.Y = _board.getTop();
+        _currentPiece.Y = _board.getTop() + 1;
     }
 
     public int GetHeldType()

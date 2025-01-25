@@ -1,6 +1,7 @@
-gravity
 kick rotations
 spin detection
 take damage
 calculate send damage
+death handling
+add folder structure to domain
 create some gameMode logic
