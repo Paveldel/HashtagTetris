@@ -8,13 +8,13 @@ public partial class Tetris : ComponentBase, IScreen
 {
     public Game game { get; set; } = new Game();
 
-    protected async void ButtonReleased()
+    protected async void ButtonReleased(KeyboardEventArgs e)
     {
         game.Input.HandleKeyRelease(e.Code);
         game.Renderer.UpdateBoardToRender();
     }
 
-    protected async void ButtonPressed()
+    protected async void ButtonPressed(KeyboardEventArgs e)
     {
         if (e.Repeat) return;
         game.Input.HandleKeyPress(e.Code);
