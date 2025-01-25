@@ -13,7 +13,7 @@ public class Game
     {
         this.Board = new Board();
         this.Gravity = new Gravity();
-        this.PlayerPiece = new ActivePiece(this.Board, this.Gravity);
+        this.PlayerPiece = new ActivePiece(this.Board, this.Gravity, new SRSPieceData());
         this.Gravity.SetActivePiece(this.PlayerPiece);
         this.Renderer = new BoardRenderer(this.Board, this.PlayerPiece);
         this.Input = new Input(this.PlayerPiece);

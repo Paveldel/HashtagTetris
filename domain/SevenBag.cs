@@ -3,12 +3,15 @@
 public class SevenBag : IPieceQueue
 {
     private const int AmountOfStarting = 10;
+
+    private IPieceData _pieceData;
     
     private readonly List<Piece> _queue = new();
     private Random _random = new();
 
-    public SevenBag()
+    public SevenBag(IPieceData pieceData)
     {
+        _pieceData = pieceData;
         for (int i = 0; i < AmountOfStarting; i++)
         {
             AddPiece();
@@ -35,9 +38,9 @@ public class SevenBag : IPieceQueue
     private List<Piece> GetPieceBag()
     {
         List<Piece> bag = new();
-        for (int i = 0; i < PieceData.AmountOfPieces; i++)
+        for (int i = 0; i < _pieceData.GetAmountOfPieces(); i++)
         {
-            bag.Add(PieceData.Pieces[i + 1]);
+            bag.Add(_pieceData.GetPieceByIndex(i + 1));
         }
         return bag;
     }

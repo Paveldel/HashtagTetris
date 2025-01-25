@@ -4,6 +4,12 @@ public class Hold
 {
     private int _heldPieceIndex = 0;
     private bool _holdEnabled = true;
+    private readonly IPieceData _pieceData;
+
+    public Hold(IPieceData pieceData)
+    {
+        _pieceData = pieceData;
+    }
 
     public Piece? HoldPiece(Piece p)
     {
@@ -11,7 +17,7 @@ public class Hold
         int temp = _heldPieceIndex;
         _heldPieceIndex = p.GetPieceIndex();
         _holdEnabled = false;
-        return PieceData.Pieces[temp];
+        return _pieceData.GetPieceByIndex(temp);
     }
 
     public bool IsEnabled()

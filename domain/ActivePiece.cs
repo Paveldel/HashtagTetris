@@ -2,17 +2,21 @@
 
 public class ActivePiece
 {
-    private IPieceQueue _queue = new SevenBag();
-    private Hold _hold = new Hold();
+    private IPieceQueue _queue;
+    private Hold _hold;
     
+    private IPieceData _pieceData;
     private Piece _currentPiece;
     private Board _board;
     private Gravity _gravity;
 
-    public ActivePiece(Board board, Gravity gravity)
+    public ActivePiece(Board board, Gravity gravity, IPieceData pieceData)
     {
         _board = board;
         _gravity = gravity;
+        _pieceData = pieceData;
+        _hold = new Hold(pieceData);
+        _queue = new SevenBag(pieceData);
         NextPiece();
     }
 
