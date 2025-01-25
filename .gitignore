@@ -1,1 +1,5 @@
 ﻿/.idea/.idea.HashtagTetris/.idea/.gitignore
+GUI/obj
+GUI/bin
+domain/bin
+domain/obj
