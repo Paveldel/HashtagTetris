@@ -2,8 +2,8 @@
 
 public class Gravity
 {
-    private const int MaxAmountOfResets = 1;
-    private const long StepDelay = 10;
+    private const int MaxAmountOfResets = 10;
+    private const long StepDelay = 500;
     private const long LockDelay = 1000;
     
     private int _resetsLeft = MaxAmountOfResets;
@@ -56,7 +56,10 @@ public class Gravity
     private void Step()
     {
         _nextStep += StepDelay;
-        _activePiece?.MoveDown();
+        if (!_activePiece!.MoveDown())
+        {
+            _nextStep = GetCurrentTime();
+        }
     }
 
     public void SetActivePiece(ActivePiece newActivePiece)
