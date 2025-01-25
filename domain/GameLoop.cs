@@ -1,6 +1,6 @@
 ﻿namespace domain;
 
-public class GameLoop(Input input)
+public class GameLoop(Input input, Gravity gravity)
 {
     private const int TargetFps = 60;
     private const int Milliseconds = 1000;
@@ -12,6 +12,7 @@ public class GameLoop(Input input)
         {
             await Task.Delay(Milliseconds / TargetFps);
             _playerInput.Update();
+            gravity.Update();
             updateCallback.Rerender();
         }
     }

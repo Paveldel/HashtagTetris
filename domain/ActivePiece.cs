@@ -7,10 +7,12 @@ public class ActivePiece
     
     private Piece _currentPiece;
     private Board _board;
+    private Gravity _gravity;
 
-    public ActivePiece(Board board)
+    public ActivePiece(Board board, Gravity gravity)
     {
         _board = board;
+        _gravity = gravity;
         NextPiece();
     }
 
@@ -64,10 +66,16 @@ public class ActivePiece
         if (!_board.IntersectPiece(movedPiece))
         {
             _currentPiece = movedPiece;
+            _gravity.PieceMoved(IsPieceOnGround());
             return true;
         }
-
+        
         return false;
+    }
+
+    private bool IsPieceOnGround()
+    {
+        return _board.IntersectPiece(_currentPiece.MoveDown());
     }
 
     public bool Rotate(Rotation rotation)
@@ -92,17 +100,19 @@ public class ActivePiece
         LockPiece();
     }
 
-    private void LockPiece()
+    public void LockPiece()
     {
         _board.Lock(_currentPiece);
         _queue.AddPiece();
         NextPiece();
         _hold.EnableHold();
+        _gravity.Reset();
     }
 
     public void Hold()
     {
         Piece? result = _hold.HoldPiece(_currentPiece);
+        if (result != _currentPiece) _gravity.Reset();
         if (result == null) NextPiece();
         else _currentPiece = result;
     }
