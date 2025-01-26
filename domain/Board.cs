@@ -55,7 +55,7 @@ public class Board
 
     private void ClearLines()
     {
-        for (int i = _height; i >= 0; i--)
+        for (int i = (_height * 2) - 1; i >= 0; i--)
         {
             if (IsLineFilled(i)) ClearLine(i);
         }
@@ -72,7 +72,7 @@ public class Board
     
     private void ClearLine(int rowToRemove)
     {
-        for (int i = rowToRemove; i < _height - 2; i++)
+        for (int i = rowToRemove; i < (_height * 2) - 1; i++)
         {
             MoveLineDown(i);
         }
