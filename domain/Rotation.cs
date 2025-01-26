@@ -2,8 +2,8 @@
 
 public enum Rotation
 {
+    NO_ROTATION,
     CLOCKWISE,
-    ANTI_CLOCKWISE,
     REVERSE,
-    NO_ROTATION
+    ANTI_CLOCKWISE
 }
