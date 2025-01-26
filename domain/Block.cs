@@ -2,7 +2,7 @@
 
 public class Block
 {
-    private readonly bool _centered;
+    public bool Centered { get; private set; }
     public int X { get; private set; }
     public int Y { get; private set; }
     
@@ -10,12 +10,12 @@ public class Block
     {
         this.X = x;
         this.Y = y;
-        _centered = centered;
+        Centered = centered;
     }
     
     public Block Clone()
     {
-        return new Block(X, Y, _centered);
+        return new Block(X, Y, Centered);
     }
 
     public Block Rotate(Rotation rotation)
@@ -41,7 +41,7 @@ public class Block
 
     private void RotateClockWise()
     {
-        if (!_centered) RotateAroundBlock();
+        if (!Centered) RotateAroundBlock();
         else RotateAroundCenter();
     }
 
@@ -61,7 +61,7 @@ public class Block
 
     protected bool Equals(Block other)
     {
-        return _centered == other._centered && X == other.X && Y == other.Y;
+        return Centered == other.Centered && X == other.X && Y == other.Y;
     }
 
     public override bool Equals(object? obj)
@@ -74,6 +74,6 @@ public class Block
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(_centered, X, Y);
+        return HashCode.Combine(Centered, X, Y);
     }
 }
