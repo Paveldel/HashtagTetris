@@ -3,8 +3,8 @@
 public class Block
 {
     private readonly bool _centered;
-    public int X { get; set; }
-    public int Y { get; set; }
+    public int X { get; private set; }
+    public int Y { get; private set; }
     
     public Block(int x, int y, bool centered)
     {
@@ -57,5 +57,23 @@ public class Block
         int temp = X;
         X = Y + 1;
         Y = -temp;
+    }
+
+    protected bool Equals(Block other)
+    {
+        return _centered == other._centered && X == other.X && Y == other.Y;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is null) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        if (obj.GetType() != GetType()) return false;
+        return Equals((Block)obj);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(_centered, X, Y);
     }
 }
