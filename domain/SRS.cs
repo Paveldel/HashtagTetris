@@ -3,6 +3,7 @@
 public class SRS : IRotationSystem
 {
     private const int AmountOfKicks = 5;
+    private const int FailedRotation = -1;
     
     private static readonly Kick[][] NormalKicks = new[]
     {
@@ -38,9 +39,11 @@ public class SRS : IRotationSystem
 
     private Piece RotateNormal(Piece piece, Board board, Rotation rotation)
     {
+        Piece rotatedPiece = piece.Rotate(rotation);
         int kickIndex = CalculateKickIndex(piece.RotIndex, rotation);
-        TryKicks(piece, board, kickIndex);
-        return piece;
+        TryKicks(rotatedPiece, board, kickIndex);
+        if (_rotationIndex == FailedRotation) return piece;
+        return rotatedPiece;
     }
 
     private void TryKicks(Piece piece, Board board, int kickIndex)
@@ -53,7 +56,7 @@ public class SRS : IRotationSystem
             RemoveKick(piece, nextKick);
         }
 
-        _rotationIndex = 0;
+        _rotationIndex = FailedRotation;
     }
 
     private void ApplyKick(Piece piece, Kick kick)
