@@ -1,4 +1,3 @@
-kick rotations
 spin detection
 take damage
 calculate send damage
