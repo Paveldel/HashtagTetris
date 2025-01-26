@@ -2,6 +2,8 @@
 
 public class ActivePiece
 {
+    private bool _spin = false;
+    
     private IPieceQueue _queue;
     private Hold _hold;
     private IRotationSystem _rotationSystem;
@@ -53,25 +55,26 @@ public class ActivePiece
     public bool MoveDown()
     {
         Piece movedPiece = _currentPiece.MoveDown();
-        return ReplaceIfValid(movedPiece);
+        return TryToMove(movedPiece);
     }
     
     public bool MoveLeft()
     {
         Piece movedPiece = _currentPiece.MoveLeft();
-        return ReplaceIfValid(movedPiece);
+        return TryToMove(movedPiece);
     }
     
     public bool MoveRight()
     {
         Piece movedPiece = _currentPiece.MoveRight();
-        return ReplaceIfValid(movedPiece);
+        return TryToMove(movedPiece);
     }
 
-    private bool ReplaceIfValid(Piece movedPiece)
+    private bool TryToMove(Piece movedPiece)
     {
         if (!_board.IntersectPiece(movedPiece))
         {
+            _spin = false;
             ReplacePiece(movedPiece);
             return true;
         }
@@ -95,6 +98,7 @@ public class ActivePiece
         Piece rotatedPiece = _rotationSystem.RotatePiece(_currentPiece, _board, rotation);
         if (Equals(rotatedPiece, _currentPiece)) return false;
         ReplacePiece(rotatedPiece);
+        _spin = true;
         return true;
     }
 
@@ -116,7 +120,7 @@ public class ActivePiece
 
     public void LockPiece()
     {
-        SpinType spinType = _spinDetector.DetectSpin(_currentPiece, _board, _rotationSystem.LastUsedRotationIndex());
+        var spinType = GetSpinType();
         _board.Lock(_currentPiece, spinType);
         _queue.AddPiece();
         NextPiece();
@@ -124,10 +128,17 @@ public class ActivePiece
         _gravity.Reset();
     }
 
+    private SpinType GetSpinType()
+    {
+        if (!_spin) return SpinType.NoSpin;
+        int lastKick = _rotationSystem.LastUsedRotationIndex();
+        return _spinDetector.DetectSpin(_currentPiece, _board, lastKick);
+    }
+
     public void Hold()
     {
         Piece? result = _hold.HoldPiece(_currentPiece);
-        if (result != _currentPiece) _gravity.Reset();
+        if (!Equals(result, _currentPiece)) _gravity.Reset();
         if (result == null) NextPiece();
         else _currentPiece = result;
     }
