@@ -9,6 +9,7 @@ public class ActivePiece
     private Piece _currentPiece;
     private Board _board;
     private Gravity _gravity;
+    private ISpinDetector _spinDetector;
 
     public ActivePiece(Board board, Gravity gravity, IPieceData pieceData)
     {
@@ -18,6 +19,7 @@ public class ActivePiece
         _hold = new Hold(pieceData);
         _queue = new SevenBag(pieceData);
         _rotationSystem = new SRS();
+        _spinDetector = new FourCorner();
         NextPiece();
     }
 
@@ -114,7 +116,8 @@ public class ActivePiece
 
     public void LockPiece()
     {
-        _board.Lock(_currentPiece);
+        SpinType spinType = _spinDetector.DetectSpin(_currentPiece, _board, _rotationSystem.LastUsedRotationIndex());
+        _board.Lock(_currentPiece, spinType);
         _queue.AddPiece();
         NextPiece();
         _hold.EnableHold();

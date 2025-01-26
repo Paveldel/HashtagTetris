@@ -43,7 +43,7 @@ public class Board
         return _matrix[x][y] != 0;
     }
 
-    public void Lock(Piece piece)
+    public void Lock(Piece piece, SpinType spinType)
     {
         Block[] blocks = piece.GetBlocks();
         for (int i = 0; i < blocks.Length; i++)
