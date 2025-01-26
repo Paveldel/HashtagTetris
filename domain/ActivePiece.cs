@@ -4,7 +4,7 @@ public class ActivePiece
 {
     private IPieceQueue _queue;
     private Hold _hold;
-    
+    private IRotationSystem _rotationSystem;
     private IPieceData _pieceData;
     private Piece _currentPiece;
     private Board _board;
@@ -17,6 +17,7 @@ public class ActivePiece
         _pieceData = pieceData;
         _hold = new Hold(pieceData);
         _queue = new SevenBag(pieceData);
+        _rotationSystem = new SRS();
         NextPiece();
     }
 
@@ -69,12 +70,17 @@ public class ActivePiece
     {
         if (!_board.IntersectPiece(movedPiece))
         {
-            _currentPiece = movedPiece;
-            _gravity.PieceMoved(IsPieceOnGround());
+            ReplacePiece(movedPiece);
             return true;
         }
         
         return false;
+    }
+
+    private void ReplacePiece(Piece movedPiece)
+    {
+        _currentPiece = movedPiece;
+        _gravity.PieceMoved(IsPieceOnGround());
     }
 
     private bool IsPieceOnGround()
@@ -84,8 +90,10 @@ public class ActivePiece
 
     public bool Rotate(Rotation rotation)
     {
-        Piece rotatedPiece = _currentPiece.Rotate(rotation);
-        return ReplaceIfValid(rotatedPiece);
+        Piece rotatedPiece = _rotationSystem.RotatePiece(_currentPiece, _board, rotation);
+        if (Equals(rotatedPiece, _currentPiece)) return false;
+        ReplacePiece(rotatedPiece);
+        return true;
     }
 
     public Piece DeepDrop()
