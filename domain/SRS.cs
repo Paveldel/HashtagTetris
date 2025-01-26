@@ -34,7 +34,7 @@ public class SRS : IRotationSystem
     public Piece RotatePiece(Piece piece, Board board, Rotation rotation)
     {
         if (rotation == Rotation.REVERSE) return RotateReverse(piece, board);
-        else return RotateNormal(piece, board, rotation);
+        return RotateNormal(piece, board, rotation);
     }
 
     private Piece RotateNormal(Piece piece, Board board, Rotation rotation)

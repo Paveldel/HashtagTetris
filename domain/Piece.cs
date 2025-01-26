@@ -11,13 +11,15 @@ public class Piece
     
     private readonly Block[] _blocks;
 
-    public Piece(Block[] blocks, int x, int y, PieceType typeIndex)
+    public Piece(Block[] blocks, int x, int y, PieceType typeIndex) : this(blocks, x, y, typeIndex, 0) { }
+
+    public Piece(Block[] blocks, int x, int y, PieceType typeIndex, int rotIndex)
     {
         _blocks = blocks;
         X = x;
         Y = y;
         _typeIndex = typeIndex;
-        RotIndex = 0;
+        RotIndex = rotIndex;
     }
 
     public Block[] GetBlocks()
@@ -38,7 +40,7 @@ public class Piece
             copyBlocks[i] = _blocks[i].Clone();
         }
 
-        return new Piece(copyBlocks, X, Y, _typeIndex);
+        return new Piece(copyBlocks, X, Y, _typeIndex, RotIndex);
     }
 
     public Piece Rotate(Rotation rotation)
@@ -48,7 +50,7 @@ public class Piece
         {
             rotatedPiece._blocks[i] = rotatedPiece._blocks[i].Rotate(rotation);
         }
-        rotatedPiece.RotIndex += ((int)rotation % 4);
+        rotatedPiece.RotIndex = (RotIndex + (int)rotation) % 4;
         return rotatedPiece;
     }
 
