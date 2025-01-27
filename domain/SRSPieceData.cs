@@ -2,8 +2,8 @@
 
 public class SRSPieceData : IPieceData
 {
-    private static readonly int AmountOfPieces = 7;
-    
+    private const int AmountOfPieces = 7;
+
     private static readonly Piece[] Pieces = [
         null!,
         new Piece([new Block(0, 0, true), new Block(1, 0, true), new Block(-1, 0, true), new Block(2, 0, true)], 0, 0, PieceType.I),
@@ -20,7 +20,7 @@ public class SRSPieceData : IPieceData
         return AmountOfPieces;
     }
 
-    public Piece? GetPieceByIndex(int index)
+    public Piece GetPieceByIndex(int index)
     {
         return Pieces[index];
     }

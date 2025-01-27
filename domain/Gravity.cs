@@ -7,11 +7,11 @@ public class Gravity
     private const long LockDelay = 1000;
     
     private int _resetsLeft = MaxAmountOfResets;
-    private bool _onGround = false;
+    private bool _onGround;
     private long _lockTimer = long.MaxValue;
     private long _nextStep = GetCurrentTime();
 
-    private ActivePiece? _activePiece = null;
+    private ActivePiece? _activePiece;
 
     public void PieceMoved(bool onGround)
     {

@@ -2,8 +2,8 @@
 
 public enum Rotation
 {
-    NO_ROTATION,
-    CLOCKWISE,
-    REVERSE,
-    ANTI_CLOCKWISE
+    NoRotation = 0,
+    Clockwise = 1,
+    Reverse = 2,
+    AntiClockwise = 3
 }

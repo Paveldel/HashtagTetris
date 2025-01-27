@@ -29,11 +29,7 @@ public class Board
     public bool IntersectPiece(Piece piece)
     {
         Block[] blocks = piece.GetBlocks();
-        for (int i = 0; i < blocks.Length; i++)
-        {
-            if (IntersectBlock(blocks[i].X + piece.X, blocks[i].Y + piece.Y)) return true;
-        }
-        return false;
+        return blocks.Any(block => IntersectBlock(block.X + piece.X, block.Y + piece.Y));
     }
 
     public bool IntersectBlock(int x, int y)
@@ -46,9 +42,9 @@ public class Board
     public void Lock(Piece piece, SpinType spinType)
     {
         Block[] blocks = piece.GetBlocks();
-        for (int i = 0; i < blocks.Length; i++)
+        foreach (var block in blocks)
         {
-            _matrix[blocks[i].X + piece.X][blocks[i].Y + piece.Y] = piece.GetPieceIndex();
+            _matrix[block.X + piece.X][block.Y + piece.Y] = piece.GetPieceIndex();
         }
         ClearLines();
     }
@@ -86,12 +82,12 @@ public class Board
         }
     }
 
-    public int getXCenter()
+    public int GetXCenter()
     {
         return (_width / 2) - 1;
     }
 
-    public int getTop()
+    public int GetTop()
     {
         return _height - 1;
     }

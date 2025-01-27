@@ -2,7 +2,7 @@
 
 public class Block
 {
-    public bool Centered { get; private set; }
+    public bool Centered { get; }
     public int X { get; private set; }
     public int Y { get; private set; }
     
@@ -31,11 +31,11 @@ public class Block
 
     private int GetAmountOfRotations(Rotation rotation)
     {
-        if (rotation == Rotation.ANTI_CLOCKWISE)
+        if (rotation == Rotation.AntiClockwise)
             return 3;
-        if (rotation == Rotation.REVERSE)
+        if (rotation == Rotation.Reverse)
             return 2;
-        if (rotation == Rotation.CLOCKWISE) return 1;
+        if (rotation == Rotation.Clockwise) return 1;
         return 0;
     }
 

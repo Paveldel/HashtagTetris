@@ -2,22 +2,20 @@
 
 public class ActivePiece
 {
-    private bool _spin = false;
+    private readonly IPieceQueue _queue;
+    private readonly Hold _hold;
+    private readonly IRotationSystem _rotationSystem;
+    private readonly Board _board;
+    private readonly Gravity _gravity;
+    private readonly ISpinDetector _spinDetector;
     
-    private IPieceQueue _queue;
-    private Hold _hold;
-    private IRotationSystem _rotationSystem;
-    private IPieceData _pieceData;
+    private bool _spin;
     private Piece _currentPiece;
-    private Board _board;
-    private Gravity _gravity;
-    private ISpinDetector _spinDetector;
 
     public ActivePiece(Board board, Gravity gravity, IPieceData pieceData)
     {
         _board = board;
         _gravity = gravity;
-        _pieceData = pieceData;
         _hold = new Hold(pieceData);
         _queue = new SevenBag(pieceData);
         _rotationSystem = new SRS();
@@ -38,8 +36,8 @@ public class ActivePiece
     private void NextPiece()
     {
         _currentPiece = _queue.GetNextPiece();
-        _currentPiece.X = _board.getXCenter();
-        _currentPiece.Y = _board.getTop() + 1;
+        _currentPiece.X = _board.GetXCenter();
+        _currentPiece.Y = _board.GetTop() + 1;
     }
 
     public int GetHeldType()
@@ -47,7 +45,7 @@ public class ActivePiece
         return _hold.GetHeldPieceType();
     }
 
-    public bool isHoldEnabled()
+    public bool IsHoldEnabled()
     {
         return _hold.IsEnabled();
     }

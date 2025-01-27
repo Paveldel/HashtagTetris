@@ -73,7 +73,7 @@ public class BoardRenderer
     private void UpdateHeld()
     {
         Held = _piece.GetHeldType();
-        if (!_piece.isHoldEnabled()) Held = -Held;
+        if (!_piece.IsHoldEnabled()) Held = -Held;
     }
 
     private void GetPreviews()

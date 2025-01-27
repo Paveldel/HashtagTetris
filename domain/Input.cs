@@ -30,15 +30,15 @@ public class Input(ActivePiece playerPiece)
         }
         else if (keyCode == Controls.AntiClockwise)
         {
-            playerPiece.Rotate(Rotation.ANTI_CLOCKWISE);
+            playerPiece.Rotate(Rotation.AntiClockwise);
         }
         else if (keyCode == Controls.Reverse)
         {
-            playerPiece.Rotate(Rotation.REVERSE);
+            playerPiece.Rotate(Rotation.Reverse);
         }
         else if (keyCode == Controls.Clockwise)
         {
-            playerPiece.Rotate(Rotation.CLOCKWISE);
+            playerPiece.Rotate(Rotation.Clockwise);
         }
     }
 

@@ -4,10 +4,10 @@ public class SevenBag : IPieceQueue
 {
     private const int AmountOfStarting = 10;
 
-    private IPieceData _pieceData;
+    private readonly IPieceData _pieceData;
     
     private readonly List<Piece> _queue = new();
-    private Random _random = new();
+    private readonly Random _random = new();
 
     public SevenBag(IPieceData pieceData)
     {

@@ -33,7 +33,7 @@ public class SRS : IRotationSystem
     
     public Piece RotatePiece(Piece piece, Board board, Rotation rotation)
     {
-        if (rotation == Rotation.REVERSE) return RotateReverse(piece, board);
+        if (rotation == Rotation.Reverse) return RotateReverse(piece, board);
         return RotateNormal(piece, board, rotation);
     }
 
@@ -79,7 +79,7 @@ public class SRS : IRotationSystem
 
     private Piece RotateReverse(Piece piece, Board board)
     {
-        Piece rotatedPiece = piece.Rotate(Rotation.REVERSE);
+        Piece rotatedPiece = piece.Rotate(Rotation.Reverse);
         if (board.IntersectPiece(rotatedPiece)) return piece;
         return rotatedPiece;
     }
@@ -87,7 +87,7 @@ public class SRS : IRotationSystem
     private int CalculateKickIndex(int rotIndex, Rotation rotation)
     {
         int kickIndex = 2 * rotIndex;
-        if (rotation == Rotation.ANTI_CLOCKWISE) kickIndex--;
+        if (rotation == Rotation.AntiClockwise) kickIndex--;
         if (kickIndex < 0) kickIndex += 8;
         return kickIndex;
     }

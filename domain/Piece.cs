@@ -1,26 +1,15 @@
 ﻿namespace domain;
 
-public class Piece
+public class Piece(Block[] blocks, int x, int y, PieceType typeIndex, int rotIndex = 0)
 {
-    public int X { get; set; }
-    public int Y { get; set; }
+    public int X { get; set; } = x;
+    public int Y { get; set; } = y;
 
-    public int RotIndex { get; private set; }
+    public int RotIndex { get; private set; } = rotIndex;
 
-    private readonly PieceType _typeIndex;
+    private readonly PieceType _typeIndex = typeIndex;
     
-    private readonly Block[] _blocks;
-
-    public Piece(Block[] blocks, int x, int y, PieceType typeIndex) : this(blocks, x, y, typeIndex, 0) { }
-
-    public Piece(Block[] blocks, int x, int y, PieceType typeIndex, int rotIndex)
-    {
-        _blocks = blocks;
-        X = x;
-        Y = y;
-        _typeIndex = typeIndex;
-        RotIndex = rotIndex;
-    }
+    private readonly Block[] _blocks = blocks;
 
     public Block[] GetBlocks()
     {
