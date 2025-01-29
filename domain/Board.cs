@@ -5,11 +5,14 @@ public class Board
     private readonly int _width = 10;
     private readonly int _height = 20;
 
+    private readonly IDamageCalculator _damageCalculator;
+    
     private int[][] _matrix;
 
     public Board()
     {
         InitBoard();
+        _damageCalculator = new GuideLineDamageCalculator();
     }
 
     public int[][] GetBoard()
@@ -41,20 +44,32 @@ public class Board
 
     public void Lock(Piece piece, SpinType spinType)
     {
+        PlaceBlocksForPiece(piece);
+        int amountOfLinesCleared = ClearLines();
+        _damageCalculator.CalculateDamage(amountOfLinesCleared, spinType, false);
+    }
+
+    private void PlaceBlocksForPiece(Piece piece)
+    {
         Block[] blocks = piece.GetBlocks();
         foreach (var block in blocks)
         {
             _matrix[block.X + piece.X][block.Y + piece.Y] = piece.GetPieceIndex();
         }
-        ClearLines();
     }
 
-    private void ClearLines()
+    private int ClearLines()
     {
+        int amountOfLinesCleared = 0;
         for (int i = (_height * 2) - 1; i >= 0; i--)
         {
-            if (IsLineFilled(i)) ClearLine(i);
+            if (IsLineFilled(i))
+            {
+                ClearLine(i);
+                amountOfLinesCleared++;
+            }
         }
+        return amountOfLinesCleared;
     }
 
     private bool IsLineFilled(int row)
