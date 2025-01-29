@@ -13,6 +13,10 @@ public class Board
     {
         InitBoard();
         _damageCalculator = new GuideLineDamageCalculator();
+        for (int i = 0; i < _width; i++)
+        {
+            TakeGarbageLine(i);
+        }
     }
 
     public int[][] GetBoard()
@@ -94,6 +98,37 @@ public class Board
         for (int i = 0; i < _width; i++)
         {
             _matrix[i][row] = _matrix[i][row + 1];
+        }
+    }
+
+    public void TakeGarbageLine(int column)
+    {
+        MoveBoardUp();
+        FillGarbageLine(column);
+    }
+
+    private void FillGarbageLine(int column)
+    {
+        for (int i = 0; i < _width; i++)
+        {
+            if (i != column) _matrix[i][0] = (int)PieceType.Garbage;
+            else _matrix[i][0] = (int)PieceType.Empty;
+        }
+    }
+
+    private void MoveBoardUp()
+    {
+        for (int i = (_height * 2) - 2; i > 0; i--)
+        {
+            MoveLineUp(i);
+        }
+    }
+
+    private void MoveLineUp(int row)
+    {
+        for (int i = 0; i < _width; i++)
+        {
+            _matrix[i][row] = _matrix[i][row - 1];
         }
     }
 
