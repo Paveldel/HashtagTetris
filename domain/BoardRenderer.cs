@@ -20,8 +20,11 @@ public class BoardRenderer
     public int[][] BoardToRender()
     {
         int[][] result = GetMatrixCopy(_board.GetBoard());
-        ShowShadowPiece(result);
-        ShowPiece(result);
+        if (!_piece.HasPlayerLost())
+        {
+            ShowShadowPiece(result);
+            ShowPiece(result);
+        }
         return result;
     }
 

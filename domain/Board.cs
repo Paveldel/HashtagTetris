@@ -34,7 +34,11 @@ public class Board : IDamageReceiver
     public bool IntersectPiece(Piece piece)
     {
         Block[] blocks = piece.GetBlocks();
-        return blocks.Any(block => IntersectBlock(block.X + piece.X, block.Y + piece.Y));
+        for (int i = 0; i < blocks.Length; i++)
+        {
+            if (IntersectBlock(blocks[i].X + piece.X, blocks[i].Y + piece.Y)) return true;
+        }
+        return false;
     }
 
     public bool IntersectBlock(int x, int y)
@@ -149,5 +153,16 @@ public class Board : IDamageReceiver
     public int GetTop()
     {
         return _height - 1;
+    }
+
+    public void GrayOutBoard()
+    {
+        for (int i = 0; i < _height * 2 - 1; i++)
+        {
+            for (int j = 0; j < _width; j++)
+            {
+                if (_matrix[j][i] != (int)PieceType.Empty) _matrix[j][i] = (int)PieceType.Garbage;
+            }
+        }
     }
 }

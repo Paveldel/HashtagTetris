@@ -11,6 +11,7 @@ public class ActivePiece
     
     private bool _spin;
     private Piece _currentPiece;
+    private bool _isGameOver = false;
 
     public ActivePiece(Board board, Gravity gravity, IPieceData pieceData)
     {
@@ -35,9 +36,8 @@ public class ActivePiece
 
     private void NextPiece()
     {
-        _currentPiece = _queue.GetNextPiece();
-        _currentPiece.X = _board.GetXCenter();
-        _currentPiece.Y = _board.GetTop() + 1;
+        SetCurrentPiece(_queue.GetNextPiece());
+        _board.ReceiveDamage(5);
     }
 
     public int GetHeldType()
@@ -138,6 +138,26 @@ public class ActivePiece
         Piece? result = _hold.HoldPiece(_currentPiece);
         if (!Equals(result, _currentPiece)) _gravity.Reset();
         if (result == null) NextPiece();
-        else _currentPiece = result;
+        else SetCurrentPiece(result);
+    }
+
+    private void SetCurrentPiece(Piece piece)
+    {
+        _currentPiece = piece;
+        _currentPiece.X = _board.GetXCenter();
+        _currentPiece.Y = _board.GetTop() + 1;
+        if (_board.IntersectPiece(_currentPiece)) GameOver();
+    }
+
+    private void GameOver()
+    {
+        _isGameOver = true;
+        _currentPiece = new Piece([], 0, 0, 0);
+        _board.GrayOutBoard();
+    }
+
+    public bool HasPlayerLost()
+    {
+        return _isGameOver;
     }
 }
