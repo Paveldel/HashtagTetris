@@ -1,11 +1,12 @@
 ﻿namespace domain;
 
-public class Board
+public class Board : IDamageReceiver
 {
     private readonly int _width = 10;
     private readonly int _height = 20;
 
     private readonly IDamageCalculator _damageCalculator;
+    private readonly IDamageQueue _damageQueue;
     
     private int[][] _matrix;
 
@@ -13,9 +14,10 @@ public class Board
     {
         InitBoard();
         _damageCalculator = new GuideLineDamageCalculator();
-        for (int i = 0; i < _width; i++)
+        _damageQueue = new DamageQueue(this);
+        for (int i = 0; i < 5; i++)
         {
-            TakeGarbageLine(i);
+            ReceiveDamage(i);
         }
     }
 
@@ -50,7 +52,8 @@ public class Board
     {
         PlaceBlocksForPiece(piece);
         int amountOfLinesCleared = ClearLines();
-        _damageCalculator.CalculateDamage(amountOfLinesCleared, spinType, false);
+        int damageToSend = _damageCalculator.CalculateDamage(amountOfLinesCleared, spinType, false);
+        _damageQueue.PiecePlaced(damageToSend, amountOfLinesCleared > 0);
     }
 
     private void PlaceBlocksForPiece(Piece piece)
@@ -132,9 +135,19 @@ public class Board
         }
     }
 
+    public void ReceiveDamage(int amountOfDamage)
+    {
+        _damageQueue.AddGarbageToQueue(amountOfDamage);
+    }
+
     public int GetXCenter()
     {
         return (_width / 2) - 1;
+    }
+
+    public int GetWidth()
+    {
+        return _width;
     }
 
     public int GetTop()
