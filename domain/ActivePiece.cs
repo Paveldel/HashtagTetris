@@ -37,7 +37,6 @@ public class ActivePiece
     private void NextPiece()
     {
         SetCurrentPiece(_queue.GetNextPiece());
-        _board.ReceiveDamage(5);
     }
 
     public int GetHeldType()
@@ -118,6 +117,7 @@ public class ActivePiece
 
     public void LockPiece()
     {
+        if (_isGameOver) return;
         var spinType = GetSpinType();
         _board.Lock(_currentPiece, spinType);
         _queue.AddPiece();
@@ -135,6 +135,7 @@ public class ActivePiece
 
     public void Hold()
     {
+        if (_isGameOver) return;
         Piece? result = _hold.HoldPiece(_currentPiece);
         if (!Equals(result, _currentPiece)) _gravity.Reset();
         if (result == null) NextPiece();
