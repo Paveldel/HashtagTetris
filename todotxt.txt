@@ -1,6 +1,17 @@
-spin detection
-take damage
-calculate send damage
 death handling
+check for PC's
+make game object better encapsulate a player's game
+show the amount of damage queued to player
+Updatable
+appearance delay & line clear delay
+clean up the board class
 add folder structure to domain
+alternate versions of components
+isolate RNG into one place
+Game data and report
+Game sound
+make factory class for a game with all config
 create some gameMode logic
+create some online play logic
+work on gui for settings
+allow player to select gamemode in gui

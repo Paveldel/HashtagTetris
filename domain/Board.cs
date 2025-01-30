@@ -15,10 +15,6 @@ public class Board : IDamageReceiver
         InitBoard();
         _damageCalculator = new GuideLineDamageCalculator();
         _damageQueue = new DamageQueue(this);
-        for (int i = 0; i < 5; i++)
-        {
-            ReceiveDamage(i);
-        }
     }
 
     public int[][] GetBoard()

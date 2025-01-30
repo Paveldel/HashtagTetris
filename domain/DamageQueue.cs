@@ -3,7 +3,7 @@
 public class DamageQueue : IDamageQueue
 {
     private const int DefaultGarbageCap = 8;
-    private const double DefaultMessinessOnChange = 0;
+    private const double DefaultMessinessOnChange = 1;
     private const double DefaultMessinessInBatch = 0;
     
     private readonly Board _board;
@@ -78,8 +78,8 @@ public class DamageQueue : IDamageQueue
 
     private void PutLineOnBoard()
     {
-        TakeLineFromQueue();
         _board.TakeGarbageLine(_well);
+        TakeLineFromQueue();
         MessinessInBatch();
     }
 
@@ -110,12 +110,12 @@ public class DamageQueue : IDamageQueue
 
     private void MessinessOnChange()
     {
-        if (_messinessOnChange <= _random.NextDouble())  RandomiseWell();
+        if (_messinessOnChange >= _random.NextDouble()) RandomiseWell();
     }
     
     private void MessinessInBatch()
     {
-        if (_messinessInBatch > _random.NextDouble())  RandomiseWell();
+        if (_messinessInBatch >= _random.NextDouble())  RandomiseWell();
     }
     
     private void RandomiseWell()
