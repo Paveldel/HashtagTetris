@@ -6,20 +6,25 @@
 }
 
 .matrix {
-    background-color: black;
-    height: 80vh;
-    width: 40vh;
-    display: flex;
-    flex-direction: row;
+    --board-columns: 10;
+    --board-rows: 20;
 
-    .col {
-        flex: 1 1 1rem;
-        div {
-            position: relative;
-            width: 100%;
-            padding-bottom: 100%;
-        }
-    }
+    --board-width: 40vh;
+    --board-height: 80vh;
+    
+    --cel-width: calc(var(--board-width) / var(--board-columns));
+    --cel-height: calc(var(--board-height) / var(--board-rows));
+    
+    --cel-dimension: min(var(--cel-height),  var(--cel-width));
+    
+    background-color: black;
+    height: var(--board-height);
+    width: var(--board-width);
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(var(--board-rows), var(--cel-dimension));
+    grid-template-columns: repeat(var(--board-columns), var(--cel-dimension));
 }
 
 .next, .hold-container {
