@@ -37,11 +37,11 @@ public class Gravity
         }
     }
 
-    public void Reset()
+    public void Reset(bool isPieceOnGround)
     {
+        UpdateLock(isPieceOnGround);
         _resetsLeft = MaxAmountOfResets;
-        _onGround = false;
-        _lockTimer = long.MaxValue;
+        _onGround = isPieceOnGround;
         _nextStep = GetCurrentTime();
         Step();
     }
@@ -58,7 +58,7 @@ public class Gravity
         _nextStep += StepDelay;
         if (!_activePiece!.MoveDown())
         {
-            _nextStep = GetCurrentTime();
+            _nextStep = GetCurrentTime() + StepDelay;
         }
     }
 

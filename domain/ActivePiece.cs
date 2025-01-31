@@ -17,6 +17,7 @@ public class ActivePiece
     {
         _board = board;
         _gravity = gravity;
+        _gravity.SetActivePiece(this);
         _hold = new Hold(pieceData);
         _queue = new SevenBag(pieceData);
         _rotationSystem = new SRS();
@@ -123,7 +124,6 @@ public class ActivePiece
         _queue.AddPiece();
         NextPiece();
         _hold.EnableHold();
-        _gravity.Reset();
     }
 
     private SpinType GetSpinType()
@@ -137,7 +137,6 @@ public class ActivePiece
     {
         if (_isGameOver) return;
         Piece? result = _hold.HoldPiece(_currentPiece);
-        if (!Equals(result, _currentPiece)) _gravity.Reset();
         if (result == null) NextPiece();
         else SetCurrentPiece(result);
     }
@@ -147,6 +146,7 @@ public class ActivePiece
         _currentPiece = piece;
         _currentPiece.X = _board.GetXCenter();
         _currentPiece.Y = _board.GetTop() + 1;
+        _gravity.Reset(IsPieceOnGround());
         if (_board.IntersectPiece(_currentPiece)) GameOver();
     }
 
