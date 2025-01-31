@@ -6,32 +6,32 @@ namespace GUI.Components.Pages;
 
 public partial class Tetris : ComponentBase, IScreen
 {
-    public Game game { get; set; } = new Game();
+    public Game Game { get; set; } = new Game();
 
     protected async void ButtonReleased(KeyboardEventArgs e)
     {
-        game.Input.HandleKeyRelease(e.Code);
-        game.Renderer.UpdateBoardToRender();
+        Game.HandleKeyRelease(e.Code);
+        Game.Renderer.UpdateBoardToRender();
     }
 
     protected async void ButtonPressed(KeyboardEventArgs e)
     {
         if (e.Repeat) return;
-        game.Input.HandleKeyPress(e.Code);
-        game.Renderer.UpdateBoardToRender();
+        Game.HandleKeyPress(e.Code);
+        Game.Renderer.UpdateBoardToRender();
     }
     
     protected override void OnAfterRender(bool firstRender)
     {
         if (firstRender)
         {
-            game.GameLoop.StartLoop(this);
+            Game.StartGame(this);
         }
     }
 
     public void Rerender()
     {
-        game.Renderer.UpdateBoardToRender();
+        Game.Renderer.UpdateBoardToRender();
         StateHasChanged();
     }
 }

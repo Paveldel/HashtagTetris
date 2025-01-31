@@ -2,21 +2,37 @@
 
 public class Game
 {
-    public Board Board { get; set; }
-    public Gravity Gravity { get; set; }
-    public ActivePiece PlayerPiece { get; set; }
-    public BoardRenderer Renderer { get; set; }
-    public Input Input { get; set; }
-    public GameLoop GameLoop { get; set; }
+    public BoardRenderer Renderer { get; }
+    
+    private readonly Board _board;
+    private readonly Gravity _gravity;
+    private readonly ActivePiece _playerPiece;
+    private readonly Input _input;
+    private readonly GameLoop _gameLoop;
 
     public Game()
     {
-        this.Board = new Board();
-        this.Gravity = new Gravity();
-        this.PlayerPiece = new ActivePiece(this.Board, this.Gravity, new SRSPieceData());
-        this.Gravity.SetActivePiece(this.PlayerPiece);
-        this.Renderer = new BoardRenderer(this.Board, this.PlayerPiece);
-        this.Input = new Input(this.PlayerPiece);
-        this.GameLoop = new GameLoop(this.Input, this.Gravity);
+        this._board = new Board();
+        this._gravity = new Gravity();
+        this._playerPiece = new ActivePiece(this._board, this._gravity, new SRSPieceData());
+        this._gravity.SetActivePiece(this._playerPiece);
+        this.Renderer = new BoardRenderer(this._board, this._playerPiece);
+        this._input = new Input(this._playerPiece);
+        this._gameLoop = new GameLoop(this._input, this._gravity);
+    }
+
+    public void HandleKeyPress(string keyCode)
+    {
+        _input.HandleKeyPress(keyCode);
+    }
+
+    public void HandleKeyRelease(string keyCode)
+    {
+        _input.HandleKeyRelease(keyCode);
+    }
+
+    public void StartGame(IScreen updateCallback)
+    {
+        _ = _gameLoop.StartLoop(updateCallback);
     }
 }

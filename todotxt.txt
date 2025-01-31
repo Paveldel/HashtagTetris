@@ -1,4 +1,3 @@
-make game object better encapsulate a player's game
 show the amount of damage queued to player
 Updatable
 appearance delay & line clear delay
