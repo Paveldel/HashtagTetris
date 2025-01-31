@@ -1,5 +1,3 @@
-death handling
-check for PC's
 make game object better encapsulate a player's game
 show the amount of damage queued to player
 Updatable

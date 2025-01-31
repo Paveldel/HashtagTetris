@@ -52,7 +52,7 @@ public class Board : IDamageReceiver
     {
         PlaceBlocksForPiece(piece);
         int amountOfLinesCleared = ClearLines();
-        int damageToSend = _damageCalculator.CalculateDamage(amountOfLinesCleared, spinType, false);
+        int damageToSend = _damageCalculator.CalculateDamage(amountOfLinesCleared, spinType, IsPerfectClear());
         _damageQueue.PiecePlaced(damageToSend, amountOfLinesCleared > 0);
     }
 
@@ -164,5 +164,15 @@ public class Board : IDamageReceiver
                 if (_matrix[j][i] != (int)PieceType.Empty) _matrix[j][i] = (int)PieceType.Garbage;
             }
         }
+    }
+
+    private bool IsPerfectClear()
+    {
+        for (int i = 0; i < _width; i++)
+        {
+            if (_matrix[i][0] != (int)PieceType.Empty) return false;
+        }
+
+        return true;
     }
 }
