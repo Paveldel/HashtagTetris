@@ -1,18 +1,25 @@
 ﻿@page "/"
-@using domain
 @rendermode InteractiveServer
 <div id="game-view" class="tetris99" tabindex="0" @onkeydown="ButtonPressed" @onkeyup="ButtonReleased">
     <div class="hold-container">
         <div class="hold H@(Game.Renderer.Held)"></div>
     </div>
-    <div class="matrix" style="--board-columns: @(Game.Renderer.Matrix.Length); --board-rows: @(Game.Renderer.Matrix[0].Length)">
-        @foreach (int[] col in Game.Renderer.Matrix)
-        {
+    <div class="matrix-container" style="--board-columns: @(Game.Renderer.Matrix.Length); --board-rows: @(Game.Renderer.Matrix[0].Length)">
+        <div class="damage-bar">
+            @for (int i = 0; i < Game.Renderer.AmountOfGarbageQueued(); i++)
+            {
+                <div class="garbage"></div>   
+            }
+        </div>
+        <div class="matrix">
+            @foreach (int[] col in Game.Renderer.Matrix)
+            {
                 @foreach (int block in col.Reverse())
                 {
                     <div class="T@(block) block"></div>
                 }
-        }
+            }
+        </div>
     </div>
     <div class="next">
         @foreach (int preview in Game.Renderer.Previews)

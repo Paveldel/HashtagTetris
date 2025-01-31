@@ -175,4 +175,9 @@ public class Board : IDamageReceiver
 
         return true;
     }
+
+    public int GetAmountOfGarbage()
+    {
+        return _damageQueue.GetQueue().Sum();
+    }
 }

@@ -3,32 +3,45 @@
     grid-template-columns: 10rem min-content 10rem;
     margin: auto;
     width: min-content;
+    background-color: #3c3c3c;
 }
 
-.matrix {
+.matrix-container {
+    display: flex;
+    flex-direction: row;
+
     --board-columns: 10;
     --board-rows: 20;
 
     --board-width: 40vh;
     --board-height: 80vh;
-    
+
     --cel-width: calc(var(--board-width) / var(--board-columns));
     --cel-height: calc(var(--board-height) / var(--board-rows));
-    
+
     --cel-dimension: min(var(--cel-height),  var(--cel-width));
+}
+
+.damage-bar {
+    height: 100%;
+    width: 0.75rem;
+    display: inline-flex;
+    flex-direction: column-reverse;
     
+    .garbage {
+        width: 100%;
+        height: var(--cel-dimension);
+        background-color: red;
+    }
+}
+
+.matrix {
     background-color: black;
-    height: var(--board-height);
-    width: var(--board-width);
-    display: grid;
+    display: inline-grid;
     justify-content: center;
     grid-auto-flow: column;
     grid-template-rows: repeat(var(--board-rows), var(--cel-dimension));
     grid-template-columns: repeat(var(--board-columns), var(--cel-dimension));
-}
-
-.next, .hold-container {
-    background-color: #3c3c3c;
 }
 
 .tetris99 {

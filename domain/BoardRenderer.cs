@@ -88,4 +88,9 @@ public class BoardRenderer
             Previews[i] = previewPieces[i].GetPieceIndex();
         }
     }
+
+    public int AmountOfGarbageQueued()
+    {
+        return _board.GetAmountOfGarbage();
+    }
 }

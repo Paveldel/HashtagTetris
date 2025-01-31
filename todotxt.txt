@@ -1,4 +1,3 @@
-show the amount of damage queued to player
 Updatable
 appearance delay & line clear delay
 clean up the board class
