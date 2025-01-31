@@ -144,8 +144,8 @@ public class ActivePiece
     private void SetCurrentPiece(Piece piece)
     {
         _currentPiece = piece;
-        _currentPiece.X = _board.GetXCenter();
-        _currentPiece.Y = _board.GetTop() + 1;
+        _currentPiece.X += _board.GetXCenter();
+        _currentPiece.Y += _board.GetTop() + 1;
         _gravity.Reset(IsPieceOnGround());
         if (_board.IntersectPiece(_currentPiece)) GameOver();
     }
