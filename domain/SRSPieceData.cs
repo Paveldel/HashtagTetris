@@ -20,8 +20,8 @@ public class SRSPieceData : IPieceData
         return AmountOfPieces;
     }
 
-    public Piece GetPieceByIndex(int index)
+    public Piece? GetPieceByIndex(int index)
     {
-        return Pieces[index].Clone();
+        return Pieces[index]?.Clone() ?? null;
     }
 }

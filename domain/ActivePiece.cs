@@ -137,6 +137,7 @@ public class ActivePiece
     {
         if (_isGameOver) return;
         Piece? result = _hold.HoldPiece(_currentPiece);
+        if (result != null && result.Equals(_currentPiece)) return;
         if (result == null) NextPiece();
         else SetCurrentPiece(result);
     }

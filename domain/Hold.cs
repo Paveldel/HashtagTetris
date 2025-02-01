@@ -11,7 +11,7 @@ public class Hold
         _pieceData = pieceData;
     }
 
-    public Piece HoldPiece(Piece p)
+    public Piece? HoldPiece(Piece p)
     {
         if (!_holdEnabled) return p;
         int temp = _heldPieceIndex;

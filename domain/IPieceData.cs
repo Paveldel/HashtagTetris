@@ -2,6 +2,6 @@
 
 public interface IPieceData
 {
-    public Piece GetPieceByIndex(int index);
+    public Piece? GetPieceByIndex(int index);
     public int GetAmountOfPieces();
 }
