@@ -69,11 +69,12 @@ public class Gravity : IUpdatable
 
     private long GetCurrentTime()
     {
-        return _timer!.GetCurrentTime();
+        return _timer?.GetCurrentTime() ?? 0;
     }
 
     public void SetTimer(ITimer timer)
     {
         _timer = timer;
+        _nextStep = GetCurrentTime() + StepDelay;
     }
 }
