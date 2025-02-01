@@ -17,7 +17,8 @@ public class Game
         this._playerPiece = new ActivePiece(this._board, this._gravity, new SRSPieceData());
         this.Renderer = new BoardRenderer(this._board, this._playerPiece);
         this._input = new Input(this._playerPiece);
-        this._gameLoop = new GameLoop(this._input, this._gravity);
+        this._gameLoop = new GameLoop();
+        _gameLoop.RegisterUpdatable(this._input, this._gravity);
     }
 
     public void HandleKeyPress(string keyCode)
@@ -30,8 +31,9 @@ public class Game
         _input.HandleKeyRelease(keyCode);
     }
 
-    public void StartGame(IScreen updateCallback)
+    public void StartGame(IUpdatable screen)
     {
-        _ = _gameLoop.StartLoop(updateCallback);
+        _gameLoop.RegisterUpdatable(screen);
+        _ = _gameLoop.StartLoop();
     }
 }
