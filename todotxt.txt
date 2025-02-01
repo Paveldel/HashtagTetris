@@ -1,6 +1,4 @@
-Updatable
 appearance delay & line clear delay
-clean up the board class
 add folder structure to domain
 alternate versions of components
 isolate RNG into one place

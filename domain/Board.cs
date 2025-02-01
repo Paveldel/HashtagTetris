@@ -48,10 +48,33 @@ public class Board : IDamageReceiver
         return _matrix[x][y] != 0;
     }
 
+    private readonly List<int> _filledLines = new();
     public void Lock(Piece piece, SpinType spinType)
     {
         PlaceBlocksForPiece(piece);
-        int amountOfLinesCleared = ClearLines();
+        GetFilledLines();
+        HandleDamage(spinType);
+        AnimateClearedLines();
+        ClearFilledLines();
+    }
+
+    private void ClearFilledLines()
+    {
+        while (_filledLines.Any())
+        {
+            ClearLine(_filledLines[0]);
+            _filledLines.RemoveAt(0);
+        }
+    }
+
+    private void AnimateClearedLines()
+    {
+        
+    }
+
+    private void HandleDamage(SpinType spinType)
+    {
+        int amountOfLinesCleared = _filledLines.Count;
         int damageToSend = _damageCalculator.CalculateDamage(amountOfLinesCleared, spinType, IsPerfectClear());
         _damageQueue.PiecePlaced(damageToSend, amountOfLinesCleared > 0);
     }
@@ -64,19 +87,16 @@ public class Board : IDamageReceiver
             _matrix[block.X + piece.X][block.Y + piece.Y] = piece.GetPieceIndex();
         }
     }
-
-    private int ClearLines()
+    
+    private void GetFilledLines()
     {
-        int amountOfLinesCleared = 0;
         for (int i = (_height * 2) - 1; i >= 0; i--)
         {
             if (IsLineFilled(i))
             {
-                ClearLine(i);
-                amountOfLinesCleared++;
+                _filledLines.Add(i);
             }
         }
-        return amountOfLinesCleared;
     }
 
     private bool IsLineFilled(int row)
