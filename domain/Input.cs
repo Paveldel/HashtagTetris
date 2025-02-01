@@ -1,11 +1,12 @@
 ﻿namespace domain;
 
-public class Input(ActivePiece playerPiece)
+public class Input(ActivePiece playerPiece) : IUpdatable
 {
     private long _leftTimer = long.MaxValue;
     private long _rightTimer = long.MaxValue;
     private long _softDropTimer = long.MaxValue;
-    
+    private ITimer _timer;
+
     public void HandleKeyPress(string keyCode)
     {
         if (keyCode == Controls.MoveLeft)
@@ -91,9 +92,8 @@ public class Input(ActivePiece playerPiece)
         }
     }
 
-    public void Update()
+    public void Update(long currentTime)
     {
-        long currentTime = GetCurrentTime();
         UpdateLeftInput(currentTime);
         UpdateRightInput(currentTime);
         UpdateSoftDropInput(currentTime);
@@ -144,8 +144,13 @@ public class Input(ActivePiece playerPiece)
         }
     }
 
-    private static long GetCurrentTime()
+    private long GetCurrentTime()
     {
-        return DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        return _timer.GetCurrentTime();
+    }
+
+    public void SetTimer(ITimer timer)
+    {
+        _timer = timer;
     }
 }

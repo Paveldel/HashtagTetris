@@ -1,6 +1,6 @@
 ﻿namespace domain;
 
-public class Gravity
+public class Gravity : IUpdatable
 {
     private const int MaxAmountOfResets = 10;
     private const long StepDelay = 500;
@@ -9,7 +9,8 @@ public class Gravity
     private int _resetsLeft = MaxAmountOfResets;
     private bool _onGround;
     private long _lockTimer = long.MaxValue;
-    private long _nextStep = GetCurrentTime();
+    private long _nextStep = long.MaxValue;
+    private ITimer? _timer;
 
     private ActivePiece? _activePiece;
 
@@ -46,9 +47,8 @@ public class Gravity
         Step();
     }
 
-    public void Update()
+    public void Update(long currentTime)
     {
-        long currentTime = GetCurrentTime();
         if (_onGround && currentTime > _lockTimer) _activePiece?.LockPiece();
         while (currentTime > _nextStep) Step();
     }
@@ -67,8 +67,13 @@ public class Gravity
         _activePiece = newActivePiece;
     }
 
-    private static long GetCurrentTime()
+    private long GetCurrentTime()
     {
-        return DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        return _timer!.GetCurrentTime();
+    }
+
+    public void SetTimer(ITimer timer)
+    {
+        _timer = timer;
     }
 }

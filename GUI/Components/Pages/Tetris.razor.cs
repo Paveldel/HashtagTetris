@@ -1,12 +1,13 @@
 ﻿using domain;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using ITimer = domain.ITimer;
 
 namespace GUI.Components.Pages;
 
-public partial class Tetris : ComponentBase, IScreen
+public partial class Tetris : ComponentBase, IUpdatable
 {
-    public Game Game { get; set; } = new Game();
+    private Game Game { get; set; } = new Game();
 
     protected async void ButtonReleased(KeyboardEventArgs e)
     {
@@ -29,9 +30,11 @@ public partial class Tetris : ComponentBase, IScreen
         }
     }
 
-    public void Rerender()
+    public void Update(long currentTime)
     {
         Game.Renderer.UpdateBoardToRender();
         StateHasChanged();
     }
+
+    public void SetTimer(ITimer timer) { }
 }
