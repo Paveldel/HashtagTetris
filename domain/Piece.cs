@@ -43,25 +43,19 @@ public class Piece(Block[] blocks, int x, int y, PieceType typeIndex, int rotInd
         return rotatedPiece;
     }
 
-    public Piece MoveLeft()
+    public void MoveLeft()
     {
-        Piece movedPiece = Clone();
-        movedPiece.X--;
-        return movedPiece;
+        X--;
     }
     
-    public Piece MoveRight()
+    public void MoveRight()
     {
-        Piece movedPiece = Clone();
-        movedPiece.X++;
-        return movedPiece;
+        X++;
     }
     
-    public Piece MoveDown()
+    public void MoveDown()
     {
-        Piece movedPiece = Clone();
-        movedPiece.Y--;
-        return movedPiece;
+        Y--;
     }
 
     protected bool Equals(Piece other)

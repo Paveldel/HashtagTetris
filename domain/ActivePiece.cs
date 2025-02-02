@@ -52,20 +52,23 @@ public class ActivePiece
 
     public bool MoveDown()
     {
-        Piece movedPiece = _currentPiece.MoveDown();
-        return TryToMove(movedPiece);
+        Piece pieceToMove = _currentPiece.Clone();
+        pieceToMove.MoveDown();
+        return TryToMove(pieceToMove);
     }
     
     public bool MoveLeft()
     {
-        Piece movedPiece = _currentPiece.MoveLeft();
-        return TryToMove(movedPiece);
+        Piece pieceToMove = _currentPiece.Clone();
+        pieceToMove.MoveLeft();;
+        return TryToMove(pieceToMove);
     }
     
     public bool MoveRight()
     {
-        Piece movedPiece = _currentPiece.MoveRight();
-        return TryToMove(movedPiece);
+        Piece pieceToMove = _currentPiece.Clone();
+        pieceToMove.MoveRight();
+        return TryToMove(pieceToMove);
     }
 
     private bool TryToMove(Piece movedPiece)
@@ -88,7 +91,9 @@ public class ActivePiece
 
     private bool IsPieceOnGround()
     {
-        return _board.IntersectPiece(_currentPiece.MoveDown());
+        Piece downPiece = _currentPiece.Clone();
+        downPiece.MoveDown();
+        return _board.IntersectPiece(downPiece);
     }
 
     public bool Rotate(Rotation rotation)
@@ -103,10 +108,11 @@ public class ActivePiece
     public Piece DeepDrop()
     {
         Piece nextStep = _currentPiece.Clone();
-        while (!_board.IntersectPiece(nextStep.MoveDown()))
+        while (!_board.IntersectPiece(nextStep))
         {
-            nextStep = nextStep.MoveDown();
+            nextStep.MoveDown();
         }
+        nextStep.Y++;
         return nextStep;
     }
 
