@@ -2,7 +2,7 @@
 
 public class Board : IDamageReceiver, IUpdatable
 {
-    private static readonly long LineClearDelay = 500;
+    private static readonly long LineClearDelay = 0;
     
     private readonly int _width = 10;
     private readonly int _height = 20;
@@ -15,6 +15,7 @@ public class Board : IDamageReceiver, IUpdatable
     private ITimer _timer;
     private bool _inAnimation = false;
     private long _lineClearDelay = 0;
+    public long CurrentDelay { get; private set; }
 
     public Board()
     {
@@ -75,11 +76,18 @@ public class Board : IDamageReceiver, IUpdatable
 
     private void AnimateClearedLines()
     {
-        if (LineClearDelay > 0 || _filledLines.Count == 0) return;
+        CurrentDelay = 0;
         _inAnimation = true;
-        _lineClearDelay = _timer.GetCurrentTime() + LineClearDelay;
+        if (LineClearDelay == 0 || _filledLines.Count == 0) return;
+        CurrentDelay = LineClearDelay;
+        _lineClearDelay = _timer.GetCurrentTime() + CurrentDelay;
 
         MakeClearedLinesWhite();
+    }
+
+    public long GetCurrentDelay()
+    {
+        return CurrentDelay;
     }
 
     private void MakeClearedLinesWhite()
@@ -224,6 +232,7 @@ public class Board : IDamageReceiver, IUpdatable
 
     public void Update(long currentTime)
     {
+        Console.WriteLine(_lineClearDelay - currentTime);
         if (_inAnimation && _lineClearDelay <= currentTime)
         {
             ClearFilledLines();

@@ -2,7 +2,7 @@
 
 public class ActivePiece : IUpdatable
 {
-    private const long AppearanceDelay = 500;
+    private const long AppearanceDelay = 0;
     
     private readonly IPieceQueue _queue;
     private readonly Hold _hold;
@@ -153,7 +153,7 @@ public class ActivePiece : IUpdatable
     {
         _inDelay = true;
         long currentTime = _timer.GetCurrentTime();
-        _appearanceDelay = currentTime + AppearanceDelay;
+        _appearanceDelay = currentTime + AppearanceDelay + _board.GetCurrentDelay();
         Update(_timer.GetCurrentTime());
     }
 
