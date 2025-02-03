@@ -36,7 +36,7 @@ public class ActivePiece : IUpdatable
         _board = board;
         _gravity = gravity;
         _gravity.SetActivePiece(this);
-        _hold = new NeverHold();
+        _hold = new Hold(pieceData);
         _queue = new SevenBag(pieceData);
         _rotationSystem = new SRS();
         _spinDetector = new FourCorner();

@@ -43,9 +43,14 @@ public class SevenBag : IPieceQueue
         List<Piece> bag = new();
         for (int i = 0; i < _pieceData.GetAmountOfPieces(); i++)
         {
-            bag.Add(_pieceData.GetPieceByIndex(i + 1));
+            AddPieceToBag(bag, i);
         }
         return bag;
+    }
+
+    protected virtual void AddPieceToBag(List<Piece> bag, int i)
+    {
+        bag.Add(_pieceData.GetPieceByIndex(i + 1)!);
     }
 
     public Piece GetNextPiece()
