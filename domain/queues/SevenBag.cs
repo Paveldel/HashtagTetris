@@ -3,27 +3,23 @@ using domain.piecedata;
 
 namespace domain.queues;
 
-public class SevenBag : IPieceQueue
+public class SevenBag : AbstractQueue
 {
-    private const int AmountOfStarting = 10;
-
-    private readonly IPieceData _pieceData;
+    private const int AmountOfStartingBags = 10;
     
-    private readonly List<Piece> _queue = new();
     private readonly Random _random = new();
 
-    public SevenBag(IPieceData pieceData)
+    public SevenBag(IPieceData pieceData) : base(pieceData)
     {
-        _pieceData = pieceData;
-        for (int i = 0; i < AmountOfStarting; i++)
+        for (int i = 0; i < AmountOfStartingBags; i++)
         {
             AddPiece();
         }
     }
 
-    public void AddPiece()
+    public override void AddPiece()
     {
-        if (_queue.Count > 100) return;
+        if (Queue.Count > 100) return;
         List<Piece> bag = GetPieceBag();
         while (bag.Count != 0)
         {
@@ -34,14 +30,14 @@ public class SevenBag : IPieceQueue
     private void PutRandomPieceInQueue(List<Piece> bag)
     {
         int randomIndex = _random.Next(0, bag.Count);
-        _queue.Add(bag.ElementAt(randomIndex));
+        Queue.Add(bag.ElementAt(randomIndex));
         bag.RemoveAt(randomIndex);
     }
 
     private List<Piece> GetPieceBag()
     {
         List<Piece> bag = new();
-        for (int i = 0; i < _pieceData.GetAmountOfPieces(); i++)
+        for (int i = 0; i < PieceData.GetAmountOfPieces(); i++)
         {
             AddPieceToBag(bag, i);
         }
@@ -50,23 +46,6 @@ public class SevenBag : IPieceQueue
 
     protected virtual void AddPieceToBag(List<Piece> bag, int i)
     {
-        bag.Add(_pieceData.GetPieceByIndex(i + 1)!);
-    }
-
-    public Piece GetNextPiece()
-    {
-        Piece nextPiece = _queue.ElementAt(0);
-        _queue.RemoveAt(0);
-        return nextPiece;
-    }
-
-    public Piece[] GetPiecePreviews(int amountOfPreviews)
-    {
-        Piece[] previews = new Piece[amountOfPreviews];
-        for (int i = 0; i < amountOfPreviews; i++)
-        {
-            previews[i] = _queue.ElementAt(i);
-        }
-        return previews;
+        bag.Add(PieceData.GetPieceByIndex(i + 1)!);
     }
 }
