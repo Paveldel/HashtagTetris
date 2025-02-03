@@ -1,4 +1,7 @@
-﻿namespace domain;
+﻿using domain.data;
+using domain.piecedata;
+
+namespace domain.queues;
 
 public class SevenBag : IPieceQueue
 {

@@ -1,4 +1,11 @@
-﻿namespace domain;
+﻿using domain.damage;
+using domain.damage.calculator;
+using domain.damage.queue;
+using domain.data;
+using domain.timer;
+using ITimer = domain.timer.ITimer;
+
+namespace domain;
 
 public class Board : IDamageReceiver, IUpdatable
 {

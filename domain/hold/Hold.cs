@@ -1,4 +1,7 @@
-﻿namespace domain;
+﻿using domain.data;
+using domain.piecedata;
+
+namespace domain.hold;
 
 public class Hold
 {

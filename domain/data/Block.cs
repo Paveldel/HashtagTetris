@@ -1,4 +1,4 @@
-﻿namespace domain;
+﻿namespace domain.data;
 
 public class Block
 {

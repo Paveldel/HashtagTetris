@@ -1,4 +1,4 @@
-﻿namespace domain;
+﻿namespace domain.damage.queue;
 
 public class DamageQueue : IDamageQueue
 {

@@ -1,6 +1,8 @@
-﻿namespace domain;
+﻿using domain.data;
 
-public class SRSPieceData : IPieceData
+namespace domain.piecedata;
+
+public class SrsPieceData : IPieceData
 {
     private const int AmountOfPieces = 7;
 

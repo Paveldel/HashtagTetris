@@ -1,7 +1,8 @@
 ﻿using domain;
+using domain.timer;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using ITimer = domain.ITimer;
+using ITimer = domain.timer.ITimer;
 
 namespace GUI.Components.Pages;
 

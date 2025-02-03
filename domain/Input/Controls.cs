@@ -1,4 +1,4 @@
-﻿namespace domain;
+﻿namespace domain.Input;
 
 public class Controls
 {

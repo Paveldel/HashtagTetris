@@ -1,10 +1,9 @@
-appearance delay & line clear delay
 add folder structure to domain
 alternate versions of components
+make factory class for a game with all config
 isolate RNG into one place
 Game data and report
 Game sound
-make factory class for a game with all config
 create some gameMode logic
 create some online play logic
 work on gui for settings

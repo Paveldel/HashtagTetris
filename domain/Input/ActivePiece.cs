@@ -1,4 +1,13 @@
-﻿namespace domain;
+﻿using domain.data;
+using domain.hold;
+using domain.piecedata;
+using domain.queues;
+using domain.rotationsystem;
+using domain.spindetectors;
+using domain.timer;
+using ITimer = domain.timer.ITimer;
+
+namespace domain.Input;
 
 public class ActivePiece : IUpdatable
 {

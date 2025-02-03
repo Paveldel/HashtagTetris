@@ -1,4 +1,7 @@
-﻿namespace domain;
+﻿using domain.data;
+using domain.Input;
+
+namespace domain;
 
 public class BoardRenderer
 {

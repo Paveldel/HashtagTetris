@@ -1,4 +1,8 @@
-﻿namespace domain;
+﻿using domain.Input;
+using domain.piecedata;
+using domain.timer;
+
+namespace domain;
 
 public class Game
 {
@@ -7,16 +11,16 @@ public class Game
     private readonly Board _board;
     private readonly Gravity _gravity;
     private readonly ActivePiece _playerPiece;
-    private readonly Input _input;
+    private readonly Input.Input _input;
     private readonly GameLoop _gameLoop;
 
     public Game()
     {
         _board = new Board();
         _gravity = new Gravity();
-        _playerPiece = new ActivePiece(this._board, this._gravity, new SRSPieceData());
+        _playerPiece = new ActivePiece(this._board, this._gravity, new SrsPieceData());
         this.Renderer = new BoardRenderer(this._board, this._playerPiece);
-        _input = new Input(this._playerPiece);
+        _input = new Input.Input(this._playerPiece);
         _gameLoop = new GameLoop();
         _gameLoop.RegisterUpdatable(_input, _gravity, _playerPiece, _board);
         _playerPiece.Start(2000);

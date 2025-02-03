@@ -1,4 +1,6 @@
-﻿namespace domain;
+﻿using domain.data;
+
+namespace domain.spindetectors;
 
 public class FourCorner : ISpinDetector
 {

@@ -1,4 +1,4 @@
-﻿namespace domain;
+﻿namespace domain.damage.calculator;
 
 public class GuideLineDamageCalculator : IDamageCalculator
 {

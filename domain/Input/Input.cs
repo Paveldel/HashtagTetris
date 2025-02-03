@@ -1,4 +1,7 @@
-﻿namespace domain;
+﻿using domain.timer;
+using ITimer = domain.timer.ITimer;
+
+namespace domain.Input;
 
 public class Input(ActivePiece playerPiece) : IUpdatable
 {

@@ -1,4 +1,4 @@
-﻿namespace domain;
+﻿namespace domain.timer;
 
 public class GameLoop() : ITimer
 {

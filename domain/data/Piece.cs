@@ -1,4 +1,4 @@
-﻿namespace domain;
+﻿namespace domain.data;
 
 public class Piece(Block[] blocks, int x, int y, PieceType typeIndex, int rotIndex = 0)
 {

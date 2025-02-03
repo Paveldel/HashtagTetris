@@ -1,4 +1,6 @@
-﻿namespace domain;
+﻿using domain.data;
+
+namespace domain.queues;
 
 public interface IPieceQueue
 {
