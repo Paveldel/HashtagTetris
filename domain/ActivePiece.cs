@@ -18,6 +18,9 @@ public class ActivePiece : IUpdatable
     private ITimer _timer;
     private long _appearanceDelay = long.MaxValue;
     private bool _inDelay = true;
+
+    private int _initialRotation = 0;
+    private bool _initialHold = false;
     
     public ActivePiece(Board board, Gravity gravity, IPieceData pieceData)
     {
@@ -78,6 +81,7 @@ public class ActivePiece : IUpdatable
 
     private bool TryToMove(Piece movedPiece)
     {
+        if (_inDelay) return false;
         if (!_board.IntersectPiece(movedPiece))
         {
             _spin = false;
@@ -103,11 +107,18 @@ public class ActivePiece : IUpdatable
 
     public bool Rotate(Rotation rotation)
     {
+        if (_inDelay) return UpdateInitialRotation(rotation);
         Piece rotatedPiece = _rotationSystem.RotatePiece(_currentPiece, _board, rotation);
         if (Equals(rotatedPiece, _currentPiece)) return false;
         ReplacePiece(rotatedPiece);
         _spin = true;
         return true;
+    }
+
+    private bool UpdateInitialRotation(Rotation rotation)
+    {
+        _initialRotation = ((int)rotation + _initialRotation) % 4;
+        return false;
     }
 
     public Piece DeepDrop()
@@ -123,6 +134,7 @@ public class ActivePiece : IUpdatable
 
     public void HardDrop()
     {
+        if (_inDelay) return;
         _currentPiece = DeepDrop();
         LockPiece();
     }
@@ -155,6 +167,12 @@ public class ActivePiece : IUpdatable
     public void Hold()
     {
         if (_isGameOver) return;
+        if (_inDelay)
+        {
+            _initialHold = true;
+            return;
+        }
+        
         Piece? result = _hold.HoldPiece(_currentPiece);
         if (result != null && result.Equals(_currentPiece)) return;
         if (result == null) NextPiece();
@@ -193,6 +211,10 @@ public class ActivePiece : IUpdatable
         {
             NextPiece();
             _inDelay = false;
+            if (_initialHold) Hold();
+            if (_initialRotation != 0) Rotate((Rotation)_initialRotation);
+            _initialRotation = 0;
+            _initialHold = false;
         }
     }
 
