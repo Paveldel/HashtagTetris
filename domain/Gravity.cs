@@ -49,6 +49,7 @@ public class Gravity : IUpdatable
 
     public void Update(long currentTime)
     {
+        if ((bool)_activePiece?.InDelay()) return;
         if (_onGround && currentTime > _lockTimer) _activePiece?.LockPiece();
         while (currentTime > _nextStep) Step();
     }

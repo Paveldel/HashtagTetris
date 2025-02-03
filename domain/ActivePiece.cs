@@ -1,7 +1,9 @@
 ﻿namespace domain;
 
-public class ActivePiece
+public class ActivePiece : IUpdatable
 {
+    private const long AppearanceDelay = 500;
+    
     private readonly IPieceQueue _queue;
     private readonly Hold _hold;
     private readonly IRotationSystem _rotationSystem;
@@ -13,6 +15,10 @@ public class ActivePiece
     private Piece _currentPiece;
     private bool _isGameOver = false;
 
+    private ITimer _timer;
+    private long _appearanceDelay = long.MaxValue;
+    private bool _inDelay = true;
+    
     public ActivePiece(Board board, Gravity gravity, IPieceData pieceData)
     {
         _board = board;
@@ -22,7 +28,6 @@ public class ActivePiece
         _queue = new SevenBag(pieceData);
         _rotationSystem = new SRS();
         _spinDetector = new FourCorner();
-        NextPiece();
     }
 
     public Piece GetPiece()
@@ -60,7 +65,7 @@ public class ActivePiece
     public bool MoveLeft()
     {
         Piece pieceToMove = _currentPiece.Clone();
-        pieceToMove.MoveLeft();;
+        pieceToMove.MoveLeft();
         return TryToMove(pieceToMove);
     }
     
@@ -128,8 +133,16 @@ public class ActivePiece
         var spinType = GetSpinType();
         _board.Lock(_currentPiece, spinType);
         _queue.AddPiece();
-        NextPiece();
         _hold.EnableHold();
+        SetAppearanceDelay();
+    }
+
+    private void SetAppearanceDelay()
+    {
+        _inDelay = true;
+        long currentTime = _timer.GetCurrentTime();
+        _appearanceDelay = currentTime + AppearanceDelay;
+        Update(_timer.GetCurrentTime());
     }
 
     private SpinType GetSpinType()
@@ -167,5 +180,29 @@ public class ActivePiece
     public bool HasPlayerLost()
     {
         return _isGameOver;
+    }
+
+    public void Start(long startingDelay)
+    {
+        _appearanceDelay = _timer.GetCurrentTime() + startingDelay;
+    }
+
+    public void Update(long currentTime)
+    {
+        if (_inDelay && _appearanceDelay <= currentTime)
+        {
+            NextPiece();
+            _inDelay = false;
+        }
+    }
+
+    public void SetTimer(ITimer timer)
+    {
+        _timer = timer;
+    }
+
+    public bool InDelay()
+    {
+        return _inDelay;
     }
 }

@@ -18,7 +18,8 @@ public class Game
         this.Renderer = new BoardRenderer(this._board, this._playerPiece);
         this._input = new Input(this._playerPiece);
         this._gameLoop = new GameLoop();
-        _gameLoop.RegisterUpdatable(this._input, this._gravity);
+        _gameLoop.RegisterUpdatable(this._input, this._gravity, _playerPiece);
+        _playerPiece.Start(1000);
     }
 
     public void HandleKeyPress(string keyCode)
