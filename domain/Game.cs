@@ -19,7 +19,7 @@ public class Game
         _input = new Input(this._playerPiece);
         _gameLoop = new GameLoop();
         _gameLoop.RegisterUpdatable(_input, _gravity, _playerPiece, _board);
-        _playerPiece.Start(1000);
+        _playerPiece.Start(2000);
     }
 
     public void HandleKeyPress(string keyCode)

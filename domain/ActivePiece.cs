@@ -12,7 +12,7 @@ public class ActivePiece : IUpdatable
     private readonly ISpinDetector _spinDetector;
     
     private bool _spin;
-    private Piece _currentPiece;
+    private Piece _currentPiece = new Piece([], 0, 0, 0);
     private bool _isGameOver = false;
 
     private ITimer _timer;

@@ -232,7 +232,6 @@ public class Board : IDamageReceiver, IUpdatable
 
     public void Update(long currentTime)
     {
-        Console.WriteLine(_lineClearDelay - currentTime);
         if (_inAnimation && _lineClearDelay <= currentTime)
         {
             ClearFilledLines();
