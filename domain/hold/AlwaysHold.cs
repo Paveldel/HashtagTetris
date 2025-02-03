@@ -3,23 +3,20 @@ using domain.piecedata;
 
 namespace domain.hold;
 
-public class Hold(IPieceData pieceData) : IHold
+public class AlwaysHold(IPieceData pieceData) : IHold
 {
     private int _heldPieceIndex;
-    private bool _holdEnabled = true;
 
     public Piece? HoldPiece(Piece p)
     {
-        if (!_holdEnabled) return p;
         int temp = _heldPieceIndex;
         _heldPieceIndex = p.GetPieceIndex();
-        _holdEnabled = false;
         return pieceData.GetPieceByIndex(temp);
     }
 
     public bool IsEnabled()
     {
-        return _holdEnabled;
+        return true;
     }
 
     public int GetHeldPieceType()
@@ -27,8 +24,5 @@ public class Hold(IPieceData pieceData) : IHold
         return _heldPieceIndex;
     }
 
-    public void EnableHold()
-    {
-        _holdEnabled = true;
-    }
+    public void EnableHold() { }
 }

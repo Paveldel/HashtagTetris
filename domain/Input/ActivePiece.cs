@@ -14,7 +14,7 @@ public class ActivePiece : IUpdatable
     private const long AppearanceDelay = 0;
     
     private readonly IPieceQueue _queue;
-    private readonly Hold _hold;
+    private readonly IHold _hold;
     private readonly IRotationSystem _rotationSystem;
     private readonly Board _board;
     private readonly Gravity _gravity;
@@ -36,7 +36,7 @@ public class ActivePiece : IUpdatable
         _board = board;
         _gravity = gravity;
         _gravity.SetActivePiece(this);
-        _hold = new Hold(pieceData);
+        _hold = new NeverHold();
         _queue = new SevenBag(pieceData);
         _rotationSystem = new SRS();
         _spinDetector = new FourCorner();
