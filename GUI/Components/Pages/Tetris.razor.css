@@ -86,6 +86,10 @@
         background-image: url("./media/tetris99/blocks/Garbage.png");
     }
 
+    .T9 {
+        background-color: white;
+    }
+
     .T-1 {
         background-image: url("./media/tetris99/blocks/ShadowI.png");
     }
