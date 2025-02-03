@@ -17,5 +17,6 @@ public enum PieceType
     ShadowJ = -5,
     ShadowS = -6,
     ShadowZ = -7,
-    Garbage = 8
+    Garbage = 8,
+    ClearingLine = 9
 }

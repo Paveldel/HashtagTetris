@@ -12,13 +12,13 @@ public class Game
 
     public Game()
     {
-        this._board = new Board();
-        this._gravity = new Gravity();
-        this._playerPiece = new ActivePiece(this._board, this._gravity, new SRSPieceData());
+        _board = new Board();
+        _gravity = new Gravity();
+        _playerPiece = new ActivePiece(this._board, this._gravity, new SRSPieceData());
         this.Renderer = new BoardRenderer(this._board, this._playerPiece);
-        this._input = new Input(this._playerPiece);
-        this._gameLoop = new GameLoop();
-        _gameLoop.RegisterUpdatable(this._input, this._gravity, _playerPiece);
+        _input = new Input(this._playerPiece);
+        _gameLoop = new GameLoop();
+        _gameLoop.RegisterUpdatable(_input, _gravity, _playerPiece, _board);
         _playerPiece.Start(1000);
     }
 

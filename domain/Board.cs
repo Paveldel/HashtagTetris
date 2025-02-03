@@ -1,7 +1,9 @@
 ﻿namespace domain;
 
-public class Board : IDamageReceiver
+public class Board : IDamageReceiver, IUpdatable
 {
+    private static readonly long LineClearDelay = 500;
+    
     private readonly int _width = 10;
     private readonly int _height = 20;
 
@@ -9,6 +11,10 @@ public class Board : IDamageReceiver
     private readonly IDamageQueue _damageQueue;
     
     private int[][] _matrix;
+    
+    private ITimer _timer;
+    private bool _inAnimation = false;
+    private long _lineClearDelay = 0;
 
     public Board()
     {
@@ -55,7 +61,7 @@ public class Board : IDamageReceiver
         GetFilledLines();
         HandleDamage(spinType);
         AnimateClearedLines();
-        ClearFilledLines();
+        Update(_timer.GetCurrentTime());
     }
 
     private void ClearFilledLines()
@@ -69,7 +75,22 @@ public class Board : IDamageReceiver
 
     private void AnimateClearedLines()
     {
-        
+        if (LineClearDelay > 0 || _filledLines.Count == 0) return;
+        _inAnimation = true;
+        _lineClearDelay = _timer.GetCurrentTime() + LineClearDelay;
+
+        MakeClearedLinesWhite();
+    }
+
+    private void MakeClearedLinesWhite()
+    {
+        foreach (var line in _filledLines)
+        {
+            for (int i = 0; i < _width; i++)
+            {
+                _matrix[i][line] = (int)PieceType.ClearingLine;
+            }
+        }
     }
 
     private void HandleDamage(SpinType spinType)
@@ -199,5 +220,18 @@ public class Board : IDamageReceiver
     public int GetAmountOfGarbage()
     {
         return _damageQueue.GetQueue().Sum();
+    }
+
+    public void Update(long currentTime)
+    {
+        if (_inAnimation && _lineClearDelay <= currentTime)
+        {
+            ClearFilledLines();
+        }
+    }
+
+    public void SetTimer(ITimer timer)
+    {
+        _timer = timer;
     }
 }
