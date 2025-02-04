@@ -28,15 +28,15 @@ public class SRS(Board board) : KickRotationSystem(board)
         new[] { new Kick(0, 0), new Kick(2, 0), new Kick(-1, 0), new Kick(2, -1), new Kick(-1, 2) },
     };
     
-    public override Piece RotatePiece(Piece piece, Rotation rotation)
+    public override IPiece RotatePiece(IPiece piece, Rotation rotation)
     {
         if (rotation == Rotation.Reverse) return RotateReverse(piece);
         return RotateNormal(piece, rotation);
     }
 
-    private Piece RotateNormal(Piece piece, Rotation rotation)
+    private IPiece RotateNormal(IPiece piece, Rotation rotation)
     {
-        Piece rotatedPiece = piece.Rotate(rotation);
+        IPiece rotatedPiece = piece.Rotate(rotation);
         int kickIndex = CalculateKickIndex(piece.RotIndex, rotation);
         TryKicks(rotatedPiece, GetKicks(kickIndex, piece.GetPieceIndex()));
         if (KickIndex == FailedRotation) return piece;
@@ -49,9 +49,9 @@ public class SRS(Board board) : KickRotationSystem(board)
         return NormalKicks[kickIndex];
     }
 
-    protected virtual Piece RotateReverse(Piece piece)
+    protected virtual IPiece RotateReverse(IPiece piece)
     {
-        Piece rotatedPiece = piece.Rotate(Rotation.Reverse);
+        IPiece rotatedPiece = piece.Rotate(Rotation.Reverse);
         if (board.IntersectPiece(rotatedPiece)) return piece;
         return rotatedPiece;
     }

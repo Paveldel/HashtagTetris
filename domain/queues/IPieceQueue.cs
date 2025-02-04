@@ -5,6 +5,6 @@ namespace domain.queues;
 public interface IPieceQueue
 {
     void AddPiece();
-    Piece GetNextPiece();
-    Piece[] GetPiecePreviews(int amountOfPreviews);
+    IPiece GetNextPiece();
+    IPiece[] GetPiecePreviews(int amountOfPreviews);
 }

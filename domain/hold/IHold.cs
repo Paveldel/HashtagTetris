@@ -4,7 +4,7 @@ namespace domain.hold;
 
 public interface IHold
 {
-    public Piece? HoldPiece(Piece p);
+    public IPiece? HoldPiece(IPiece p);
     public bool IsEnabled();
     public void EnableHold();
     public int GetHeldPieceType();

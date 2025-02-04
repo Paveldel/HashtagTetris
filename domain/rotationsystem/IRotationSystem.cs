@@ -4,6 +4,6 @@ namespace domain.rotationsystem;
 
 public interface IRotationSystem
 {
-    public Piece RotatePiece(Piece piece, Rotation rotation);
+    public IPiece RotatePiece(IPiece piece, Rotation rotation);
     public int GetLastUsedKickIndex();
 }

@@ -8,14 +8,14 @@ public abstract class KickRotationSystem(Board board) : IRotationSystem
     
     protected int KickIndex = 0;
     
-    public abstract Piece RotatePiece(Piece piece, Rotation rotation);
+    public abstract IPiece RotatePiece(IPiece piece, Rotation rotation);
 
     public int GetLastUsedKickIndex()
     {
         return KickIndex;
     }
 
-    protected void TryKicks(Piece piece, Kick[] kicksToTry)
+    protected void TryKicks(IPiece piece, Kick[] kicksToTry)
     {
         for (KickIndex = 0; KickIndex < kicksToTry.Length; KickIndex++)
         {
@@ -28,13 +28,13 @@ public abstract class KickRotationSystem(Board board) : IRotationSystem
         KickIndex = FailedRotation;
     }
 
-    private void ApplyKick(Piece piece, Kick kick)
+    private void ApplyKick(IPiece piece, Kick kick)
     {
         piece.X += kick.X;
         piece.Y += kick.Y;
     }
 
-    private void RemoveKick(Piece piece, Kick kick)
+    private void RemoveKick(IPiece piece, Kick kick)
     {
         piece.X -= kick.X;
         piece.Y -= kick.Y;

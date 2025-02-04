@@ -18,7 +18,7 @@ public class FourCorner : ISpinDetector
         new []{new Block(1, 1, false), new Block(-1, 0, false), new Block(2, 0, false), new Block(-2, 1, false)}
     };
     
-    public SpinType DetectSpin(Piece piece, Board board, int lastKick)
+    public SpinType DetectSpin(IPiece piece, Board board, int lastKick)
     {
         int corners = 0, importantCorners = 0;
         for (int i = 0; i < _corners[piece.GetPieceIndex()].Length; i++)
@@ -45,7 +45,7 @@ public class FourCorner : ISpinDetector
         return SpinType.NoSpin;
     }
 
-    private Block CenterCorner(Piece piece, Block corner)
+    private Block CenterCorner(IPiece piece, Block corner)
     {
         Block rotatedCorner = corner.Rotate((Rotation)piece.RotIndex);
         Block centeredCorner = new Block(rotatedCorner.X + piece.X, rotatedCorner.Y + piece.Y, corner.Centered);

@@ -4,5 +4,5 @@ namespace domain.spindetectors;
 
 public interface ISpinDetector
 {
-    public SpinType DetectSpin(Piece piece, Board board, int lastKick);
+    public SpinType DetectSpin(IPiece piece, Board board, int lastKick);
 }

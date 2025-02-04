@@ -1,14 +1,12 @@
 ﻿namespace domain.data;
 
-public class Piece(Block[] blocks, int x, int y, PieceType typeIndex, int rotIndex = 0)
+public class Piece(Block[] blocks, int x, int y, PieceType typeIndex, int rotIndex = 0) : IPiece
 {
     public int X { get; set; } = x;
     public int Y { get; set; } = y;
 
     public int RotIndex { get; private set; } = rotIndex;
 
-    private readonly PieceType _typeIndex = typeIndex;
-    
     private readonly Block[] _blocks = blocks;
 
     public Block[] GetBlocks()
@@ -18,10 +16,10 @@ public class Piece(Block[] blocks, int x, int y, PieceType typeIndex, int rotInd
 
     public int GetPieceIndex()
     {
-        return (int)_typeIndex;
+        return (int)typeIndex;
     }
 
-    public Piece Clone()
+    public IPiece Clone()
     {
         Block[] copyBlocks = new Block[_blocks.Length];
         for (int i = 0; i < _blocks.Length; i++)
@@ -29,12 +27,12 @@ public class Piece(Block[] blocks, int x, int y, PieceType typeIndex, int rotInd
             copyBlocks[i] = _blocks[i].Clone();
         }
 
-        return new Piece(copyBlocks, X, Y, _typeIndex, RotIndex);
+        return new Piece(copyBlocks, X, Y, typeIndex, RotIndex);
     }
 
-    public Piece Rotate(Rotation rotation)
+    public IPiece Rotate(Rotation rotation)
     {
-        Piece rotatedPiece = Clone();
+        Piece rotatedPiece = (Piece)Clone();
         for (int i = 0; i < _blocks.Length; i++)
         {
             rotatedPiece._blocks[i] = rotatedPiece._blocks[i].Rotate(rotation);
@@ -58,9 +56,9 @@ public class Piece(Block[] blocks, int x, int y, PieceType typeIndex, int rotInd
         Y--;
     }
 
-    protected bool Equals(Piece other)
+    protected bool Equals(IPiece other)
     {
-        return _typeIndex == other._typeIndex && _blocks.Equals(other._blocks) && X == other.X && Y == other.Y && RotIndex == other.RotIndex;
+        return _blocks.Equals(other.GetBlocks()) && X == other.X && Y == other.Y && RotIndex == other.RotIndex;
     }
 
     public override bool Equals(object? obj)
@@ -73,6 +71,6 @@ public class Piece(Block[] blocks, int x, int y, PieceType typeIndex, int rotInd
 
     public override int GetHashCode()
     {
-        return HashCode.Combine((int)_typeIndex, _blocks, X, Y, RotIndex);
+        return HashCode.Combine(_blocks, X, Y, RotIndex);
     }
 }

@@ -21,7 +21,7 @@ public class ActivePiece : IUpdatable
     private readonly ISpinDetector _spinDetector;
     
     private bool _spin;
-    private Piece _currentPiece = new Piece([], 0, 0, 0);
+    private IPiece _currentPiece = new Piece([], 0, 0, 0);
     private bool _isGameOver = false;
 
     private ITimer _timer;
@@ -42,12 +42,12 @@ public class ActivePiece : IUpdatable
         _spinDetector = new OnlyT();
     }
 
-    public Piece GetPiece()
+    public IPiece GetPiece()
     {
         return _currentPiece;
     }
     
-    public Piece[] GetNextPieces(int amountOfNextPieces)
+    public IPiece[] GetNextPieces(int amountOfNextPieces)
     {
         return _queue.GetPiecePreviews(amountOfNextPieces);
     }
@@ -69,26 +69,26 @@ public class ActivePiece : IUpdatable
 
     public bool MoveDown()
     {
-        Piece pieceToMove = _currentPiece.Clone();
+        IPiece pieceToMove = _currentPiece.Clone();
         pieceToMove.MoveDown();
         return TryToMove(pieceToMove);
     }
     
     public bool MoveLeft()
     {
-        Piece pieceToMove = _currentPiece.Clone();
+        IPiece pieceToMove = _currentPiece.Clone();
         pieceToMove.MoveLeft();
         return TryToMove(pieceToMove);
     }
     
     public bool MoveRight()
     {
-        Piece pieceToMove = _currentPiece.Clone();
+        IPiece pieceToMove = _currentPiece.Clone();
         pieceToMove.MoveRight();
         return TryToMove(pieceToMove);
     }
 
-    private bool TryToMove(Piece movedPiece)
+    private bool TryToMove(IPiece movedPiece)
     {
         if (_inDelay) return false;
         if (!_board.IntersectPiece(movedPiece))
@@ -101,7 +101,7 @@ public class ActivePiece : IUpdatable
         return false;
     }
 
-    private void ReplacePiece(Piece movedPiece)
+    private void ReplacePiece(IPiece movedPiece)
     {
         _currentPiece = movedPiece;
         _gravity.PieceMoved(IsPieceOnGround());
@@ -109,7 +109,7 @@ public class ActivePiece : IUpdatable
 
     private bool IsPieceOnGround()
     {
-        Piece downPiece = _currentPiece.Clone();
+        IPiece downPiece = _currentPiece.Clone();
         downPiece.MoveDown();
         return _board.IntersectPiece(downPiece);
     }
@@ -117,7 +117,7 @@ public class ActivePiece : IUpdatable
     public bool Rotate(Rotation rotation)
     {
         if (_inDelay) return UpdateInitialRotation(rotation);
-        Piece rotatedPiece = _rotationSystem.RotatePiece(_currentPiece, rotation);
+        IPiece rotatedPiece = _rotationSystem.RotatePiece(_currentPiece, rotation);
         if (Equals(rotatedPiece, _currentPiece)) return false;
         ReplacePiece(rotatedPiece);
         _spin = true;
@@ -130,9 +130,9 @@ public class ActivePiece : IUpdatable
         return false;
     }
 
-    public Piece DeepDrop()
+    public IPiece DeepDrop()
     {
-        Piece nextStep = _currentPiece.Clone();
+        IPiece nextStep = _currentPiece.Clone();
         while (!_board.IntersectPiece(nextStep))
         {
             nextStep.MoveDown();
@@ -182,13 +182,13 @@ public class ActivePiece : IUpdatable
             return;
         }
         
-        Piece? result = _hold.HoldPiece(_currentPiece);
+        IPiece? result = _hold.HoldPiece(_currentPiece);
         if (result != null && result.Equals(_currentPiece)) return;
         if (result == null) NextPiece();
         else SetCurrentPiece(result);
     }
 
-    private void SetCurrentPiece(Piece piece)
+    private void SetCurrentPiece(IPiece piece)
     {
         _currentPiece = piece;
         _currentPiece.X += _board.GetXCenter();

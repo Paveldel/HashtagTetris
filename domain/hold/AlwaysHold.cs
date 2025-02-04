@@ -7,7 +7,7 @@ public class AlwaysHold(IPieceData pieceData) : IHold
 {
     private int _heldPieceIndex;
 
-    public Piece? HoldPiece(Piece p)
+    public IPiece? HoldPiece(IPiece p)
     {
         int temp = _heldPieceIndex;
         _heldPieceIndex = p.GetPieceIndex();

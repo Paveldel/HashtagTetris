@@ -6,7 +6,7 @@ public class SrsPieceData : IPieceData
 {
     private const int AmountOfPieces = 7;
 
-    private static readonly Piece[] Pieces = [
+    private static readonly IPiece[] Pieces = [
         null!,
         new Piece([new Block(0, 0, true), new Block(1, 0, true), new Block(-1, 0, true), new Block(2, 0, true)], 0, 0, PieceType.I),
         new Piece([new Block(0, 0, false), new Block(1, 0, false), new Block(-1, 0, false), new Block(0, 1, false)], 0, 0, PieceType.T),
@@ -22,7 +22,7 @@ public class SrsPieceData : IPieceData
         return AmountOfPieces;
     }
 
-    public Piece? GetPieceByIndex(int index)
+    public IPiece? GetPieceByIndex(int index)
     {
         return Pieces[index]?.Clone() ?? null;
     }

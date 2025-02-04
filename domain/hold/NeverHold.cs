@@ -4,7 +4,7 @@ namespace domain.hold;
 
 public class NeverHold : IHold
 {
-    public Piece? HoldPiece(Piece p)
+    public IPiece? HoldPiece(IPiece p)
     {
         return p;
     }

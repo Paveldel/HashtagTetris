@@ -13,9 +13,9 @@ public class SRSPlus(Board board) : SRS(board)
         new[] { new Kick(0, 0), new Kick(-1, 0), new Kick(-1, 2), new Kick(-1, 1), new Kick(0, 2), new Kick(0, 1) }
     };
     
-    protected override Piece RotateReverse(Piece piece)
+    protected override IPiece RotateReverse(IPiece piece)
     {
-        Piece rotatedPiece = piece.Rotate(Rotation.Reverse);
+        IPiece rotatedPiece = piece.Rotate(Rotation.Reverse);
         TryKicks(rotatedPiece, ReverseKicks[piece.RotIndex]);
         return KickIndex == FailedRotation ? piece : rotatedPiece;
     }

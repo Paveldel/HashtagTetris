@@ -20,23 +20,23 @@ public class SevenBag : AbstractQueue
     public override void AddPiece()
     {
         if (Queue.Count > 100) return;
-        List<Piece> bag = GetPieceBag();
+        List<IPiece> bag = GetPieceBag();
         while (bag.Count != 0)
         {
             PutRandomPieceInQueue(bag);
         }
     }
 
-    private void PutRandomPieceInQueue(List<Piece> bag)
+    private void PutRandomPieceInQueue(List<IPiece> bag)
     {
         int randomIndex = _random.Next(0, bag.Count);
         Queue.Add(bag.ElementAt(randomIndex));
         bag.RemoveAt(randomIndex);
     }
 
-    private List<Piece> GetPieceBag()
+    private List<IPiece> GetPieceBag()
     {
-        List<Piece> bag = new();
+        List<IPiece> bag = new();
         for (int i = 0; i < PieceData.GetAmountOfPieces(); i++)
         {
             AddPieceToBag(bag, i);
@@ -44,7 +44,7 @@ public class SevenBag : AbstractQueue
         return bag;
     }
 
-    protected virtual void AddPieceToBag(List<Piece> bag, int i)
+    protected virtual void AddPieceToBag(List<IPiece> bag, int i)
     {
         bag.Add(PieceData.GetPieceByIndex(i + 1)!);
     }

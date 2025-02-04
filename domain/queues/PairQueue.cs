@@ -21,16 +21,16 @@ public class PairQueue : AbstractQueue
     public override void AddPiece()
     {
         if (Queue.Count > 100) return;
-        List<Piece> pairs = GeneratePairs();
+        List<IPiece> pairs = GeneratePairs();
         while (pairs.Count != 0)
         {
             PutRandomPieceInQueue(pairs);
         }
     }
 
-    private List<Piece> GeneratePairs()
+    private List<IPiece> GeneratePairs()
     {
-        List<Piece> pair = new();
+        List<IPiece> pair = new();
         int firstPiece = _random.Next(1, PieceData.GetAmountOfPieces());
         int secondPiece = _random.Next(1, PieceData.GetAmountOfPieces() - 1);
         if (secondPiece >= firstPiece) secondPiece++;
@@ -39,7 +39,7 @@ public class PairQueue : AbstractQueue
         return pair;
     }
 
-    private void AddPieceToList(List<Piece> list, int secondPiece)
+    private void AddPieceToList(List<IPiece> list, int secondPiece)
     {
         for (int i = 0; i < AmountOfPairsPerBatch; i++)
         {
@@ -47,7 +47,7 @@ public class PairQueue : AbstractQueue
         }
     }
 
-    private void PutRandomPieceInQueue(List<Piece> bag)
+    private void PutRandomPieceInQueue(List<IPiece> bag)
     {
         int randomIndex = _random.Next(0, bag.Count);
         Queue.Add(bag.ElementAt(randomIndex));

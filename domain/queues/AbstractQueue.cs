@@ -6,7 +6,7 @@ namespace domain.queues;
 public abstract class AbstractQueue : IPieceQueue
 {
     protected readonly IPieceData PieceData;
-    protected readonly List<Piece> Queue = new();
+    protected readonly List<IPiece> Queue = new();
 
     protected AbstractQueue(IPieceData pieceData)
     {
@@ -15,16 +15,16 @@ public abstract class AbstractQueue : IPieceQueue
 
     public abstract void AddPiece();
 
-    public Piece GetNextPiece()
+    public IPiece GetNextPiece()
     {
-        Piece nextPiece = Queue.ElementAt(0);
+        IPiece nextPiece = Queue.ElementAt(0);
         Queue.RemoveAt(0);
         return nextPiece;
     }
 
-    public Piece[] GetPiecePreviews(int amountOfPreviews)
+    public IPiece[] GetPiecePreviews(int amountOfPreviews)
     {
-        Piece[] previews = new Piece[amountOfPreviews];
+        IPiece[] previews = new IPiece[amountOfPreviews];
         for (int i = 0; i < amountOfPreviews; i++)
         {
             previews[i] = Queue.ElementAt(i);

@@ -4,9 +4,9 @@ namespace domain.rotationsystem;
 
 public class NoKicks(Board board) : IRotationSystem
 {
-    public Piece RotatePiece(Piece piece, Rotation rotation)
+    public IPiece RotatePiece(IPiece piece, Rotation rotation)
     {
-        Piece rotatedPiece = piece.Rotate(rotation);
+        IPiece rotatedPiece = piece.Rotate(rotation);
         if (!board.IntersectPiece(rotatedPiece)) return rotatedPiece;
         return piece;
     }

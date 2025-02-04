@@ -45,7 +45,7 @@ public class Board : IDamageReceiver, IUpdatable
         }
     }
 
-    public bool IntersectPiece(Piece piece)
+    public bool IntersectPiece(IPiece piece)
     {
         Block[] blocks = piece.GetBlocks();
         for (int i = 0; i < blocks.Length; i++)
@@ -63,7 +63,7 @@ public class Board : IDamageReceiver, IUpdatable
     }
 
     private readonly List<int> _filledLines = new();
-    public void Lock(Piece piece, SpinType spinType)
+    public void Lock(IPiece piece, SpinType spinType)
     {
         PlaceBlocksForPiece(piece);
         GetFilledLines();
@@ -115,7 +115,7 @@ public class Board : IDamageReceiver, IUpdatable
         _damageQueue.PiecePlaced(damageToSend, amountOfLinesCleared > 0);
     }
 
-    private void PlaceBlocksForPiece(Piece piece)
+    private void PlaceBlocksForPiece(IPiece piece)
     {
         Block[] blocks = piece.GetBlocks();
         foreach (var block in blocks)

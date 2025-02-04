@@ -47,7 +47,7 @@ public class PredefinedQueue : AbstractQueue
         }
     }
 
-    private Piece ConvertCharacterToPiece(char pieceCharacter)
+    private IPiece ConvertCharacterToPiece(char pieceCharacter)
     {
         return PieceData.GetPieceByIndex(CharacterConversion[pieceCharacter])!;
     }

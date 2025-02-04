@@ -21,14 +21,14 @@ public class SRSX(Board board) : SRS(board)
         new[] { new Kick(0, 0), new Kick(0, 1), new Kick(0, 2), new Kick(0, -1), new Kick(0, -2), new Kick(1, 0) },
     };
     
-    protected override Piece RotateReverse(Piece piece)
+    protected override IPiece RotateReverse(IPiece piece)
     {
-        Piece rotatedPiece = piece.Rotate(Rotation.Reverse);
+        IPiece rotatedPiece = piece.Rotate(Rotation.Reverse);
         TryKicks(rotatedPiece, GetReverseKicks(piece));
         return KickIndex == FailedRotation ? piece : rotatedPiece;
     }
 
-    private Kick[] GetReverseKicks(Piece piece)
+    private Kick[] GetReverseKicks(IPiece piece)
     {
         if (piece.GetPieceIndex() == (int)PieceType.I) return IReverseKicks[piece.RotIndex];
         return NormalReverseKicks[piece.RotIndex];

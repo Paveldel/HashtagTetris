@@ -4,6 +4,6 @@ namespace domain.piecedata;
 
 public interface IPieceData
 {
-    public Piece? GetPieceByIndex(int index);
+    public IPiece? GetPieceByIndex(int index);
     public int GetAmountOfPieces();
 }

@@ -8,7 +8,7 @@ public class Hold(IPieceData pieceData) : IHold
     private int _heldPieceIndex;
     private bool _holdEnabled = true;
 
-    public Piece? HoldPiece(Piece p)
+    public IPiece? HoldPiece(IPiece p)
     {
         if (!_holdEnabled) return p;
         int temp = _heldPieceIndex;

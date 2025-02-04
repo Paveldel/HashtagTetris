@@ -33,7 +33,7 @@ public class BoardRenderer
 
     private void ShowPiece(int[][] result)
     {
-        Piece piece = _piece.GetPiece();
+        IPiece piece = _piece.GetPiece();
         Block[] blocks = piece.GetBlocks();
         for (int i = 0; i < blocks.Length; i++)
         {
@@ -43,7 +43,7 @@ public class BoardRenderer
     
     private void ShowShadowPiece(int[][] result)
     {
-        Piece piece = _piece.DeepDrop();
+        IPiece piece = _piece.DeepDrop();
         Block[] blocks = piece.GetBlocks();
         for (int i = 0; i < blocks.Length; i++)
         {
@@ -85,7 +85,7 @@ public class BoardRenderer
     private void GetPreviews()
     {
         Previews = new int[AmountOfPreviews];
-        Piece[] previewPieces = _piece.GetNextPieces(AmountOfPreviews);
+        IPiece[] previewPieces = _piece.GetNextPieces(AmountOfPreviews);
         for (int i = 0; i < AmountOfPreviews; i++)
         {
             Previews[i] = previewPieces[i].GetPieceIndex();
