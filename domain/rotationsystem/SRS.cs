@@ -2,9 +2,8 @@
 
 namespace domain.rotationsystem;
 
-public class SRS : IRotationSystem
+public class SRS : KickRotationSystem
 {
-    private const int AmountOfKicks = 5;
     private const int FailedRotation = -1;
     
     private static readonly Kick[][] NormalKicks = new[]
@@ -31,9 +30,7 @@ public class SRS : IRotationSystem
         new[] { new Kick(0, 0), new Kick(2, 0), new Kick(-1, 0), new Kick(2, -1), new Kick(-1, 2) },
     };
     
-    private int _rotationIndex = 0;
-    
-    public Piece RotatePiece(Piece piece, Board board, Rotation rotation)
+    public override Piece RotatePiece(Piece piece, Board board, Rotation rotation)
     {
         if (rotation == Rotation.Reverse) return RotateReverse(piece, board);
         return RotateNormal(piece, board, rotation);
@@ -43,43 +40,18 @@ public class SRS : IRotationSystem
     {
         Piece rotatedPiece = piece.Rotate(rotation);
         int kickIndex = CalculateKickIndex(piece.RotIndex, rotation);
-        TryKicks(rotatedPiece, board, kickIndex);
-        if (_rotationIndex == FailedRotation) return piece;
+        TryKicks(rotatedPiece, board, GetKicks(kickIndex, piece.GetPieceIndex()));
+        if (KickIndex == FailedRotation) return piece;
         return rotatedPiece;
     }
 
-    private void TryKicks(Piece piece, Board board, int kickIndex)
+    private Kick[] GetKicks(int kickIndex, int pieceType)
     {
-        for (_rotationIndex = 0; _rotationIndex < AmountOfKicks; _rotationIndex++)
-        {
-            Kick nextKick = GetKick(kickIndex, _rotationIndex, piece.GetPieceIndex());
-            ApplyKick(piece, nextKick);
-            if (!board.IntersectPiece(piece)) return;
-            RemoveKick(piece, nextKick);
-        }
-
-        _rotationIndex = FailedRotation;
+        if (pieceType == (int)PieceType.I) return IKicks[kickIndex];
+        return NormalKicks[kickIndex];
     }
 
-    private void ApplyKick(Piece piece, Kick kick)
-    {
-        piece.X += kick.X;
-        piece.Y += kick.Y;
-    }
-    
-    private void RemoveKick(Piece piece, Kick kick)
-    {
-        piece.X -= kick.X;
-        piece.Y -= kick.Y;
-    }
-
-    private Kick GetKick(int kickIndex, int kick, int pieceType)
-    {
-        if (pieceType == (int)PieceType.I) return IKicks[kickIndex][kick];
-        return NormalKicks[kickIndex][kick];
-    }
-
-    private Piece RotateReverse(Piece piece, Board board)
+    protected virtual Piece RotateReverse(Piece piece, Board board)
     {
         Piece rotatedPiece = piece.Rotate(Rotation.Reverse);
         if (board.IntersectPiece(rotatedPiece)) return piece;
@@ -92,10 +64,5 @@ public class SRS : IRotationSystem
         if (rotation == Rotation.AntiClockwise) kickIndex--;
         if (kickIndex < 0) kickIndex += 8;
         return kickIndex;
-    }
-
-    public int LastUsedRotationIndex()
-    {
-        return _rotationIndex;
     }
 }
