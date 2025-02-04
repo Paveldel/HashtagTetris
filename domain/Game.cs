@@ -18,7 +18,7 @@ public class Game
     {
         _board = new Board();
         _gravity = new Gravity();
-        _playerPiece = new ActivePiece(this._board, this._gravity, new SrsPieceData());
+        _playerPiece = new ActivePiece(this._board, this._gravity, new SRSPieceData());
         this.Renderer = new BoardRenderer(this._board, this._playerPiece);
         _input = new Input.Input(this._playerPiece);
         _gameLoop = new GameLoop();
