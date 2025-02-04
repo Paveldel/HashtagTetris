@@ -10,7 +10,7 @@ public abstract class KickRotationSystem : IRotationSystem
     
     public abstract Piece RotatePiece(Piece piece, Board board, Rotation rotation);
 
-    public int LastUsedRotationIndex()
+    public int GetLastUsedKickIndex()
     {
         return KickIndex;
     }

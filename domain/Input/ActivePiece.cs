@@ -169,7 +169,7 @@ public class ActivePiece : IUpdatable
     private SpinType GetSpinType()
     {
         if (!_spin) return SpinType.NoSpin;
-        int lastKick = _rotationSystem.LastUsedRotationIndex();
+        int lastKick = _rotationSystem.GetLastUsedKickIndex();
         return _spinDetector.DetectSpin(_currentPiece, _board, lastKick);
     }
 
