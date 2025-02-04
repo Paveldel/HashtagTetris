@@ -4,7 +4,7 @@ namespace domain.spindetectors;
 
 public class OnlyT : ISpinDetector
 {
-    private ISpinDetector _spinDetector = new FourCorner();
+    private readonly ISpinDetector _spinDetector = new FourCorner();
     
     public SpinType DetectSpin(Piece piece, Board board, int lastKick)
     {
