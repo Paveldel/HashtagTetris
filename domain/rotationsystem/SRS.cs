@@ -4,8 +4,6 @@ namespace domain.rotationsystem;
 
 public class SRS : KickRotationSystem
 {
-    private const int FailedRotation = -1;
-    
     private static readonly Kick[][] NormalKicks = new[]
     {
         new[] { new Kick(0, 0), new Kick(-1, 0), new Kick(-1, 1), new Kick(0, -2), new Kick(-1, -2) },

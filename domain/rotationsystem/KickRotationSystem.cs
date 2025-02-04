@@ -4,7 +4,7 @@ namespace domain.rotationsystem;
 
 public abstract class KickRotationSystem : IRotationSystem
 {
-    private const int FailedRotation = -1;
+    protected const int FailedRotation = -1;
     
     protected int KickIndex = 0;
     
