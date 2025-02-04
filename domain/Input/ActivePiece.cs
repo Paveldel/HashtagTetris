@@ -39,7 +39,7 @@ public class ActivePiece : IUpdatable
         _hold = new Hold(pieceData);
         _queue = new SevenBag(pieceData);
         _rotationSystem = new SRS();
-        _spinDetector = new FourCorner();
+        _spinDetector = new OnlyT();
     }
 
     public Piece GetPiece()
