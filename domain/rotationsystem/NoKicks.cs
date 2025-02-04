@@ -2,9 +2,9 @@
 
 namespace domain.rotationsystem;
 
-public class NoKicks : IRotationSystem
+public class NoKicks(Board board) : IRotationSystem
 {
-    public Piece RotatePiece(Piece piece, Board board, Rotation rotation)
+    public Piece RotatePiece(Piece piece, Rotation rotation)
     {
         Piece rotatedPiece = piece.Rotate(rotation);
         if (!board.IntersectPiece(rotatedPiece)) return rotatedPiece;

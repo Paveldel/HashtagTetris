@@ -38,7 +38,7 @@ public class ActivePiece : IUpdatable
         _gravity.SetActivePiece(this);
         _hold = new Hold(pieceData);
         _queue = new SevenBag(pieceData);
-        _rotationSystem = new SRS();
+        _rotationSystem = new SRSPlus(board);
         _spinDetector = new OnlyT();
     }
 
@@ -117,7 +117,7 @@ public class ActivePiece : IUpdatable
     public bool Rotate(Rotation rotation)
     {
         if (_inDelay) return UpdateInitialRotation(rotation);
-        Piece rotatedPiece = _rotationSystem.RotatePiece(_currentPiece, _board, rotation);
+        Piece rotatedPiece = _rotationSystem.RotatePiece(_currentPiece, rotation);
         if (Equals(rotatedPiece, _currentPiece)) return false;
         ReplacePiece(rotatedPiece);
         _spin = true;

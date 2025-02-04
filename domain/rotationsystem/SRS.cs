@@ -2,7 +2,7 @@
 
 namespace domain.rotationsystem;
 
-public class SRS : KickRotationSystem
+public class SRS(Board board) : KickRotationSystem(board)
 {
     private static readonly Kick[][] NormalKicks = new[]
     {
@@ -28,17 +28,17 @@ public class SRS : KickRotationSystem
         new[] { new Kick(0, 0), new Kick(2, 0), new Kick(-1, 0), new Kick(2, -1), new Kick(-1, 2) },
     };
     
-    public override Piece RotatePiece(Piece piece, Board board, Rotation rotation)
+    public override Piece RotatePiece(Piece piece, Rotation rotation)
     {
-        if (rotation == Rotation.Reverse) return RotateReverse(piece, board);
-        return RotateNormal(piece, board, rotation);
+        if (rotation == Rotation.Reverse) return RotateReverse(piece);
+        return RotateNormal(piece, rotation);
     }
 
-    private Piece RotateNormal(Piece piece, Board board, Rotation rotation)
+    private Piece RotateNormal(Piece piece, Rotation rotation)
     {
         Piece rotatedPiece = piece.Rotate(rotation);
         int kickIndex = CalculateKickIndex(piece.RotIndex, rotation);
-        TryKicks(rotatedPiece, board, GetKicks(kickIndex, piece.GetPieceIndex()));
+        TryKicks(rotatedPiece, GetKicks(kickIndex, piece.GetPieceIndex()));
         if (KickIndex == FailedRotation) return piece;
         return rotatedPiece;
     }
@@ -49,7 +49,7 @@ public class SRS : KickRotationSystem
         return NormalKicks[kickIndex];
     }
 
-    protected virtual Piece RotateReverse(Piece piece, Board board)
+    protected virtual Piece RotateReverse(Piece piece)
     {
         Piece rotatedPiece = piece.Rotate(Rotation.Reverse);
         if (board.IntersectPiece(rotatedPiece)) return piece;

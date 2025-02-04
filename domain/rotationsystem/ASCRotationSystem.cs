@@ -2,7 +2,7 @@
 
 namespace domain.rotationsystem;
 
-public class ASCRotationSystem: KickRotationSystem
+public class ASCRotationSystem(Board board) : KickRotationSystem(board)
 {
     private static readonly Kick[] ClockWiseKicks =
     {
@@ -18,16 +18,16 @@ public class ASCRotationSystem: KickRotationSystem
         new Kick(1, -2), new Kick(2, 0), new Kick(0, 2), new Kick(-1, 2), new Kick(-2, 2), new Kick(2, -1), new Kick(2, -2)
     };
     
-    public override Piece RotatePiece(Piece piece, Board board, Rotation rotation)
+    public override Piece RotatePiece(Piece piece, Rotation rotation)
     {
-        if (rotation == Rotation.Reverse) return RotateReverse(piece, board);
-        return RotateNormal(piece, board, rotation);
+        if (rotation == Rotation.Reverse) return RotateReverse(piece);
+        return RotateNormal(piece, rotation);
     }
 
-    private Piece RotateNormal(Piece piece, Board board, Rotation rotation)
+    private Piece RotateNormal(Piece piece, Rotation rotation)
     {
         Piece rotatedPiece = piece.Rotate(rotation);
-        TryKicks(rotatedPiece, board, GetKicks(rotation));
+        TryKicks(rotatedPiece, GetKicks(rotation));
         if (KickIndex == FailedRotation) return piece;
         return rotatedPiece;
     }
@@ -38,7 +38,7 @@ public class ASCRotationSystem: KickRotationSystem
         return CounterClockWiseKicks;
     }
 
-    private Piece RotateReverse(Piece piece, Board board)
+    private Piece RotateReverse(Piece piece)
     {
         Piece rotatedPiece = piece.Rotate(Rotation.Reverse);
         if (board.IntersectPiece(rotatedPiece)) return piece;
