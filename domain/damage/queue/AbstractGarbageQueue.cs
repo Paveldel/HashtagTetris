@@ -11,7 +11,7 @@ public abstract class AbstractGarbageQueue : IDamageQueue
     private IDamageReceiver _receiver = new MockReceiver();
     private int _garbageCap = DefaultGarbageCap;
     
-    private readonly List<int> _queue = [];
+    protected readonly List<int> _queue = [];
     protected readonly Random Random = new();
     private int _well;
 
@@ -71,7 +71,7 @@ public abstract class AbstractGarbageQueue : IDamageQueue
     {
         _board.TakeGarbageLine(_well);
         TakeLineFromQueue();
-        MessinessInBatch();
+        AfterTakeBatch();
     }
 
     private int CancelGarbage(int amountOfDamageSent)
@@ -96,12 +96,12 @@ public abstract class AbstractGarbageQueue : IDamageQueue
         _queue[0]--;
         if (_queue[0] != 0) return;
         _queue.RemoveAt(0);
-        MessinessOnChange();
+        AfterTakeLine();
     }
 
-    protected abstract void MessinessOnChange();
+    protected abstract void AfterTakeLine();
 
-    protected abstract void MessinessInBatch();
+    protected abstract void AfterTakeBatch();
     
     protected void RandomiseWell()
     {

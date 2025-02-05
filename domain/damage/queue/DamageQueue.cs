@@ -20,12 +20,12 @@ public class DamageQueue(Board board, bool allowCanceling = true, bool allowBloc
         _messinessInBatch = messiness;
     }
 
-    protected override void MessinessOnChange()
+    protected override void AfterTakeLine()
     {
         if (_messinessOnChange >= Random.NextDouble()) RandomiseWell();
     }
     
-    protected override void MessinessInBatch()
+    protected override void AfterTakeBatch()
     {
         if (_messinessInBatch >= Random.NextDouble())  RandomiseWell();
     }
