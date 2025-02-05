@@ -1,7 +1,7 @@
 ﻿namespace domain.damage.queue;
 
 public class GuidelineDamageQueue(Board board, bool allowCanceling = true, bool allowBlocking = true)
-    : AbstractGarbageQueue(board, allowCanceling, allowBlocking)
+    : AbstractDamageQueue(board, allowCanceling, allowBlocking)
 {
     private const int LinesBeforeSwitch = 8;
     

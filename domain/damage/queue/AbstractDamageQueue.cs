@@ -1,6 +1,6 @@
 ﻿namespace domain.damage.queue;
 
-public abstract class AbstractGarbageQueue : IDamageQueue
+public abstract class AbstractDamageQueue : IDamageQueue
 {
     private const int DefaultGarbageCap = 8;
     
@@ -15,7 +15,7 @@ public abstract class AbstractGarbageQueue : IDamageQueue
     protected readonly Random Random = new();
     private int _well;
 
-    protected AbstractGarbageQueue(Board board, bool allowCanceling = true, bool allowBlocking = true)
+    protected AbstractDamageQueue(Board board, bool allowCanceling = true, bool allowBlocking = true)
     {
         _board = board;
         _allowCanceling = allowCanceling;

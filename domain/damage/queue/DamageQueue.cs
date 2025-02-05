@@ -1,7 +1,7 @@
 ﻿namespace domain.damage.queue;
 
 public class DamageQueue(Board board, bool allowCanceling = true, bool allowBlocking = true)
-    : AbstractGarbageQueue(board, allowCanceling,
+    : AbstractDamageQueue(board, allowCanceling,
         allowBlocking)
 {
     private const double DefaultMessinessOnChange = 1;
