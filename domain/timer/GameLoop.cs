@@ -4,7 +4,7 @@ public class GameLoop() : ITimer
 {
     private const int TargetFps = 60;
     private const int Milliseconds = 1000;
-    private bool _gameover = false;
+    private bool _gameover;
     private List<IUpdatable> _updatables = new ();
     
     public async Task StartLoop()
@@ -37,5 +37,10 @@ public class GameLoop() : ITimer
             updatable.SetTimer(this);
             _updatables.Add(updatable);
         }
+    }
+
+    public void EndTimer()
+    {
+        _gameover = true;
     }
 }

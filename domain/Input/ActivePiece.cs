@@ -201,6 +201,7 @@ public class ActivePiece : IUpdatable
     {
         _isGameOver = true;
         _currentPiece = new Piece([], 0, 0, 0);
+        _timer.EndTimer();
         _board.GrayOutBoard();
     }
 
