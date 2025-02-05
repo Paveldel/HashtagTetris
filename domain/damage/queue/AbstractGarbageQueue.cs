@@ -71,7 +71,7 @@ public abstract class AbstractGarbageQueue : IDamageQueue
     {
         _board.TakeGarbageLine(_well);
         TakeLineFromQueue();
-        AfterTakeBatch();
+        AfterTakeLine();
     }
 
     private int CancelGarbage(int amountOfDamageSent)
@@ -96,7 +96,7 @@ public abstract class AbstractGarbageQueue : IDamageQueue
         _queue[0]--;
         if (_queue[0] != 0) return;
         _queue.RemoveAt(0);
-        AfterTakeLine();
+        AfterTakeBatch();
     }
 
     protected abstract void AfterTakeLine();

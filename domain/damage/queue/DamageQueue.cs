@@ -22,11 +22,11 @@ public class DamageQueue(Board board, bool allowCanceling = true, bool allowBloc
 
     protected override void AfterTakeLine()
     {
-        if (_messinessOnChange >= Random.NextDouble()) RandomiseWell();
+        if (_messinessInBatch >= Random.NextDouble()) RandomiseWell();
     }
     
     protected override void AfterTakeBatch()
     {
-        if (_messinessInBatch >= Random.NextDouble())  RandomiseWell();
+        if (_messinessOnChange >= Random.NextDouble())  RandomiseWell();
     }
 }
