@@ -6,7 +6,7 @@ public class Block
     public int X { get; private set; }
     public int Y { get; private set; }
     
-    public Block(int x, int y, bool centered = true)
+    public Block(int x, int y, bool centered = false)
     {
         this.X = x;
         this.Y = y;
