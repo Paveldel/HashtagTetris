@@ -1,5 +1,3 @@
-add folder structure to domain
-alternate versions of components
 make factory class for a game with all config
 isolate RNG into one place
 Game data and report
