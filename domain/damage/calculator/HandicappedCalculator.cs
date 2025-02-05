@@ -9,7 +9,6 @@ public class HandicappedCalculator(IDamageCalculator original, double multiplier
         int damage = original.CalculateDamage(linesCleared, spinType, isPerfectClear);
         double multipliedDamage = damage * multiplier;
         multipliedDamage += _leftOvers;
-        Console.WriteLine(_leftOvers);
         _leftOvers = multipliedDamage % 1;
         return (int)Math.Floor(multipliedDamage);
     }
