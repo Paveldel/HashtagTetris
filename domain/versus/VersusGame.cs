@@ -27,12 +27,24 @@ public class VersusGame
     {
         MasterTimer timer = new MasterTimer();
         GameFactory factory = new GameFactory(GetVersusConfig());
-        _gameOne = factory.CreateMultiPlayerGame(timer);
-        _gameTwo = factory.CreateMultiPlayerGame(timer);
+        CreateGames(factory, timer);
+        StartGames(timer);
+        _gameStarted = true;
+    }
+
+    private void StartGames(MasterTimer timer)
+    {
         _playerOne!.GameStart(_gameOne, 1);
         _playerTwo!.GameStart(_gameTwo, 2);
         timer.StartLoop();
-        _gameStarted = true;
+    }
+
+    private void CreateGames(GameFactory factory, MasterTimer timer)
+    {
+        _gameOne = factory.CreateMultiPlayerGame(timer);
+        _gameTwo = factory.CreateMultiPlayerGame(timer);
+        _gameOne.SetTarget(_gameTwo);
+        _gameTwo.SetTarget(_gameOne);
     }
 
     private static Config GetVersusConfig()
