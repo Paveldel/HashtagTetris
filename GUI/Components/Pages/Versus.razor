@@ -1,0 +1,19 @@
+﻿@page "/Versus"
+@using GUI.Components.shared
+@rendermode InteractiveServer
+
+@if (_localPlayer == null)
+{
+    <h2>Waiting for other player to join...</h2>
+}
+
+@if (_localPlayer != null)
+{
+    <div class="container">
+        <LocalPlayer Game="_localPlayer"/>
+        @if (_otherPlayer != null)
+        {
+            <OtherPlayer Game="_otherPlayer"/>
+        }
+    </div>
+}
