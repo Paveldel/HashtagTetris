@@ -35,7 +35,7 @@ public partial class LocalPlayer : ComponentBase, IUpdatable
     public void Update(long currentTime)
     {
         Game.Renderer.UpdateBoardToRender();
-        StateHasChanged();
+        InvokeAsync(StateHasChanged);
     }
 
     public void SetTimer(ITimer timer) { }
