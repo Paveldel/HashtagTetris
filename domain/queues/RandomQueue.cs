@@ -6,10 +6,11 @@ public class RandomQueue : AbstractQueue
 {
     private const int _amountOfStartingPieces = 50;
     
-    private readonly Random _random = new();
+    private readonly Random _random;
 
-    public RandomQueue(IPieceData pieceData) : base(pieceData)
+    public RandomQueue(IPieceData pieceData, Random random) : base(pieceData)
     {
+        _random = random;
         for (int i = 0; i < _amountOfStartingPieces; i++)
         {
             AddPiece();

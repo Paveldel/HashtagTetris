@@ -8,10 +8,11 @@ public class PairQueue : AbstractQueue
     private const int AmountOfBatchesToStart = 10;
     private const int AmountOfPairsPerBatch = 4;
     
-    private readonly Random _random = new();
+    private readonly Random _random;
 
-    public PairQueue(IPieceData pieceData) : base(pieceData)
+    public PairQueue(IPieceData pieceData, Random random) : base(pieceData)
     {
+        _random = random;
         for (int i = 0; i < AmountOfBatchesToStart; i++)
         {
             AddPiece();

@@ -7,10 +7,11 @@ public class ClassicQueue : AbstractQueue
     private const int AmountOfStartingPieces = 50;
     private int _lastGeneratedPiece = 0;
     
-    private readonly Random _random = new();
+    private readonly Random _random;
     
-    public ClassicQueue(IPieceData pieceData) : base(pieceData)
+    public ClassicQueue(IPieceData pieceData, Random random) : base(pieceData)
     {
+        _random = random;
         for (int i = 0; i < AmountOfStartingPieces; i++)
         {
             AddPiece();

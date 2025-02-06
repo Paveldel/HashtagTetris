@@ -7,10 +7,11 @@ public class SevenBag : AbstractQueue
 {
     private const int AmountOfStartingBags = 10;
     
-    private readonly Random _random = new();
+    private readonly Random _random;
 
-    public SevenBag(IPieceData pieceData) : base(pieceData)
+    public SevenBag(IPieceData pieceData, Random random) : base(pieceData)
     {
+        _random = random;
         for (int i = 0; i < AmountOfStartingBags; i++)
         {
             AddPiece();
