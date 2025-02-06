@@ -1,4 +1,5 @@
 ﻿using domain;
+using domain.factory;
 using domain.timer;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -8,7 +9,13 @@ namespace GUI.Components.Pages;
 
 public partial class Tetris : ComponentBase, IUpdatable
 {
-    private Game Game { get; set; } = new Game();
+    public Tetris()
+    {
+        Config configuration = new Config();
+        Game = new GameFactory(configuration).CreateGame();
+    }
+
+    private Game Game { get; set; }
 
     protected async void ButtonReleased(KeyboardEventArgs e)
     {
