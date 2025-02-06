@@ -24,6 +24,17 @@ public class GameFactory(Config config)
     public Game CreateSingleGame()
     {
         _gameLoop = new GameLoop();
+        return CreateGame();
+    }
+    
+    public Game CreateMultiPlayerGame(MasterTimer masterTimer)
+    {
+        _gameLoop = masterTimer.GetChildTimer();
+        return CreateGame();
+    }
+
+    private Game CreateGame()
+    {
         CreateBoard();
         CreateActivePiece();
         _renderer = new BoardRenderer(_board, _playerPiece, config.AmountOfPreviews, config.ShowShadowPiece);
