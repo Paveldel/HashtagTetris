@@ -2,7 +2,7 @@
 
 namespace domain.spindetectors;
 
-public class FourCorner : ISpinDetector
+public class FourCorner(Board board) : ISpinDetector
 {
     private const int ImportantCorners = 2;
     
@@ -17,8 +17,10 @@ public class FourCorner : ISpinDetector
         new []{new Block(-1, 1, false), new Block(1, 0, false), new Block(-2, 0, false), new Block(2, 1, false)},
         new []{new Block(1, 1, false), new Block(-1, 0, false), new Block(2, 0, false), new Block(-2, 1, false)}
     };
-    
-    public SpinType DetectSpin(IPiece piece, Board board, int lastKick)
+
+    private readonly Board _board = board;
+
+    public SpinType DetectSpin(IPiece piece, int lastKick)
     {
         int corners = 0, importantCorners = 0;
         for (int i = 0; i < _corners[piece.GetPieceIndex()].Length; i++)

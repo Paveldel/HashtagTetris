@@ -2,16 +2,16 @@
 
 namespace domain.spindetectors;
 
-public class Immobile : ISpinDetector
+public class Immobile(Board board) : ISpinDetector
 {
-    public SpinType DetectSpin(IPiece piece, Board board, int lastKick)
+    public SpinType DetectSpin(IPiece piece, int lastKick)
     {
-        if (CanPieceMoveUp(piece, board)) return SpinType.NoSpin;
-        if (CanPieceMoveLeft(piece, board)) return SpinType.NoSpin;
-        return CanPieceMoveRight(piece, board) ? SpinType.NoSpin : SpinType.FullSpin;
+        if (CanPieceMoveUp(piece)) return SpinType.NoSpin;
+        if (CanPieceMoveLeft(piece)) return SpinType.NoSpin;
+        return CanPieceMoveRight(piece) ? SpinType.NoSpin : SpinType.FullSpin;
     }
 
-    private bool CanPieceMoveLeft(IPiece piece, Board board)
+    private bool CanPieceMoveLeft(IPiece piece)
     {
         piece.MoveLeft();
         bool result = !board.IntersectPiece(piece);
@@ -19,7 +19,7 @@ public class Immobile : ISpinDetector
         return result;
     }
     
-    private bool CanPieceMoveRight(IPiece piece, Board board)
+    private bool CanPieceMoveRight(IPiece piece)
     {
         piece.MoveRight();
         bool result = !board.IntersectPiece(piece);
@@ -27,7 +27,7 @@ public class Immobile : ISpinDetector
         return result;
     }
     
-    private bool CanPieceMoveUp(IPiece piece, Board board)
+    private bool CanPieceMoveUp(IPiece piece)
     {
         piece.Y++;
         bool result = !board.IntersectPiece(piece);

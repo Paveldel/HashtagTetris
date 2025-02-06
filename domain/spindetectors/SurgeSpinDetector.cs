@@ -2,16 +2,16 @@
 
 namespace domain.spindetectors;
 
-public class SurgeSpinDetector : ISpinDetector
+public class SurgeSpinDetector(Board board) : ISpinDetector
 {
     
-    private readonly ISpinDetector _TspinDetector = new FourCorner();
-    private readonly ISpinDetector _otherspinDetector = new Immobile();
+    private readonly ISpinDetector _TspinDetector = new FourCorner(board);
+    private readonly ISpinDetector _otherspinDetector = new Immobile(board);
     
-    public SpinType DetectSpin(IPiece piece, Board board, int lastKick)
+    public SpinType DetectSpin(IPiece piece, int lastKick)
     {
-        if (piece.GetPieceIndex() == (int)PieceType.T) return _TspinDetector.DetectSpin(piece, board, lastKick);
-        return (_otherspinDetector.DetectSpin(piece, board, lastKick) == SpinType.FullSpin)
+        if (piece.GetPieceIndex() == (int)PieceType.T) return _TspinDetector.DetectSpin(piece, lastKick);
+        return (_otherspinDetector.DetectSpin(piece, lastKick) == SpinType.FullSpin)
             ? SpinType.MiniSpin
             : SpinType.NoSpin;
     }

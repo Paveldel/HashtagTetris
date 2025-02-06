@@ -2,13 +2,13 @@
 
 namespace domain.spindetectors;
 
-public class OnlyT : ISpinDetector
+public class OnlyT(Board board) : ISpinDetector
 {
-    private readonly ISpinDetector _spinDetector = new FourCorner();
+    private readonly ISpinDetector _spinDetector = new FourCorner(board);
     
-    public SpinType DetectSpin(IPiece piece, Board board, int lastKick)
+    public SpinType DetectSpin(IPiece piece, int lastKick)
     {
         if (piece.GetPieceIndex() != (int)PieceType.T) return SpinType.NoSpin;
-        return _spinDetector.DetectSpin(piece, board, lastKick);
+        return _spinDetector.DetectSpin(piece, lastKick);
     }
 }
