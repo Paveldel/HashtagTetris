@@ -1,5 +1,3 @@
-make factory class for a game with all config
-isolate RNG into one place
 Game data and report
 Game sound
 create some gameMode logic
