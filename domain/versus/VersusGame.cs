@@ -10,6 +10,8 @@ public class VersusGame
 
     private Game? _gameOne;
     private Game? _gameTwo;
+
+    private bool _gameStarted;
     
     public void RegisterForGame(IParticipant participant)
     {
@@ -29,10 +31,21 @@ public class VersusGame
         _gameTwo = factory.CreateMultiPlayerGame(timer);
         _playerOne!.GameStart(_gameOne, 1);
         _playerTwo!.GameStart(_gameTwo, 2);
+        _gameStarted = true;
     }
 
     private static Config GetVersusConfig()
     {
         return new Config();
+    }
+
+    public Game GetOpponent(int id)
+    {
+        return id == 1 ? _gameTwo! : _gameOne!;
+    }
+
+    public bool HasGameStarted()
+    {
+        return _gameStarted;
     }
 }
