@@ -71,11 +71,11 @@ public class GameFactory(Config config)
     {
         return config.PieceQueue switch
         {
-            1 => new RandomQueue(_pieceData),
-            2 => new ClassicQueue(_pieceData),
-            3 => new FourteenBag(_pieceData),
+            1 => new RandomQueue(_pieceData, new Random(config.Seed)),
+            2 => new ClassicQueue(_pieceData, new Random(config.Seed)),
+            3 => new FourteenBag(_pieceData, new Random(config.Seed)),
             4 => new PredefinedQueue(_pieceData, config.PiecesInQueue!),
-            _ => new SevenBag(_pieceData)
+            _ => new SevenBag(_pieceData, new Random(config.Seed))
         };
     }
 
