@@ -31,6 +31,7 @@ public class VersusGame
         _gameTwo = factory.CreateMultiPlayerGame(timer);
         _playerOne!.GameStart(_gameOne, 1);
         _playerTwo!.GameStart(_gameTwo, 2);
+        timer.StartLoop();
         _gameStarted = true;
     }
 
