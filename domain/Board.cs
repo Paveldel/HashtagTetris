@@ -56,6 +56,11 @@ public class Board : IDamageReceiver, IUpdatable
         _damageQueue = queue;
     }
 
+    public void SetTarget(IDamageReceiver target)
+    {
+        _damageQueue.RegisterAsReceiver(target);
+    }
+
     public bool IntersectPiece(IPiece piece)
     {
         Block[] blocks = piece.GetBlocks();

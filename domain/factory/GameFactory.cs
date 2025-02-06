@@ -41,7 +41,7 @@ public class GameFactory(Config config)
         _input = new Input.Input(_playerPiece);
         _gameLoop.RegisterUpdatable(_input, _gravity, _playerPiece, _board);
         _playerPiece.Start(config.StartingDelay);
-        return new Game(_renderer, _input, _gameLoop);
+        return new Game(_renderer, _input, _gameLoop, _board);
     }
 
     private void CreateActivePiece()
