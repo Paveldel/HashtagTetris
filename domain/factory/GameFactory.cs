@@ -115,17 +115,17 @@ public class GameFactory(Config config)
         switch (config.DamageQueue)
         {
             case 1:
-                queue = new DelayedDamageQueue(_board, config.DamageDelay, config.AllowCanceling, config.AllowBlocking);
+                queue = new DelayedDamageQueue(_board, new Random(config.Seed), config.DamageDelay, config.AllowCanceling, config.AllowBlocking);
                 _gameLoop.RegisterUpdatable((DelayedDamageQueue)queue);
                 break;
             case 2:
-                queue = new GuidelineDamageQueue(_board, config.AllowCanceling, config.AllowBlocking);
+                queue = new GuidelineDamageQueue(_board, new Random(config.Seed), config.AllowCanceling, config.AllowBlocking);
                 break;
             case 3:
                 queue = new FakeDamageQueue();
                 break;
             default:
-                queue = new DamageQueue(_board, config.AllowCanceling, config.AllowBlocking);
+                queue = new DamageQueue(_board, new Random(config.Seed), config.AllowCanceling, config.AllowBlocking);
                 break;
         }
 

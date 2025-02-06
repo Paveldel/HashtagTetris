@@ -3,7 +3,7 @@ using ITimer = domain.timer.ITimer;
 
 namespace domain.damage.queue;
 
-public class DelayedDamageQueue(Board board, long waitTime, bool allowCanceling = true, bool allowBlocking = true) : DamageQueue(board, allowCanceling, allowBlocking), IUpdatable
+public class DelayedDamageQueue(Board board, Random random, long waitTime, bool allowCanceling = true, bool allowBlocking = true) : DamageQueue(board, random, allowCanceling, allowBlocking), IUpdatable
 {
     
     private readonly List<long> _delays = [];
