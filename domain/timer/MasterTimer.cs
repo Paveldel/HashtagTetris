@@ -7,7 +7,7 @@ public class MasterTimer
     private bool _gamesOver;
     private readonly List<VersusTimer> _versusTimers = new ();
     
-    public async Task StartLoop()
+    public async void StartLoop()
     {
         while (!_gamesOver)
         {

@@ -29,7 +29,7 @@ public class Game
 
     public void StartGame(IUpdatable screen)
     {
-        _gameLoop.RegisterUpdatable(screen);
-        _ = _gameLoop.StartLoop();
+        _gameLoop.RegisterUpdatable(screen); 
+        _gameLoop.StartLoop();
     }
 }

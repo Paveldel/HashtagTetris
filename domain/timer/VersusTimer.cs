@@ -31,8 +31,5 @@ public class VersusTimer(MasterTimer master) : ITimer
         }
     }
     
-    public Task StartLoop()
-    {
-        throw new NotImplementedException();
-    }
+    public void StartLoop() { }
 }

@@ -7,7 +7,7 @@ public class GameLoop() : ITimer
     private bool _gameover;
     private List<IUpdatable> _updatables = new ();
     
-    public async Task StartLoop()
+    public async void StartLoop()
     {
         while (!_gameover)
         {
