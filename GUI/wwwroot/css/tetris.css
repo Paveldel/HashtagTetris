@@ -26,7 +26,6 @@
 }
 
 .damage-bar {
-    height: 100%;
     width: 0.75rem;
     display: inline-flex;
     flex-direction: column-reverse;
