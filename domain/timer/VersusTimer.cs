@@ -2,7 +2,9 @@
 
 public class VersusTimer(MasterTimer master) : ITimer
 {
-    private readonly List<IUpdatable> _updatables = new (); 
+    private readonly List<IUpdatable> _updatables = new ();
+
+    private bool _gameEnded;
     
     public long GetCurrentTime()
     {
@@ -11,6 +13,7 @@ public class VersusTimer(MasterTimer master) : ITimer
 
     public void RegisterUpdatable(params IUpdatable[] updatables)
     {
+        if (_gameEnded) return;
         foreach (var updatable in updatables)
         {
             updatable.SetTimer(this);
@@ -20,7 +23,7 @@ public class VersusTimer(MasterTimer master) : ITimer
 
     public void EndTimer()
     {
-        master.PlayerDied(this);
+        _gameEnded = true;
     }
 
     public void Update(long currentTime)

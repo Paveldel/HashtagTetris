@@ -12,6 +12,7 @@ public partial class OtherPlayer : ComponentBase, IUpdatable
 
     public void Update(long currentTime)
     {
+        Game.Renderer.UpdateBoardToRender();
         StateHasChanged();
     }
     
