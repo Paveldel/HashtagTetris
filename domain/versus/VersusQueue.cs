@@ -4,12 +4,16 @@ public class VersusQueue
 {
     private VersusGame _unfilledGame = new();
 
-    public VersusGame RegisterInGame(IParticipant participant)
+    public VersusGame GetGameToJoin()
+    {
+        return _unfilledGame;
+    }
+
+    public void RegisterInGame(IParticipant participant)
     {
         VersusGame versusGame = _unfilledGame;
         versusGame.RegisterForGame(participant);
         ReplaceFilledGame();
-        return versusGame;
     }
 
     private void ReplaceFilledGame()
