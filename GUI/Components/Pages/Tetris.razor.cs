@@ -1,6 +1,5 @@
 ﻿using domain;
 using domain.factory;
-using domain.timer;
 using Microsoft.AspNetCore.Components;
 
 namespace GUI.Components.Pages;
