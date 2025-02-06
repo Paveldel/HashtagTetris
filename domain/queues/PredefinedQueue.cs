@@ -19,7 +19,7 @@ public class PredefinedQueue : AbstractQueue
 
     private char[] _order;
     
-    public PredefinedQueue(SRSPieceData pieceData, string order) : base(pieceData)
+    public PredefinedQueue(IPieceData pieceData, string order) : base(pieceData)
     {
         _order = order.ToCharArray();
         ValidateCharacters();

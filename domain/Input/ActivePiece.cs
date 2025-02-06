@@ -11,7 +11,7 @@ namespace domain.Input;
 
 public class ActivePiece : IUpdatable
 {
-    private const long AppearanceDelay = 0;
+    private readonly long _appearanceDelay;
     
     private readonly IPieceQueue _queue;
     private readonly IHold _hold;
@@ -24,22 +24,24 @@ public class ActivePiece : IUpdatable
     private IPiece _currentPiece = new Piece([], 0, 0, 0);
     private bool _isGameOver = false;
 
-    private ITimer _timer;
-    private long _appearanceDelay = long.MaxValue;
+    private ITimer _timer = null!;
+    private long _appearanceTimer = long.MaxValue;
     private bool _inDelay = true;
 
     private int _initialRotation = 0;
     private bool _initialHold = false;
     
-    public ActivePiece(Board board, Gravity gravity, IPieceData pieceData)
+    public ActivePiece(Board board, Gravity gravity, IHold hold, IPieceQueue queue,
+        IRotationSystem rotationSystem, ISpinDetector spinDetector, long appearanceDelay)
     {
         _board = board;
         _gravity = gravity;
         _gravity.SetActivePiece(this);
-        _hold = new Hold(pieceData);
-        _queue = new SevenBag(pieceData);
-        _rotationSystem = new SRSPlus(board);
-        _spinDetector = new OnlyT();
+        _hold = hold;
+        _queue = queue;
+        _rotationSystem = rotationSystem;
+        _spinDetector = spinDetector;
+        _appearanceDelay = appearanceDelay;
     }
 
     public IPiece GetPiece()
@@ -162,7 +164,7 @@ public class ActivePiece : IUpdatable
     {
         _inDelay = true;
         long currentTime = _timer.GetCurrentTime();
-        _appearanceDelay = currentTime + AppearanceDelay + _board.GetCurrentDelay();
+        _appearanceTimer = currentTime + _appearanceDelay + _board.GetCurrentDelay();
         Update(_timer.GetCurrentTime());
     }
 
@@ -170,7 +172,7 @@ public class ActivePiece : IUpdatable
     {
         if (!_spin) return SpinType.NoSpin;
         int lastKick = _rotationSystem.GetLastUsedKickIndex();
-        return _spinDetector.DetectSpin(_currentPiece, _board, lastKick);
+        return _spinDetector.DetectSpin(_currentPiece, lastKick);
     }
 
     public void Hold()
@@ -212,12 +214,12 @@ public class ActivePiece : IUpdatable
 
     public void Start(long startingDelay)
     {
-        _appearanceDelay = _timer.GetCurrentTime() + startingDelay;
+        _appearanceTimer = _timer.GetCurrentTime() + startingDelay;
     }
 
     public void Update(long currentTime)
     {
-        if (_inDelay && _appearanceDelay <= currentTime)
+        if (_inDelay && _appearanceTimer <= currentTime)
         {
             NextPiece();
             _inDelay = false;

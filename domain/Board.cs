@@ -9,33 +9,29 @@ namespace domain;
 
 public class Board : IDamageReceiver, IUpdatable
 {
-    private static readonly long LineClearDelay = 0;
+    private readonly long _lineClearDelay;
     
-    private readonly int _width = 10;
-    private readonly int _height = 20;
+    private readonly int _width;
+    private readonly int _height;
 
-    private readonly IDamageCalculator _damageCalculator;
-    private readonly IDamageQueue _damageQueue;
+    private IDamageCalculator _damageCalculator;
+    private IDamageQueue _damageQueue;
     
     private int[][] _matrix;
     
     private ITimer _timer;
     private bool _inAnimation = false;
-    private long _lineClearDelay = 0;
+    private long _lineClearTimer = 0;
     public long CurrentDelay { get; private set; }
 
-    public Board()
+    public Board(int width, int height, long lineClearDelay)
     {
+        _width = width;
+        _height = height;
+        _lineClearDelay = lineClearDelay;
         InitBoard();
-        _damageCalculator = new GuideLineDamageCalculator();
-        _damageQueue = new DamageQueue(this);
     }
-
-    public int[][] GetBoard()
-    {
-        return _matrix;
-    }
-
+    
     private void InitBoard()
     {
         _matrix = new int[_width][];
@@ -43,6 +39,21 @@ public class Board : IDamageReceiver, IUpdatable
         {
             _matrix[i] = new int[_height * 2];
         }
+    }
+
+    public int[][] GetBoard()
+    {
+        return _matrix;
+    }
+
+    public void SetDamageCalculator(IDamageCalculator calculator)
+    {
+        _damageCalculator = calculator;
+    }
+    
+    public void SetDamageQueue(IDamageQueue queue)
+    {
+        _damageQueue = queue;
     }
 
     public bool IntersectPiece(IPiece piece)
@@ -85,9 +96,9 @@ public class Board : IDamageReceiver, IUpdatable
     {
         CurrentDelay = 0;
         _inAnimation = true;
-        if (LineClearDelay == 0 || _filledLines.Count == 0) return;
-        CurrentDelay = LineClearDelay;
-        _lineClearDelay = _timer.GetCurrentTime() + CurrentDelay;
+        if (_lineClearDelay == 0 || _filledLines.Count == 0) return;
+        CurrentDelay = _lineClearDelay;
+        _lineClearTimer = _timer.GetCurrentTime() + CurrentDelay;
 
         MakeClearedLinesWhite();
     }
@@ -239,7 +250,7 @@ public class Board : IDamageReceiver, IUpdatable
 
     public void Update(long currentTime)
     {
-        if (_inAnimation && _lineClearDelay <= currentTime)
+        if (_inAnimation && _lineClearTimer <= currentTime)
         {
             ClearFilledLines();
         }

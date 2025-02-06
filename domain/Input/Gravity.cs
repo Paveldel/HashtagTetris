@@ -5,11 +5,12 @@ namespace domain.Input;
 
 public class Gravity : IUpdatable
 {
-    private const int MaxAmountOfResets = 10;
-    private const long StepDelay = 500;
     private const long LockDelay = 1000;
+ 
+    private readonly int _maxAmountOfResets;
+    private readonly long _stepDelay;
     
-    private int _resetsLeft = MaxAmountOfResets;
+    private int _resetsLeft;
     private bool _onGround;
     private long _lockTimer = long.MaxValue;
     private long _nextStep = long.MaxValue;
@@ -17,11 +18,18 @@ public class Gravity : IUpdatable
 
     private ActivePiece? _activePiece;
 
+    public Gravity(long stepDelay, int resetsAllowed)
+    {
+        _stepDelay = stepDelay;
+        _maxAmountOfResets = resetsAllowed;
+        _resetsLeft = _maxAmountOfResets;
+    }
+
     public void PieceMoved(bool onGround)
     {
         if (_onGround && !onGround)
         {
-            _nextStep = GetCurrentTime() + StepDelay;
+            _nextStep = GetCurrentTime() + _stepDelay;
         }
         _onGround = onGround;
         if (_resetsLeft <= 0) return;
@@ -44,7 +52,7 @@ public class Gravity : IUpdatable
     public void Reset(bool isPieceOnGround)
     {
         UpdateLock(isPieceOnGround);
-        _resetsLeft = MaxAmountOfResets;
+        _resetsLeft = _maxAmountOfResets;
         _onGround = isPieceOnGround;
         _nextStep = GetCurrentTime();
         Step();
@@ -59,10 +67,10 @@ public class Gravity : IUpdatable
 
     private void Step()
     {
-        _nextStep += StepDelay;
+        _nextStep += _stepDelay;
         if (!_activePiece!.MoveDown())
         {
-            _nextStep = GetCurrentTime() + StepDelay;
+            _nextStep = GetCurrentTime() + _stepDelay;
         }
     }
 
@@ -79,6 +87,6 @@ public class Gravity : IUpdatable
     public void SetTimer(ITimer timer)
     {
         _timer = timer;
-        _nextStep = GetCurrentTime() + StepDelay;
+        _nextStep = GetCurrentTime() + _stepDelay;
     }
 }
