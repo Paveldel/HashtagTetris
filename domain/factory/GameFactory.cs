@@ -7,6 +7,7 @@ using domain.queues;
 using domain.rotationsystem;
 using domain.spindetectors;
 using domain.timer;
+using ITimer = domain.timer.ITimer;
 
 namespace domain.factory;
 
@@ -18,9 +19,9 @@ public class GameFactory(Config config)
     private IPieceData _pieceData;
     private BoardRenderer _renderer;
     private Input.Input _input;
-    private GameLoop _gameLoop;
+    private ITimer _gameLoop;
 
-    public Game CreateGame()
+    public Game CreateSingleGame()
     {
         _gameLoop = new GameLoop();
         CreateBoard();

@@ -1,5 +1,5 @@
-﻿using domain.Input;
-using domain.timer;
+﻿using domain.timer;
+using ITimer = domain.timer.ITimer;
 
 namespace domain;
 
@@ -8,9 +8,9 @@ public class Game
     public BoardRenderer Renderer { get; }
     
     private readonly Input.Input _input;
-    private readonly GameLoop _gameLoop;
+    private readonly ITimer _gameLoop;
 
-    public Game(BoardRenderer renderer, Input.Input input, GameLoop loop)
+    public Game(BoardRenderer renderer, Input.Input input, ITimer loop)
     {
         Renderer = renderer;
         _input = input;
