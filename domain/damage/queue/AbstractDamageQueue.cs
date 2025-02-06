@@ -12,12 +12,13 @@ public abstract class AbstractDamageQueue : IDamageQueue
     private int _garbageCap = DefaultGarbageCap;
     
     protected readonly List<int> _queue = [];
-    protected readonly Random Random = new();
+    protected readonly Random Random;
     private int _well;
 
-    protected AbstractDamageQueue(Board board, bool allowCanceling = true, bool allowBlocking = true)
+    protected AbstractDamageQueue(Board board, Random random, bool allowCanceling = true, bool allowBlocking = true)
     {
         _board = board;
+        Random = random;
         _allowCanceling = allowCanceling;
         _allowBlocking = allowBlocking;
         RandomiseWell();
