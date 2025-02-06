@@ -26,11 +26,15 @@
 }
 
 .damage-bar {
+    height: 80vh;
+    position: relative;
+    bottom: 0;
     width: 0.75rem;
     display: inline-flex;
     flex-direction: column-reverse;
 
     .garbage {
+        flex-shrink: 0;
         width: 100%;
         height: var(--cel-dimension);
         background-color: red;
