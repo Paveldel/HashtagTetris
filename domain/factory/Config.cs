@@ -2,6 +2,7 @@
 
 public class Config
 {
+    public int Seed { get; set; } = Guid.NewGuid().GetHashCode();
     public int BoardWidth { get; set; } = 10;
     public int BoardHeight { get; set; } = 20;
     public long LineClearDelay { get; set; } = 0;
